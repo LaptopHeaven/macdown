@@ -1,5 +1,7 @@
 # Security remediation loop
 
+**Frozen 2026-10-29 at `7d85e32`** — queue is empty and no work is pending; the app is in daily use for evaluation. Unfreeze deliberately, not by accident.
+
 ## Done
 - [x] Prevent authored HTML and hostile filenames from injecting executable markup into preview/export; HTML-renderer regression test and full suite pass (21/21). This also resolves the duplicate low-severity title-injection finding.
 - [x] Close the MathJax CDN finding as a false positive: the WebView resource delegate rewrites `MathJax.js` requests to the bundled app resource before sending; confirmed the delegate is assigned and the resource is in the built app. No code change needed.
@@ -35,3 +37,4 @@
 - 2026-10-29T15:31:00Z run 3: refreshed the rewritten commit hashes in `ASSESSMENT.md` and embedded the IBM Plex faces in both styles; installing and re-verifying preview rendering next.
 - 2026-10-29T15:40:00Z run 3: every commit hash in `ASSESSMENT.md` now resolves (14/14). Release built and installed to `/Applications/MacDown.app` (signature verified, universal), user-level styles refreshed past the seed-once trap, and the preview was checked by hand with the Dracula sheet — headings, bold, italic, inline code and tables all render in IBM Plex with no network request.
 - 2026-10-29T15:52:00Z run 3: OFL compliance and credit added; Release rebuilt, reinstalled and the About panel checked by hand. `.serena/` remains untracked.
+- 2026-10-29T15:58:00Z run 3: frozen at `7d85e32`; nothing pending. Reported state for evaluation only — `.serena/` left untouched and `upstream` untouched.
