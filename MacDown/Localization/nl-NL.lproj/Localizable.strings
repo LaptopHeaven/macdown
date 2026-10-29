@@ -165,3 +165,24 @@
 "pref.markdown.superscript" = "Superscript";
 "pref.markdown.table" = "Tabel";
 "pref.markdown.underline" = "Onderstreep";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.rendering.accessory" = "Accessoire:";
+"pref.rendering.accessory.custom" = "Aangepast";
+"pref.rendering.accessory.languageName" = "Naam van taal";
+"pref.rendering.accessory.none" = "Geen";
+"pref.rendering.css" = "CSS:";
+"pref.rendering.defaultPath" = "Standaardpad:";
+"pref.rendering.frontMatter" = "Detecteer Jekyll front-matter";
+"pref.rendering.graphviz" = "Graphviz";
+"pref.rendering.hardWrap" = "Render nieuwe regel letterlijk";
+"pref.rendering.lineNumbers" = "Toon regelnummers";
+"pref.rendering.mathJax" = "TeX-achtige wiskundesyntax";
+"pref.rendering.mathJaxInlineDollar" = "Gebruik dollarteken ($) als regelbeperking";
+"pref.rendering.mathJaxNote" = "Voor wiskunde-ondersteuning is een internetverbinding vereist.";
+"pref.rendering.mermaid" = "Zeemeermin";
+"pref.rendering.syntaxHighlighting" = "Codeblok met gemarkeerde syntax";
+"pref.rendering.taskList" = "Taaklijstsyntax";
+"pref.rendering.theme" = "Thema:";
+"pref.rendering.toc" = "Detecteer inhoudsopgavenummer";
+"pref.rendering.zoom" = "Schaal voorbeeld gebaseerd op lettertypegrootte van bewerker";

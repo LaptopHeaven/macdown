@@ -165,3 +165,24 @@
 "pref.markdown.superscript" = "上付き文字";
 "pref.markdown.table" = "表組み";
 "pref.markdown.underline" = "下線";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.rendering.accessory" = "アクセサリ：";
+"pref.rendering.accessory.custom" = "カスタム";
+"pref.rendering.accessory.languageName" = "言語名";
+"pref.rendering.accessory.none" = "なし";
+"pref.rendering.css" = "CSS：";
+"pref.rendering.defaultPath" = "デフォルトパス：";
+"pref.rendering.frontMatter" = "Jekyll のフロントマッタを検出";
+"pref.rendering.graphviz" = "Graphviz";
+"pref.rendering.hardWrap" = "改行をそのまま表示";
+"pref.rendering.lineNumbers" = "行番号を表示";
+"pref.rendering.mathJax" = "LaTeX 風の数式シンタックス";
+"pref.rendering.mathJaxInlineDollar" = "ドルマーク ($) をインラインデリミタとして使用";
+"pref.rendering.mathJaxNote" = "数式のサポートにはインターネット接続が必要です．";
+"pref.rendering.mermaid" = "Mermaid";
+"pref.rendering.syntaxHighlighting" = "コードブロックをシンタックスハイライト";
+"pref.rendering.taskList" = "チェックリストシンタックス";
+"pref.rendering.theme" = "テーマ：";
+"pref.rendering.toc" = "目次シンタックス";
+"pref.rendering.zoom" = "エディタのフォントサイズに応じてプレビューを拡大";

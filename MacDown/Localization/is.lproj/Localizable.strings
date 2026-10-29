@@ -78,3 +78,10 @@
 "pref.markdown.superscript" = "Neðanmálsgrein";
 "pref.markdown.table" = "Tafla";
 "pref.markdown.underline" = "Undirstrikað";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.rendering.accessory" = "Aukabúnaður:";
+"pref.rendering.accessory.none" = "Enginn";
+"pref.rendering.css" = "CSS:";
+"pref.rendering.lineNumbers" = "Sýna línunúmer";
+"pref.rendering.theme" = "Þema:";

@@ -165,3 +165,24 @@
 "pref.markdown.superscript" = "Superíndice";
 "pref.markdown.table" = "Tabla";
 "pref.markdown.underline" = "Subrayado";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.rendering.accessory" = "Accesorio:";
+"pref.rendering.accessory.custom" = "Personalizado";
+"pref.rendering.accessory.languageName" = "Nombre del lenguaje";
+"pref.rendering.accessory.none" = "Ninguno";
+"pref.rendering.css" = "CSS:";
+"pref.rendering.defaultPath" = "Ruta por defecto:";
+"pref.rendering.frontMatter" = "Detectar cabeceras de Jekyll";
+"pref.rendering.graphviz" = "Graphviz";
+"pref.rendering.hardWrap" = "Visualizar el salto de línea literalmente";
+"pref.rendering.lineNumbers" = "Mostrar los números de línea";
+"pref.rendering.mathJax" = "Sintaxis de ecuaciones tipo TeX";
+"pref.rendering.mathJaxInlineDollar" = "Usar el símbolo del dólar ($) como delimitador en línea";
+"pref.rendering.mathJaxNote" = "El soporte para ecuaciones requiere una conexión a Internet.";
+"pref.rendering.mermaid" = "Mermaid";
+"pref.rendering.syntaxHighlighting" = "Bloque de código con resaltado de sintaxis";
+"pref.rendering.taskList" = "Sintaxis de lista de tareas";
+"pref.rendering.theme" = "Tema:";
+"pref.rendering.toc" = "Detectar token de tabla de contenidos";
+"pref.rendering.zoom" = "Escalar la previsualización en función del tamaño de letra del editor";

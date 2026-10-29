@@ -165,3 +165,24 @@
 "pref.markdown.superscript" = "Hævet skrift";
 "pref.markdown.table" = "Tabel";
 "pref.markdown.underline" = "Understreg";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.rendering.accessory" = "Tilbehør:";
+"pref.rendering.accessory.custom" = "Brugerdefineret";
+"pref.rendering.accessory.languageName" = "Sprog";
+"pref.rendering.accessory.none" = "Ingen";
+"pref.rendering.css" = "CSS:";
+"pref.rendering.defaultPath" = "Standardsti:";
+"pref.rendering.frontMatter" = "Opdag Jekyll front-matter";
+"pref.rendering.graphviz" = "Graphviz";
+"pref.rendering.hardWrap" = "Vis linjeskift";
+"pref.rendering.lineNumbers" = "Vis linjenumre";
+"pref.rendering.mathJax" = "TeX-lignende matematik syntaks";
+"pref.rendering.mathJaxInlineDollar" = "Brug dollartegn ($) som inline skilletegn";
+"pref.rendering.mathJaxNote" = "Matematik support kræver internetforbindelse";
+"pref.rendering.mermaid" = "Mermaid";
+"pref.rendering.syntaxHighlighting" = "Syntaksfremhævet kodeblok";
+"pref.rendering.taskList" = "Syntaks for opgaveliste";
+"pref.rendering.theme" = "Tema:";
+"pref.rendering.toc" = "Registrer indholdsfortegnelse";
+"pref.rendering.zoom" = "Skaler preview baseret skriftstørrelse i editoren";

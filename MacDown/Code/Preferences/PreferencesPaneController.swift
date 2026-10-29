@@ -31,9 +31,6 @@ class PreferencesPaneController: MPPreferencesViewController, MASPreferencesView
 
     var toolbarItemLabel: String? { nil }
 
-    /// Size the pane occupies. Subclasses override; the nibs' sizes are the guide.
-    var paneSize: NSSize { NSSize(width: 400, height: 300) }
-
     lazy var store: PreferencesStore = PreferencesStore(preferences)
 
     /// The pane's content. Subclasses must override.
@@ -43,7 +40,15 @@ class PreferencesPaneController: MPPreferencesViewController, MASPreferencesView
 
     override func loadView() {
         let host = NSHostingView(rootView: content(store: store))
-        host.frame = NSRect(origin: .zero, size: paneSize)
+
+        // Size the pane to its content rather than to a number copied from the
+        // nib. MASPreferences sizes the window from `controller.view.bounds` with
+        // height sizing disabled, so whatever frame is set here *is* the pane —
+        // and a hardcoded frame silently clips content that needs more room.
+        // Measured against the nib sizes, the SwiftUI content wanted more height
+        // in every pane, and 53pt more in Rendering.
+        host.layoutSubtreeIfNeeded()
+        host.frame = NSRect(origin: .zero, size: host.fittingSize)
         view = host
     }
 }

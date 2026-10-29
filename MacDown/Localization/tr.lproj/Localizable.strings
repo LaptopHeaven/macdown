@@ -78,3 +78,15 @@
 "pref.markdown.strikethrough" = "Üstü çizili";
 "pref.markdown.table" = "Tablo";
 "pref.markdown.underline" = "Altı çizili";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.rendering.accessory.custom" = "Özel";
+"pref.rendering.accessory.languageName" = "Dil adı";
+"pref.rendering.accessory.none" = "Hiçbiri";
+"pref.rendering.css" = "CSS:";
+"pref.rendering.defaultPath" = "Varsayılan yol:";
+"pref.rendering.graphviz" = "Graphviz";
+"pref.rendering.lineNumbers" = "Satır sayılarını göster";
+"pref.rendering.mathJax" = "TeX-vari matematik sözdizimi";
+"pref.rendering.mathJaxNote" = "Matematik desteği Internet bağlantısı gerektirir.";
+"pref.rendering.theme" = "Tema:";

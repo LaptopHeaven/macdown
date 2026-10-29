@@ -161,3 +161,18 @@
 "pref.markdown.superscript" = "上標";
 "pref.markdown.table" = "表格";
 "pref.markdown.underline" = "底線";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.rendering.accessory.custom" = "自訂";
+"pref.rendering.accessory.languageName" = "語言名稱";
+"pref.rendering.accessory.none" = "無";
+"pref.rendering.css" = "CSS：";
+"pref.rendering.defaultPath" = "預設路徑：";
+"pref.rendering.frontMatter" = "偵測 Jekyll 開頭參數";
+"pref.rendering.lineNumbers" = "顯示行數";
+"pref.rendering.mathJax" = "類 TeX 數學語法";
+"pref.rendering.mathJaxInlineDollar" = "使用美元符號（$）作為行内分隔號";
+"pref.rendering.mathJaxNote" = "數學式支援需要網路連線。";
+"pref.rendering.syntaxHighlighting" = "程式碼區塊語法高亮";
+"pref.rendering.theme" = "主題：";
+"pref.rendering.zoom" = "依視窗大小自動縮放內容";

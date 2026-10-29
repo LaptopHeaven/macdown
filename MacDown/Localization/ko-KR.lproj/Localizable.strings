@@ -89,3 +89,9 @@
 "pref.markdown.quote" = "인용";
 "pref.markdown.table" = "테이블";
 "pref.markdown.underline" = "밑줄";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.rendering.css" = "CSS:";
+"pref.rendering.defaultPath" = "기본 경로:";
+"pref.rendering.lineNumbers" = "행 번호 보이기";
+"pref.rendering.theme" = "테마:";

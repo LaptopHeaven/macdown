@@ -128,3 +128,17 @@
 "pref.markdown.superscript" = "Ülaindeks";
 "pref.markdown.table" = "Tabel";
 "pref.markdown.underline" = "Alljoonitud";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.rendering.accessory.custom" = "Kohandatud";
+"pref.rendering.accessory.languageName" = "Keele nimi";
+"pref.rendering.accessory.none" = "Pole";
+"pref.rendering.css" = "CSS:";
+"pref.rendering.defaultPath" = "Vaikimisi asukoht:";
+"pref.rendering.frontMatter" = "Tuvasta Jekyll front-matter";
+"pref.rendering.graphviz" = "Graphviz";
+"pref.rendering.lineNumbers" = "Näita reanumbreid";
+"pref.rendering.mermaid" = "Merineitsi";
+"pref.rendering.taskList" = "Ülesannete nimekirja süntaks";
+"pref.rendering.theme" = "Teema:";
+"pref.rendering.zoom" = "Muuda eelvaate suurust vastavalt redaktori tekstisuurusele";

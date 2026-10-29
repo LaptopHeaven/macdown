@@ -108,3 +108,17 @@
 "pref.markdown.superscript" = "Horný index";
 "pref.markdown.table" = "Tabuľka";
 "pref.markdown.underline" = "Podčiarknuť";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.rendering.accessory" = "Príslušenstvo:";
+"pref.rendering.accessory.custom" = "Vlastné";
+"pref.rendering.accessory.languageName" = "Názov jazyka";
+"pref.rendering.accessory.none" = "Žiadne";
+"pref.rendering.css" = "CSS:";
+"pref.rendering.defaultPath" = "Prednastavená cesta:";
+"pref.rendering.graphviz" = "Graphviz";
+"pref.rendering.lineNumbers" = "Zobraziť čísla riadkov";
+"pref.rendering.mathJaxInlineDollar" = "Použite znak dolára ($) ako oddeľovač v riadku";
+"pref.rendering.mathJaxNote" = "Podpora matematiky vyžaduje internetové pripojenie.";
+"pref.rendering.syntaxHighlighting" = "Syntakticky zvýraznený blok kódov";
+"pref.rendering.theme" = "Téma:";

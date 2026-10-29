@@ -165,3 +165,24 @@
 "pref.markdown.superscript" = "Horní index";
 "pref.markdown.table" = "Tabulka";
 "pref.markdown.underline" = "Podtržení";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.rendering.accessory" = "Příslušenství:";
+"pref.rendering.accessory.custom" = "Vlastní";
+"pref.rendering.accessory.languageName" = "Jméno jazyka";
+"pref.rendering.accessory.none" = "Žádný";
+"pref.rendering.css" = "CSS:";
+"pref.rendering.defaultPath" = "Výchozí cesta";
+"pref.rendering.frontMatter" = "Detekovat Jekyll prostředí";
+"pref.rendering.graphviz" = "Graphviz";
+"pref.rendering.hardWrap" = "Zobrazovat prázdné řádky";
+"pref.rendering.lineNumbers" = "Zobrazit čísla řádků";
+"pref.rendering.mathJax" = "Matematická syntaxe kompatibilní s TeX";
+"pref.rendering.mathJaxInlineDollar" = "Použít znak dolar ($) jako oddělovač";
+"pref.rendering.mathJaxNote" = "Matematická syntaxe vyžaduje internetové připojení.";
+"pref.rendering.mermaid" = "Mořská panna";
+"pref.rendering.syntaxHighlighting" = "Zvýraznění syntaxe bloků kódu";
+"pref.rendering.taskList" = "Seznam úkolů";
+"pref.rendering.theme" = "Vzhled:";
+"pref.rendering.toc" = "Detekovat obsah";
+"pref.rendering.zoom" = "Měřítko náhledů je podle velikosti základního písma";

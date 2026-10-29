@@ -23,3 +23,26 @@
 "pref.markdown.superscript" = "Superscript";
 "pref.markdown.table" = "Table";
 "pref.markdown.underline" = "Underline";
+
+/* Rendering preference pane labels. */
+"pref.rendering.accessory" = "Accessory:";
+"pref.rendering.accessory.custom" = "Custom";
+"pref.rendering.accessory.languageName" = "Language name";
+"pref.rendering.accessory.none" = "None";
+"pref.rendering.css" = "CSS:";
+"pref.rendering.defaultPath" = "Default path:";
+"pref.rendering.frontMatter" = "Detect Jekyll front-matter";
+"pref.rendering.graphviz" = "Graphviz";
+"pref.rendering.hardWrap" = "Render newline literally";
+"pref.rendering.lineNumbers" = "Show line numbers";
+"pref.rendering.mathJax" = "TeX-like math syntax";
+"pref.rendering.mathJaxInlineDollar" = "Use dollar sign ($) as inline delimiter";
+"pref.rendering.mathJaxNote" = "Math support requires Internet connection.";
+"pref.rendering.mermaid" = "Mermaid";
+"pref.rendering.reload" = "Reload";
+"pref.rendering.reveal" = "Reveal";
+"pref.rendering.syntaxHighlighting" = "Syntax highlighted code block";
+"pref.rendering.taskList" = "Task list syntax";
+"pref.rendering.theme" = "Theme:";
+"pref.rendering.toc" = "Detect table of contents token";
+"pref.rendering.zoom" = "Scale preview based on editor font size";

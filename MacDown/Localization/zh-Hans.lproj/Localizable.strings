@@ -165,3 +165,24 @@
 "pref.markdown.superscript" = "上标";
 "pref.markdown.table" = "表格";
 "pref.markdown.underline" = "下划线";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.rendering.accessory" = "附加：";
+"pref.rendering.accessory.custom" = "自定义";
+"pref.rendering.accessory.languageName" = "语言名称";
+"pref.rendering.accessory.none" = "无";
+"pref.rendering.css" = "CSS:";
+"pref.rendering.defaultPath" = "默认路径：";
+"pref.rendering.frontMatter" = "检测 Jekyll 头部参数";
+"pref.rendering.graphviz" = "Graphviz 图形";
+"pref.rendering.hardWrap" = "回车直接换行";
+"pref.rendering.lineNumbers" = "显示行数";
+"pref.rendering.mathJax" = "类 TeX 数学语法";
+"pref.rendering.mathJaxInlineDollar" = "使用美元符号（$）作为行内分隔符";
+"pref.rendering.mathJaxNote" = "数学支持需要网络连接。";
+"pref.rendering.mermaid" = "Mermaid 流程图";
+"pref.rendering.syntaxHighlighting" = "语法高亮的代码块";
+"pref.rendering.taskList" = "任务清单语法";
+"pref.rendering.theme" = "主题：";
+"pref.rendering.toc" = "检测目录标记";
+"pref.rendering.zoom" = "依编辑器字体大小缩放预览";

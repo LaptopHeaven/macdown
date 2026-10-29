@@ -165,3 +165,24 @@
 "pref.markdown.superscript" = "Exposant";
 "pref.markdown.table" = "Tableau";
 "pref.markdown.underline" = "Souligner";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.rendering.accessory" = "Accessoire :";
+"pref.rendering.accessory.custom" = "Personnalisé";
+"pref.rendering.accessory.languageName" = "Nom du langage";
+"pref.rendering.accessory.none" = "Aucun";
+"pref.rendering.css" = "CSS :";
+"pref.rendering.defaultPath" = "Chemin d’accès par défaut :";
+"pref.rendering.frontMatter" = "Détecter le front-matter de Jekyll";
+"pref.rendering.graphviz" = "Graphviz";
+"pref.rendering.hardWrap" = "Prendre en compte les sauts de ligne dans l'éditeur";
+"pref.rendering.lineNumbers" = "Afficher les numéros de ligne";
+"pref.rendering.mathJax" = "Syntaxe mathématique TeX-like";
+"pref.rendering.mathJaxInlineDollar" = "Utiliser le signe dollar ($) en tant que délimiteur en ligne";
+"pref.rendering.mathJaxNote" = "Le support mathématique requiert une connexion internet.";
+"pref.rendering.mermaid" = "Mermaid";
+"pref.rendering.syntaxHighlighting" = "Bloc de code avec coloration syntaxique";
+"pref.rendering.taskList" = "Syntaxe de liste de tâches";
+"pref.rendering.theme" = "Thème :";
+"pref.rendering.toc" = "Détecter le token de table des matières";
+"pref.rendering.zoom" = "Ajuster la prévisualisation en fonction de la taille de texte de l'éditeur";

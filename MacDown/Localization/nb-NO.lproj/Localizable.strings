@@ -165,3 +165,24 @@
 "pref.markdown.superscript" = "Heva skrift";
 "pref.markdown.table" = "Tabell";
 "pref.markdown.underline" = "Understrek";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.rendering.accessory" = "Tilbehør:";
+"pref.rendering.accessory.custom" = "Tilpassa";
+"pref.rendering.accessory.languageName" = "Språknavn";
+"pref.rendering.accessory.none" = "Ingen";
+"pref.rendering.css" = "CSS:";
+"pref.rendering.defaultPath" = "Standardplassering:";
+"pref.rendering.frontMatter" = "Gjenkjenn front-matter for Jekyll";
+"pref.rendering.graphviz" = "Graphviz";
+"pref.rendering.hardWrap" = "Vis ny linje bokstavelig";
+"pref.rendering.lineNumbers" = "Vis linjenumre";
+"pref.rendering.mathJax" = "TeX-aktig mattesyntaks";
+"pref.rendering.mathJaxInlineDollar" = "Bruk dollartegn ($) som inline-skilletegn";
+"pref.rendering.mathJaxNote" = "Støtte for matte krever internettilkobling";
+"pref.rendering.mermaid" = "Mermaid";
+"pref.rendering.syntaxHighlighting" = "Syntaksmarkert kodeblokk";
+"pref.rendering.taskList" = "Syntaks for oppgaveliste";
+"pref.rendering.theme" = "Tema:";
+"pref.rendering.toc" = "Gjenkjenn innholdsfortegnelse";
+"pref.rendering.zoom" = "Skaler forhåndsvisning basert på skriftstørrelse i redingeringsvinduet";

@@ -134,3 +134,20 @@
 "pref.markdown.superscript" = "Apice";
 "pref.markdown.table" = "Tabella";
 "pref.markdown.underline" = "Sottolinea";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.rendering.accessory.custom" = "Personalizzato";
+"pref.rendering.accessory.languageName" = "Nome linguaggio";
+"pref.rendering.accessory.none" = "Nessuno";
+"pref.rendering.css" = "CSS:";
+"pref.rendering.defaultPath" = "Percorso predefinito:";
+"pref.rendering.hardWrap" = "Crea nuova riga con Invio";
+"pref.rendering.lineNumbers" = "Mostra numero linea";
+"pref.rendering.mathJax" = "Sintassi matematica in stile TeX";
+"pref.rendering.mathJaxInlineDollar" = "Usa il simbolo dollaro ($) come delimitatore di linea";
+"pref.rendering.mathJaxNote" = "Il supporto a math richiede la connessione internet";
+"pref.rendering.syntaxHighlighting" = "Blocco di codice con sintassi evidenziata";
+"pref.rendering.taskList" = "Sintassi lista di azioni";
+"pref.rendering.theme" = "Tema:";
+"pref.rendering.toc" = "Identifica simboli per sommario";
+"pref.rendering.zoom" = "Ridimensiona anteprima in base alla dimensione del carattere";

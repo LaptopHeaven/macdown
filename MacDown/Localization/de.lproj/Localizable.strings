@@ -165,3 +165,24 @@
 "pref.markdown.superscript" = "Hochgestellt";
 "pref.markdown.table" = "Tabellen";
 "pref.markdown.underline" = "Unterstrichen";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.rendering.accessory" = "Zusatz:";
+"pref.rendering.accessory.custom" = "Benutzerdefiniert";
+"pref.rendering.accessory.languageName" = "Sprachenname";
+"pref.rendering.accessory.none" = "Keine";
+"pref.rendering.css" = "CSS:";
+"pref.rendering.defaultPath" = "Standardpfad:";
+"pref.rendering.frontMatter" = "Jekyll Front Matter erkennen";
+"pref.rendering.graphviz" = "Graphviz";
+"pref.rendering.hardWrap" = "Zeilenumbrüche beibehalten";
+"pref.rendering.lineNumbers" = "Zeilennummer anzeigen";
+"pref.rendering.mathJax" = "TeX-ähnliche Mathematik-Syntax";
+"pref.rendering.mathJaxInlineDollar" = "Dollar-Zeichen ($) als Inline-Trennzeichen";
+"pref.rendering.mathJaxNote" = "Vorschau benötigt Internetverbindung";
+"pref.rendering.mermaid" = "Mermaid";
+"pref.rendering.syntaxHighlighting" = "Syntax-Hervorhebung für Code-Blöcke";
+"pref.rendering.taskList" = "Aufgabenlisten-Syntax";
+"pref.rendering.theme" = "Design:";
+"pref.rendering.toc" = "Token für Inhaltsverzeichnis erkennen";
+"pref.rendering.zoom" = "Schriftgröße der Vorschau an Editor anpassen";

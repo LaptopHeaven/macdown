@@ -56,3 +56,16 @@
 "pref.markdown.superscript" = "Superscript";
 "pref.markdown.table" = "Tabell";
 "pref.markdown.underline" = "Understrykning";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.rendering.accessory.languageName" = "Språknamn";
+"pref.rendering.accessory.none" = "Ingen";
+"pref.rendering.css" = "CSS:";
+"pref.rendering.defaultPath" = "Standard-sökväg:";
+"pref.rendering.lineNumbers" = "Visa radnummer";
+"pref.rendering.mathJax" = "Matematik-synax liknande TeX";
+"pref.rendering.mathJaxInlineDollar" = "Använd dollar-tecken ($) som inline delimiter";
+"pref.rendering.mathJaxNote" = "Matematik-stöd kräver Internet-uppkoppling";
+"pref.rendering.taskList" = "Checklist-syntax";
+"pref.rendering.theme" = "Tema:";
+"pref.rendering.zoom" = "Förhandsvisning skalas baserat på redigeraren's font-storlek";
