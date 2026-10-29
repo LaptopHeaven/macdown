@@ -5,7 +5,7 @@ Assessment for `macdown-ngx`. Written 2026-10-22, updated 2026-10-28.
 **Verdict: patch it now, decide on a rewrite later with evidence. The two are sequential, not competing.**
 
 > **Status: Option A is DONE and verified, plus three follow-ups (2026-10-28).** Branch `arm64-native`:
-> `a073a4c` arm64 patch · `b214461` this doc · `054186c` deprecated APIs · `b071a1e` ad-hoc signing · `17873f5` Dracula style · `988ab8a` Alucard style.
+> `a073a4c` arm64 patch · `b214461` this doc · `054186c` deprecated APIs · `b071a1e` ad-hoc signing · `17873f5` Dracula style · `988ab8a` Alucard style · `8ff5132` Sparkle removed · `6adeac3` editor themes.
 > The app builds, runs natively on arm64, and has no non-WebKit deprecation warnings left. Options A+ and B remain open — see §5.3–§5.6 for what landed and §9 for what is still unknown.
 
 ---
@@ -216,14 +216,37 @@ Verified by rendering a sample of MacDown's emitted markup in a browser with eac
 
 Both are installed: the `.app` at `/Applications` was refreshed, and the user-level copies in `~/Library/Application Support/MacDown/Styles/` were written directly. That second step is needed because seeding never overwrites an existing file (§5.7) — Alucard would have seeded itself as a new file, but the Dracula badge fix would not have reached the user copy.
 
-### 5.6 No matching editor theme — open
+### 5.6 Matching editor themes — done
 
-The Dracula CSS only covers the preview/export pane. The **editor** (the `NSTextView`) is styled by `Resources/Themes/*.style`, and there is no Dracula theme, so a Dracula preview still sits next to a light editor. `Themes/*.style` is a small JSON file and would be a quick follow-up; the editor *font* is a separate preference and is not part of the theme.
+The CSS sheets only cover the preview/export pane; the editor is an `NSTextView` styled by a separate `Resources/Themes/*.style` format. Without a theme, a Dracula preview sat next to a default light editor. Commit `6adeac3` adds `Dracula (IBM Plex).style` and `Alucard (IBM Plex).style`, using the same palettes.
+
+One spec detail carries over: the Dracula specification maps Markdown constructs to specific accents — headings Purple, bold Orange, italic Yellow, links Cyan, inline code Green, blockquotes Yellow. Both themes follow it, so the editor reads as the same family as the preview.
+
+Two additions over the shipped themes: `editor-current-line` (supported by the parser, rendered by the highlighter) for a subtle current-line tint, and a saturated selection with background-coloured text, matching what Solarized (Dark) already does instead of a barely-visible grey.
+
+Validated against the parser rather than by eye: section names checked against `pmh_element_type_from_name()`'s table and the special-cased editor rules in `pmh_styleparser.c`, with the same validator first run over every shipped theme to confirm it accepts known-good files. Both new files pass, with the same section set as Solarized (Dark).
+
+Contrast, measured: Alucard's editor is fully AA, worst case 4.80:1 (italic yellow). Dracula's is AA everywhere except the official Comment tone at 3.03:1 — inherent to the palette, used by every Dracula port, and limited to comments and horizontal rules rather than body text. Left alone rather than deviating from Dracula.
+
+The editor *font* is a separate preference and is not part of a theme, so these set colours only.
+
+### 5.7 Sparkle removed
+
+Commit `8ff5132`. The updater could never do anything useful in a personal fork — no release feed, ad-hoc signature — and §4.3 already showed it was the reason the arm64 link originally dropped Sparkle altogether. Nor was it free: the app shipped upstream's feed URLs and instantiated `SUUpdater` at launch, so it phoned a third-party appcast we do not control. Nothing was offered, by build-number luck alone — ours is `1111.x` against stable's `1008.4` and testing's `1079`.
+
+Removed: the pod and framework, the three `SU*` Info.plist keys, `dsa_pub.pem`, the `SUUpdater` nib object, the "Check for Updates…" menu item, the delegate method, and the `updateIncludesPreReleases` preference.
+
+The preference's checkbox was the only content of the General pane's "Update" box, so the box went too — which had a genuine layout consequence. MASPreferences sizes a pane from the controller view's `bounds`, and `sizableHeight` is off (the view's autoresizing mask has no `heightSizable`), so the view's frame height is load-bearing rather than cosmetic. The container drops `249 -> 187` so the remaining Behavior box keeps the 147pt height it had.
+
+The `[CP] Embed Pods Frameworks` build phase disappears entirely — it existed only to embed Sparkle. Every remaining pod is a static library.
+
+Verified: Release and Debug build clean, 20/20 tests pass, and the edited pane loads with no autolayout warnings and nothing on stderr.
+
 ---
 
-### 5.7 Installed to /Applications
+### 5.8 Installed to /Applications
 
-Replaced `/Applications/MacDown.app` (0.7.3, x86_64 only, unsigned) with this build (`0.0.1113` / build `1111.2`, universal, ad-hoc signed). Old copy backed up to:
+Replaced `/Applications/MacDown.app` (0.7.3, x86_64 only, unsigned) with this build (universal, ad-hoc signed). Old copy backed up to:
 
 ```
 ~/Library/Application Support/macdown-ngx-backup/MacDown-0.7.3.app
@@ -253,8 +276,12 @@ Rebuild-and-reinstall, for reference:
 xcodebuild -workspace MacDown.xcworkspace -scheme MacDown \
   -configuration Release -derivedDataPath ./build build
 osascript -e 'quit app "MacDown"'
+rm -rf /Applications/MacDown.app          # ditto merges; it does not replace
 ditto build/Build/Products/Release/MacDown.app /Applications/MacDown.app
+codesign --verify --deep --strict /Applications/MacDown.app   # always check
 ```
+
+**The `rm -rf` is not optional.** `ditto` merges into an existing bundle: it overwrites files that exist in the source but leaves behind anything the new build no longer contains. When Sparkle was removed (§5.7) that left an orphaned `Sparkle.framework` and `dsa_pub.pem` inside the app, which broke the code signature — `codesign --verify` reported "a sealed resource is missing or invalid". The app was otherwise fine, which is exactly why this is worth a check every time rather than a look-and-see.
 
 ---
 
@@ -371,13 +398,12 @@ To reproduce the original crash, build at the untouched `master` revision and la
 - [x] ~~Does a clean window launch after the toolbar guard?~~ **Yes — verified, §5.1.**
 - [x] ~~Deprecated APIs~~ **Done — §5.3.**
 - [x] ~~Do we need ad-hoc signing locally?~~ **No — but the bundle is now sealed anyway, §5.4.**
-- [ ] Does auto-update actually work with Sparkle 1.27.3 on arm64? (unverified: the framework now links and loads, but the update flow was never exercised)
-- [ ] `SUUpdater` in `MainMenu.xib` — now resolves on arm64 since Sparkle links. Confirm the delegate wiring fires.
+- [x] ~~Add matching editor themes?~~ **Done — §5.6.**
+- [x] ~~Sparkle: migrate to 2.x, or leave it?~~ **Neither — removed, §5.7.**
+- [ ] `WebView` → `WKWebView` (§5.3) — the last deprecation, and the only remaining item with a technical forcing function
 - [ ] Ship the real `GitHub-2020.css`, or drop the style (§5.2)
-- [ ] Sign/notarize for distribution, or keep this a local build? (§5.4: ad-hoc now, but Gatekeeper still rejects)
-- [ ] Add matching **editor themes** for the Dracula/Alucard preview styles, or leave the editor light (§5.6)
-- [ ] `WebView` → `WKWebView` (§5.3) — the last deprecation, and a real project
 - [ ] Verify the modernised behaviours by hand: file drops into the editor, the save/export panels' file-type restrictions, and the CLI's launch path (§5.3)
+- [ ] Sign/notarize for distribution? Only if this stops being a personal build (§5.4)
 - [ ] Which features do we actually use? (drives the rewrite decision)
 - [ ] hoedown vs. cmark-gfm — the real rewrite schedule driver
 - [ ] Is iOS/iPadOS a goal? (a strong argument for B)
