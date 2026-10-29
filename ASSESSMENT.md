@@ -5,7 +5,7 @@ Assessment for `macdown-ngx`. Written 2026-10-22, updated 2026-10-28.
 **Verdict: patch it now, decide on a rewrite later with evidence. The two are sequential, not competing.**
 
 > **Status: Option A is DONE and verified, plus three follow-ups (2026-10-28).** Branch `arm64-native`:
-> `a073a4c` arm64 patch · `b214461` this doc · `054186c` deprecated APIs · `b071a1e` ad-hoc signing · `17873f5` Dracula style · `988ab8a` Alucard style · `8ff5132` Sparkle removed · `6adeac3` editor themes.
+> `c1f8b4f` arm64 patch · `76ab2a3` this doc · `5255970` deprecated APIs · `fd74bb4` ad-hoc signing · `d12fa9b` Dracula style · `b95b889` Alucard style · `a6565e1` Sparkle removed · `01aa69a` editor themes.
 > The app builds, runs natively on arm64, and has no non-WebKit deprecation warnings left. Options A+ and B remain open — see §5.3–§5.6 for what landed and §9 for what is still unknown.
 
 ---
@@ -145,7 +145,7 @@ Not addressed by this patch (still open):
 
 ### 5.1 Result — applied and verified
 
-Branch `arm64-native`, commit `a073a4c`. Deployment target set to **12.0** (not 11.0 — Xcode 27 requires ≥ 12.0). Sparkle resolved to **1.27.3**.
+Branch `arm64-native`, commit `c1f8b4f`. Deployment target set to **12.0** (not 11.0 — Xcode 27 requires ≥ 12.0). Sparkle resolved to **1.27.3**.
 
 | Check | Result |
 |---|---|
@@ -179,7 +179,7 @@ Two side effects of running `pod install` with CocoaPods 1.16.2 (reproducible; r
 
 ### 5.3 Deprecated APIs — done
 
-Every non-WebKit deprecated API was replaced: **89 deprecation warnings → 0** in the Release build. The 62 that remain are all `WebView`/`DOM`/`Web*`. Commit `054186c`.
+Every non-WebKit deprecated API was replaced: **89 deprecation warnings → 0** in the Release build. The 62 that remain are all `WebView`/`DOM`/`Web*`. Commit `5255970`.
 
 Most were straight renames (`NSAutoPagination`, `NSFileHandlingPanelOKButton`, `NSOnState`, `NSDragPboard`, `colorUsingColorSpaceName:`, `base64Encoding`, `insertText:`, `stringByAddingPercentEscapesUsingEncoding:`). Four were real behaviour changes: save/export panels now use `allowedContentTypes` with `UTType`; file drops read `NSURL` objects via `readObjectsForClasses:`; `MPGetDataMap` uses `+unarchivedObjectOfClasses:fromData:error:`; and the CLI launches via `NSWorkspaceOpenConfiguration`.
 
@@ -192,7 +192,7 @@ Two things were deliberately **not** migrated:
 
 ### 5.4 Signing — done
 
-Ad-hoc, for the same reason the whole port was cheap. Commit `b071a1e`.
+Ad-hoc, for the same reason the whole port was cheap. Commit `fd74bb4`.
 
 **It was not required to run locally.** The arm64 linker already ad-hoc signs the executable, which is what Apple Silicon enforces, and the app launched through LaunchServices before the change. What was missing was a *sealed bundle*: with `CODE_SIGN_IDENTITY = ""`, `codesign --verify --deep --strict` said "code object is not signed at all" and `spctl` rejected it. That only bites once the `.app` is copied or zipped.
 
@@ -200,7 +200,7 @@ Setting both configurations to `"-"` (Xcode's "Sign to Run Locally") fixes it �
 
 ### 5.5 A Dracula style — added, plus its Alucard counterpart
 
-`MacDown/Resources/Styles/Dracula (IBM Plex).css` and `Alucard (IBM Plex).css`. Commits `17873f5`, `988ab8a`.
+`MacDown/Resources/Styles/Dracula (IBM Plex).css` and `Alucard (IBM Plex).css`. Commits `d12fa9b`, `b95b889`.
 
 Dracula is dark, Alucard is Dracula's official light counterpart. Both use IBM Plex Sans for prose and IBM Plex Mono for code, and both appear in the Styles menu with no project changes, because `Resources/Styles` is a folder reference. IBM Plex is fetched from Google Fonts so the preview is right without a local install, while the stack still resolves a locally installed copy offline.
 
@@ -220,7 +220,7 @@ Both are installed: the `.app` at `/Applications` was refreshed, and the user-le
 
 ### 5.6 Matching editor themes — done
 
-The CSS sheets only cover the preview/export pane; the editor is an `NSTextView` styled by a separate `Resources/Themes/*.style` format. Without a theme, a Dracula preview sat next to a default light editor. Commit `6adeac3` adds `Dracula (IBM Plex).style` and `Alucard (IBM Plex).style`, using the same palettes.
+The CSS sheets only cover the preview/export pane; the editor is an `NSTextView` styled by a separate `Resources/Themes/*.style` format. Without a theme, a Dracula preview sat next to a default light editor. Commit `01aa69a` adds `Dracula (IBM Plex).style` and `Alucard (IBM Plex).style`, using the same palettes.
 
 One spec detail carries over: the Dracula specification maps Markdown constructs to specific accents — headings Purple, bold Orange, italic Yellow, links Cyan, inline code Green, blockquotes Yellow. Both themes follow it, so the editor reads as the same family as the preview.
 
@@ -234,7 +234,7 @@ The editor *font* is a separate preference and is not part of a theme, so these 
 
 ### 5.7 Sparkle removed
 
-Commit `8ff5132`. The updater could never do anything useful in a personal fork — no release feed, ad-hoc signature — and §4.3 already showed it was the reason the arm64 link originally dropped Sparkle altogether. Nor was it free: the app shipped upstream's feed URLs and instantiated `SUUpdater` at launch, so it phoned a third-party appcast we do not control. Nothing was offered, by build-number luck alone — ours is `1111.x` against stable's `1008.4` and testing's `1079`.
+Commit `a6565e1`. The updater could never do anything useful in a personal fork — no release feed, ad-hoc signature — and §4.3 already showed it was the reason the arm64 link originally dropped Sparkle altogether. Nor was it free: the app shipped upstream's feed URLs and instantiated `SUUpdater` at launch, so it phoned a third-party appcast we do not control. Nothing was offered, by build-number luck alone — ours is `1111.x` against stable's `1008.4` and testing's `1079`.
 
 Removed: the pod and framework, the three `SU*` Info.plist keys, `dsa_pub.pem`, the `SUUpdater` nib object, the "Check for Updates…" menu item, the delegate method, and the `updateIncludesPreReleases` preference.
 
@@ -289,7 +289,7 @@ codesign --verify --deep --strict /Applications/MacDown.app   # always check
 
 ### 5.9 Preference panes rewritten in SwiftUI
 
-All five panes are SwiftUI now: `d77dcb7` General, `a677b0c` Markdown, `2be843d` Rendering, `246d12b` Editor, `17ddd84` Terminal. This is the first half of the A+ option — the app keeps its `NSApplication`/`NSDocument` lifecycle and only the pane contents moved.
+All five panes are SwiftUI now: `b2701cd` General, `982e081` Markdown, `b98c14d` Rendering, `ef8ca30` Editor, `1a15710` Terminal. This is the first half of the A+ option — the app keeps its `NSApplication`/`NSDocument` lifecycle and only the pane contents moved.
 
 The only ObjC left in `Code/Preferences` is `MPPreferences` and the shared `MPPreferencesViewController` base, which holds the notification constants and the `preferences` accessor.
 
@@ -317,7 +317,7 @@ Namespacing is only for strings being introduced for the first time. `(Default)`
 
 ### 5.10 Three follow-ups — live updates, blank styles, pane width
 
-Commit `1219b1e`.
+Commit `a053839`.
 
 **Live preference updates.** A real regression from the nib migration: the panes only notified on their own writes, so a preference changed elsewhere left an open pane stale — `MPDocument.m` clears `editorStyleName` when a theme cannot be loaded. The nibs' Cocoa bindings were KVO-based and did update live. `PreferencesStore` now observes `PAPreferencesDidChangeNotification` on the `MPPreferences` instance and forwards it to `objectWillChange`.
 
@@ -395,7 +395,7 @@ The ObjC is small. The language migration is the easy part; SwiftUI shrinks the 
 
 ## 8. Reproduction
 
-The patch is applied on branch `arm64-native` (commit `a073a4c`) in this repo. Clean-build reproduction:
+The patch is applied on branch `arm64-native` (commit `c1f8b4f`) in this repo. Clean-build reproduction:
 
 ```bash
 git clone https://github.com/MacDownApp/macdown.git && cd macdown
