@@ -5,7 +5,7 @@ Assessment for `macdown-ngx`. Written 2026-10-22, updated 2026-10-28.
 **Verdict: patch it now, decide on a rewrite later with evidence. The two are sequential, not competing.**
 
 > **Status: Option A is DONE and verified, plus three follow-ups (2026-10-28).** Branch `arm64-native`:
-> `a073a4c` arm64 patch · `b214461` this doc · `054186c` deprecated APIs · `b071a1e` ad-hoc signing · `17873f5` Dracula style.
+> `a073a4c` arm64 patch · `b214461` this doc · `054186c` deprecated APIs · `b071a1e` ad-hoc signing · `17873f5` Dracula style · `988ab8a` Alucard style.
 > The app builds, runs natively on arm64, and has no non-WebKit deprecation warnings left. Options A+ and B remain open — see §5.3–§5.6 for what landed and §9 for what is still unknown.
 
 ---
@@ -196,17 +196,25 @@ Ad-hoc, for the same reason the whole port was cheap. Commit `b071a1e`.
 
 Setting both configurations to `"-"` (Xcode's "Sign to Run Locally") fixes it — the signature now verifies. **It still does not satisfy Gatekeeper**: `spctl` will keep rejecting an ad-hoc signature, and distribution needs a Developer ID certificate plus notarization. That is a separate, opt-in step.
 
-### 5.5 A Dracula style — added
+### 5.5 A Dracula style — added, plus its Alucard counterpart
 
-`MacDown/Resources/Styles/Dracula (IBM Plex).css`. Commit `17873f5`.
+`MacDown/Resources/Styles/Dracula (IBM Plex).css` and `Alucard (IBM Plex).css`. Commits `17873f5`, `988ab8a`.
 
-Dracula palette with IBM Plex Sans for prose and IBM Plex Mono for code. It shows up in the Styles menu with no project changes, because `Resources/Styles` is a folder reference. IBM Plex is fetched from Google Fonts so the preview is right without a local install, while the stack still resolves a locally installed copy offline.
+Dracula is dark, Alucard is Dracula's official light counterpart. Both use IBM Plex Sans for prose and IBM Plex Mono for code, and both appear in the Styles menu with no project changes, because `Resources/Styles` is a folder reference. IBM Plex is fetched from Google Fonts so the preview is right without a local install, while the stack still resolves a locally installed copy offline.
 
-It styles the structures the renderer actually emits, taken from `hoedown_html_patch.c`: `<div><pre data-information="…"><code class="language-x">` blocks, `li.task-list-item`, `ul.toc`, and the standard hoedown set.
+Alucard is built from the official "Alucard Classic" tokens (`Background #fffbeb`, `Foreground #1f1f1f`, `Selection #cfcfde`, `Comment #6c664b`, `Cyan #036a96`, `Green #14710a`, `Orange #a34d14`, `Pink #a3144d`, `Purple #644ac9`, `Red #cb3a2a`, `Yellow #846e15`). Its "Current Line" token equals Comment, so code and table surfaces use adjacent UI tokens instead — `#ece9df` for code, `#ceccc0` for borders and raised surfaces.
 
-It also fixes a small upstream bug: `show-information.css` styles the language label with `pre[class*='language-']`, but the language class lands on the inner `<code>`, so that selector never matches and the label goes unstyled. The new sheet targets `pre[data-information]` with enough specificity to win even when the extension stylesheet loads, so the info string now appears.
+They style the structures the renderer actually emits, taken from `hoedown_html_patch.c`: `<div><pre data-information="…"><code class="language-x">` blocks, `li.task-list-item`, `ul.toc`, and the standard hoedown set.
 
-Verified by rendering a sample of MacDown's emitted markup in a browser with the sheet inlined the way the app does it — palette, fonts, and the `::before` label all check out.
+**The pair is kept structurally parallel on purpose.** Verified mechanically: 45 selectors, identical sets, identical property lists on every one. The only delta is Alucard's `--selection` variable, which is a real spec token Dracula has no equivalent for. Any drift between the two files will therefore show up in a plain diff.
+
+They also fix a small upstream bug: `show-information.css` styles the language label with `pre[class*='language-']`, but the language class lands on the inner `<code>`, so that selector never matches and the label goes unstyled. The new sheets target `pre[data-information]` with enough specificity to win even when the extension stylesheet loads, so the info string now appears.
+
+Contrast was checked, not assumed — and that surfaced a defect in the first Dracula cut. The code-block language badge was comment-on-current-line: **1.97:1** in Dracula, 3.58:1 in Alucard. The badge is small text, so it needs the full 4.5:1. Both sheets now use the foreground color there: **8.59:1** and **10.22:1**. Every other Alucard pair passes AA, worst case 4.80:1 (italic yellow).
+
+Verified by rendering a sample of MacDown's emitted markup in a browser with each sheet inlined the way the app does it. The font claim was checked properly rather than taken on faith: a test string measures 533.73px in `IBM Plex Sans` against 496.69px for both a deliberately fake family and `serif`, and the face reports `loaded` — so the webfont really is applied and not silently falling back.
+
+Both are installed: the `.app` at `/Applications` was refreshed, and the user-level copies in `~/Library/Application Support/MacDown/Styles/` were written directly. That second step is needed because seeding never overwrites an existing file (§5.7) — Alucard would have seeded itself as a new file, but the Dracula badge fix would not have reached the user copy.
 
 ### 5.6 No matching editor theme — open
 
@@ -367,7 +375,7 @@ To reproduce the original crash, build at the untouched `master` revision and la
 - [ ] `SUUpdater` in `MainMenu.xib` — now resolves on arm64 since Sparkle links. Confirm the delegate wiring fires.
 - [ ] Ship the real `GitHub-2020.css`, or drop the style (§5.2)
 - [ ] Sign/notarize for distribution, or keep this a local build? (§5.4: ad-hoc now, but Gatekeeper still rejects)
-- [ ] Add the matching Dracula **editor theme**, or leave the editor light (§5.6)
+- [ ] Add matching **editor themes** for the Dracula/Alucard preview styles, or leave the editor light (§5.6)
 - [ ] `WebView` → `WKWebView` (§5.3) — the last deprecation, and a real project
 - [ ] Verify the modernised behaviours by hand: file drops into the editor, the save/export panels' file-type restrictions, and the CLI's launch path (§5.3)
 - [ ] Which features do we actually use? (drives the rewrite decision)
