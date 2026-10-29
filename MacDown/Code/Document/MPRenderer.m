@@ -342,6 +342,7 @@ NS_INLINE void MPFreeHTMLRenderer(hoedown_renderer *htmlRenderer)
     if (!self)
         return nil;
 
+    self.rendererFlags = HOEDOWN_HTML_ESCAPE;
     self.currentHtml = @"";
     self.currentLanguages = [NSMutableArray array];
     self.parseQueue = [[NSOperationQueue alloc] init];

@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <hoedown/html.h>
 #import "MPPreferences.h"
 #import "MPRenderer.h"
 
@@ -106,7 +107,8 @@
     delegate.rendered = [self expectationWithDescription:@"renderer output"];
 
     MPRenderer *renderer = [[MPRenderer alloc] init];
-    renderer.rendererFlags = self.preferences.rendererFlags;
+    XCTAssertNotEqual(renderer.rendererFlags & HOEDOWN_HTML_ESCAPE, 0);
+    XCTAssertNotEqual(self.preferences.rendererFlags & HOEDOWN_HTML_ESCAPE, 0);
     renderer.dataSource = source;
     renderer.delegate = delegate;
     [renderer parseAndRenderNow];

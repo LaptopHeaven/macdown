@@ -10,11 +10,14 @@
 - [x] Review the remaining custom-spec dependencies. Hoedown 3.0.7 and the native Objective-C `handlebars-objc` 1.4.5 have no published GitHub advisories found; JavaScript Handlebars CVEs do not apply to this implementation. `Pods/` is ignored (not committed); `Podfile.lock` tracks versions and podspec checksums. Accept the remote tag/spec trust for this personal build; revisit before distribution or if a concrete advisory appears.
 - [x] Confirm sandbox/Hardened Runtime are disabled and signing is ad hoc (`get-task-allow` is true). Deferred hardening until a distribution decision, as approved; no code/signing change.
 - [x] Accept plug-in loading as an intentional personal-use trust boundary: only `.plugin` bundles in the user Application Support `PlugIns` directory are loaded for the dedicated Plug-ins menu; no bundled plugins or automatic download/install path was found. The current user PlugIns directory is absent. Bundles placed there execute as the user.
+- [x] Re-audit item 1: default and initialize renderer HTML-escape flags before the first parse; regression test exercises the safe default (25/25) and Release build succeeds.
 
 ## In progress
-- None.
+- [ ] Re-audit item 2: add the approved upstream LibYAML nesting-depth limit from commit 51843fe; keep the front-matter regression test.
 
 ## Next
+- [ ] Re-audit item 3: block remote WebView subresources by default while retaining local file/data resources.
+- [ ] Re-audit item 4: allow only http/https/mailto for non-file link clicks; preserve local file links.
 
 ## Never
 - Do not modify `.serena/` (existing untracked user data).
@@ -22,4 +25,4 @@
 - Do not commit to `master` or modify upstream history.
 
 ## Heartbeat
-- 2026-10-29T14:20:11Z run 1 complete; all audit items fixed or explicitly accepted/deferred; item commits recorded through dd108e5; `.serena/` left untouched.
+- 2026-10-29T14:48:52Z run 2: item 1 verified (25/25 tests, Release build) and ready to commit; item 2 now in progress; `.serena/` remains write-protected.
