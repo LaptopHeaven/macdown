@@ -11,12 +11,12 @@
 - [x] Confirm sandbox/Hardened Runtime are disabled and signing is ad hoc (`get-task-allow` is true). Deferred hardening until a distribution decision, as approved; no code/signing change.
 - [x] Accept plug-in loading as an intentional personal-use trust boundary: only `.plugin` bundles in the user Application Support `PlugIns` directory are loaded for the dedicated Plug-ins menu; no bundled plugins or automatic download/install path was found. The current user PlugIns directory is absent. Bundles placed there execute as the user.
 - [x] Re-audit item 1: default and initialize renderer HTML-escape flags before the first parse; regression test exercises the safe default (25/25) and Release build succeeds.
+- [x] Re-audit item 2: pin LibYAML to upstream fix commit `51843fe` and cap nesting at 1,000; a 1,100-level front-matter regression test rejects input safely. Full suite 26/26 and Release build pass. Pod installation now uses upstream `bootstrap`/Autotools, which are present on this personal build machine.
 
 ## In progress
-- [ ] Re-audit item 2: add the approved upstream LibYAML nesting-depth limit from commit 51843fe; keep the front-matter regression test.
+- [ ] Re-audit item 3: block remote WebView subresources by default while retaining local file/data resources.
 
 ## Next
-- [ ] Re-audit item 3: block remote WebView subresources by default while retaining local file/data resources.
 - [ ] Re-audit item 4: allow only http/https/mailto for non-file link clicks; preserve local file links.
 
 ## Never
@@ -25,4 +25,4 @@
 - Do not commit to `master` or modify upstream history.
 
 ## Heartbeat
-- 2026-10-29T14:48:52Z run 2: item 1 verified (25/25 tests, Release build) and ready to commit; item 2 now in progress; `.serena/` remains write-protected.
+- 2026-10-29T14:56:34Z run 2: item 2 verified (26/26 tests, Release build) and ready to commit; item 3 now in progress; `.serena/` remains write-protected.

@@ -181,4 +181,19 @@
     XCTAssertEqualObjects(frontMatter[@"value"], @"safe");
 }
 
+- (void)testFrontMatterRejectsExcessiveNesting
+{
+    NSMutableString *nested = [NSMutableString string];
+    for (NSUInteger i = 0; i < 1100; i++)
+        [nested appendString:@"["];
+    [nested appendString:@"0"];
+    for (NSUInteger i = 0; i < 1100; i++)
+        [nested appendString:@"]"];
+
+    NSString *markdown = [NSString stringWithFormat:@"---\n%@\n---\nbody", nested];
+    NSUInteger contentOffset = 0;
+    XCTAssertNil([markdown frontMatter:&contentOffset]);
+    XCTAssertEqual(contentOffset, 0);
+}
+
 @end
