@@ -32,3 +32,4 @@
 - 2026-10-29T15:14:22Z run 2: item 4 verified (28/28 tests, Release build); re-audit queue complete; `.serena/` remains write-protected.
 - 2026-10-29T15:20:00Z run 2: forked upstream to `LaptopHeaven/macdown`; `origin` now points at the fork and `arm64-native` is pushed and tracking it; `.serena/` remains untracked.
 - 2026-10-29T15:31:00Z run 3: refreshed the rewritten commit hashes in `ASSESSMENT.md` and embedded the IBM Plex faces in both styles; installing and re-verifying preview rendering next.
+- 2026-10-29T15:40:00Z run 3: every commit hash in `ASSESSMENT.md` now resolves (14/14). Release built and installed to `/Applications/MacDown.app` (signature verified, universal), user-level styles refreshed past the seed-once trap, and the preview was checked by hand with the Dracula sheet — headings, bold, italic, inline code and tables all render in IBM Plex with no network request.
