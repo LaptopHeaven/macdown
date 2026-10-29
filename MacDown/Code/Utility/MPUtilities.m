@@ -160,7 +160,23 @@ NSDictionary *MPGetDataMap(NSString *name)
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *filePath = [bundle pathForResource:name ofType:@"map"
                                      inDirectory:@"Data"];
-    return [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    if (!data)
+        return nil;
+    // The maps are NSKeyedArchiver output that may reference OC_PythonString
+    // (PyObjC) for string values; $classhints substitute NSString for those, so
+    // the Foundation value classes are the only allowlist needed.
+    static NSSet *classes = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        classes = [NSSet setWithArray:@[
+            NSDictionary.class, NSArray.class, NSString.class, NSNumber.class,
+            NSData.class, NSDate.class, NSSet.class, NSNull.class,
+        ]];
+    });
+    return [NSKeyedUnarchiver unarchivedObjectOfClasses:classes
+                                               fromData:data
+                                                  error:NULL];
 }
 
 id MPGetObjectFromJavaScript(NSString *code, NSString *variableName)

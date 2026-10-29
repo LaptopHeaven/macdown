@@ -8,6 +8,7 @@
 
 #import "MPDocument.h"
 #import <WebKit/WebKit.h>
+#import <UniformTypeIdentifiers/UniformTypeIdentifiers.h>
 #import <JJPluralForm/JJPluralForm.h>
 #import <hoedown/html.h>
 #import "hoedown_html_patch.h"
@@ -225,16 +226,36 @@ typedef NS_ENUM(NSUInteger, MPWordCountType) {
 
 @end
 
+// -disableFlushWindow/-enableFlushWindow/isFlushWindowDisabled were deprecated in
+// macOS 10.14. Apple's suggested replacement, +[NSAnimationContext
+// runAnimationGroup:completionHandler:], cannot express this pair: the calls straddle
+// runloop turns (didCommitLoad ... MathJax completion callback), so batching them into
+// one animation group would require restructuring the preview reload path. Kept as-is
+// to preserve the existing preview-flicker behaviour, with the warning silenced.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+static void MPSetWindowFlushDisabled(NSWindow *window, BOOL disabled)
+{
+    if (!window)
+        return;
+    @synchronized(window) {
+        if (disabled) {
+            if (!window.isFlushWindowDisabled)
+                [window disableFlushWindow];
+        }
+        else if (window.isFlushWindowDisabled) {
+            [window enableFlushWindow];
+        }
+    }
+}
+#pragma clang diagnostic pop
+
 static void (^MPGetPreviewLoadingCompletionHandler(MPDocument *doc))()
 {
     __weak MPDocument *weakObj = doc;
     return ^{
         WebView *webView = weakObj.preview;
-        NSWindow *window = webView.window;
-        @synchronized(window) {
-            if (window.isFlushWindowDisabled)
-                [window enableFlushWindow];
-        }
+        MPSetWindowFlushDisabled(webView.window, NO);
         [weakObj scaleWebview];
         if (weakObj.preferences.editorSyncScrolling)
         {
@@ -598,7 +619,14 @@ static void (^MPGetPreviewLoadingCompletionHandler(MPDocument *doc))()
         }
     });
     
-    savePanel.allowedFileTypes = supportedExtensions;
+    NSMutableArray<UTType *> *contentTypes = [NSMutableArray array];
+    for (NSString *extension in supportedExtensions)
+    {
+        UTType *type = [UTType typeWithFilenameExtension:extension];
+        if (type)
+            [contentTypes addObject:type];
+    }
+    savePanel.allowedContentTypes = contentTypes;
     savePanel.allowsOtherFileTypes = YES; // Allow all extensions.
     
     return [super prepareSavePanel:savePanel];
@@ -609,8 +637,8 @@ static void (^MPGetPreviewLoadingCompletionHandler(MPDocument *doc))()
     NSPrintInfo *info = [super printInfo];
     if (!info)
         info = [[NSPrintInfo sharedPrintInfo] copy];
-    info.horizontalPagination = NSAutoPagination;
-    info.verticalPagination = NSAutoPagination;
+    info.horizontalPagination = NSPrintingPaginationModeAutomatic;
+    info.verticalPagination = NSPrintingPaginationModeAutomatic;
     info.verticallyCentered = NO;
     info.topMargin = 50.0;
     info.leftMargin = 0.0;
@@ -851,11 +879,7 @@ static void (^MPGetPreviewLoadingCompletionHandler(MPDocument *doc))()
 
 - (void)webView:(WebView *)sender didCommitLoadForFrame:(WebFrame *)frame
 {
-    NSWindow *window = sender.window;
-    @synchronized(window) {
-        if (!window.isFlushWindowDisabled)
-            [window disableFlushWindow];
-    }
+    MPSetWindowFlushDisabled(sender.window, YES);
 
     // If MathJax is off, the on-completion callback will be invoked directly
     // when loading is done (in -webView:didFinishLoadForFrame:).
@@ -1248,7 +1272,7 @@ static void (^MPGetPreviewLoadingCompletionHandler(MPDocument *doc))()
 - (IBAction)exportHtml:(id)sender
 {
     NSSavePanel *panel = [NSSavePanel savePanel];
-    panel.allowedFileTypes = @[@"html"];
+    panel.allowedContentTypes = @[UTTypeHTML];
     if (self.presumedFileName)
         panel.nameFieldStringValue = self.presumedFileName;
 
@@ -1260,7 +1284,7 @@ static void (^MPGetPreviewLoadingCompletionHandler(MPDocument *doc))()
 
     NSWindow *w = self.windowForSheet;
     [panel beginSheetModalForWindow:w completionHandler:^(NSInteger result) {
-        if (result != NSFileHandlingPanelOKButton)
+        if (result != NSModalResponseOK)
             return;
         BOOL styles = controller.stylesIncluded;
         BOOL highlighting = controller.highlightingIncluded;
@@ -1274,7 +1298,7 @@ static void (^MPGetPreviewLoadingCompletionHandler(MPDocument *doc))()
 - (IBAction)exportPdf:(id)sender
 {
     NSSavePanel *panel = [NSSavePanel savePanel];
-    panel.allowedFileTypes = @[@"pdf"];
+    panel.allowedContentTypes = @[UTTypePDF];
     if (self.presumedFileName)
         panel.nameFieldStringValue = self.presumedFileName;
     
@@ -1284,7 +1308,7 @@ static void (^MPGetPreviewLoadingCompletionHandler(MPDocument *doc))()
         w = [windowControllers[0] window];
 
     [panel beginSheetModalForWindow:w completionHandler:^(NSInteger result) {
-        if (result != NSFileHandlingPanelOKButton)
+        if (result != NSModalResponseOK)
             return;
 
         NSDictionary *settings = @{
@@ -1450,7 +1474,7 @@ static void (^MPGetPreviewLoadingCompletionHandler(MPDocument *doc))()
     if (location == newlineBefore + 1 && location == newlineAfter)
         [self.editor insertNewline:self];
     else
-        [self.editor insertText:@"\n\n"];
+        [self.editor insertText:@"\n\n" replacementRange:NSMakeRange(NSNotFound, 0)];
 }
 
 - (IBAction)setEditorOneQuarter:(id)sender

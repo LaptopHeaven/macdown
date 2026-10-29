@@ -106,15 +106,24 @@ int main(int argc, const char * argv[])
         NSMutableOrderedSet<NSURL *> *urls = [NSMutableOrderedSet orderedSet];
         for (NSString *arg in argproc.arguments)
         {
-            NSString *escaped =
-                [arg stringByAddingPercentEscapesUsingEncoding:kMPPathEncoding];
+            NSString *escaped = [arg stringByAddingPercentEncodingWithAllowedCharacters:
+                                 [NSCharacterSet URLPathAllowedCharacterSet]];
             NSURL *url = [NSURL URLWithString:escaped relativeToURL:pwdUrl];
             [urls addObject:url];
         }
         MPCollectForMacDown(urls);
 
         // Launch MacDown.
-        [[NSWorkspace sharedWorkspace] launchAppWithBundleIdentifier:kMPApplicationBundleIdentifier options:NSWorkspaceLaunchDefault additionalEventParamDescriptor:nil launchIdentifier:nil];
+        NSURL *appURL = [[NSWorkspace sharedWorkspace]
+            URLForApplicationWithBundleIdentifier:kMPApplicationBundleIdentifier];
+        if (appURL)
+        {
+            NSWorkspaceOpenConfiguration *configuration =
+                [NSWorkspaceOpenConfiguration configuration];
+            [[NSWorkspace sharedWorkspace] openApplicationAtURL:appURL
+                                                  configuration:configuration
+                                              completionHandler:nil];
+        }
     }
     return EXIT_SUCCESS;
 }
