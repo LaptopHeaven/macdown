@@ -8,8 +8,13 @@
 
 #import <XCTest/XCTest.h>
 #import "MPUtilities.h"
+#import "MPGlobals.h"
 #import "MPHomebrewSubprocessController.h"
 #import "MPMathJaxListener.h"
+#import <stdlib.h>
+#import <string.h>
+#import <sys/stat.h>
+#import <unistd.h>
 
 
 @interface MPMathJaxListener (WebScriptingTest)
@@ -95,6 +100,70 @@
     [listener addCallback:^{ invoked = YES; } forKey:@"End"];
     [listener invokeCallbackForKey:@"End"];
     XCTAssertTrue(invoked);
+}
+
+- (void)testPipedContentTempFileIsPrivateAndDeletionIsRestricted
+{
+    NSString *directory = NSTemporaryDirectory();
+    NSString *validTemplate = [directory stringByAppendingPathComponent:
+        [kMPPipedContentFilePrefix stringByAppendingString:@"XXXXXX"]];
+    char *validPath = strdup(validTemplate.fileSystemRepresentation);
+    if (!validPath)
+    {
+        XCTFail(@"Could not allocate the temporary path.");
+        return;
+    }
+    int validDescriptor = mkstemp(validPath);
+    if (validDescriptor < 0)
+    {
+        XCTFail(@"Could not create the temporary file.");
+        free(validPath);
+        return;
+    }
+
+    struct stat attributes;
+    if (fstat(validDescriptor, &attributes) == 0)
+        XCTAssertEqual(attributes.st_mode & 077, 0);
+    else
+        XCTFail(@"Could not inspect the temporary file permissions.");
+    close(validDescriptor);
+
+    NSURL *validURL = [NSURL fileURLWithFileSystemRepresentation:
+        validPath isDirectory:NO relativeToURL:nil];
+    BOOL deleted = MPDeletePipedContentTemporaryFile(validURL);
+    XCTAssertTrue(deleted);
+    if (!deleted)
+        unlink(validPath);
+    XCTAssertFalse([[NSFileManager defaultManager] fileExistsAtPath:validURL.path]);
+
+    NSString *otherTemplate = [directory stringByAppendingPathComponent:
+        @"unrelated-temp-XXXXXX"];
+    char *otherPath = strdup(otherTemplate.fileSystemRepresentation);
+    if (!otherPath)
+    {
+        XCTFail(@"Could not allocate the unrelated path.");
+        free(validPath);
+        return;
+    }
+    int otherDescriptor = mkstemp(otherPath);
+    if (otherDescriptor < 0)
+    {
+        XCTFail(@"Could not create the unrelated temporary file.");
+        free(otherPath);
+        free(validPath);
+        return;
+    }
+    close(otherDescriptor);
+    NSURL *otherURL = [NSURL fileURLWithFileSystemRepresentation:
+        otherPath isDirectory:NO relativeToURL:nil];
+    XCTAssertFalse(MPDeletePipedContentTemporaryFile(otherURL));
+    XCTAssertTrue([[NSFileManager defaultManager] fileExistsAtPath:otherURL.path]);
+    unlink(otherPath);
+    free(otherPath);
+
+    XCTAssertFalse(MPDeletePipedContentTemporaryFile(
+        [NSURL fileURLWithPath:@"/private/etc/passwd"]));
+    free(validPath);
 }
 
 @end

@@ -329,6 +329,7 @@ NS_INLINE void treat()
 
         if (document && openDocumentError == nil && readPipedContentError == nil) {
             document.markdown = pipedContentString;
+            MPDeletePipedContentTemporaryFile(pipedContentFileToOpenURL);
         }
 
         self.preferences.pipedContentFileToOpen = nil;

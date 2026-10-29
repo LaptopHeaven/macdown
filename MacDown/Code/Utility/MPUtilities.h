@@ -17,6 +17,7 @@ extern NSString * const kMPPlugInFileExtension;
 
 NSString *MPDataDirectory(NSString *relativePath);
 NSString *MPPathToDataFile(NSString *name, NSString *dirPath);
+BOOL MPDeletePipedContentTemporaryFile(NSURL *url);
 
 NSArray *MPListEntriesForDirectory(
     NSString *dirName, NSString *(^processor)(NSString *absolutePath)

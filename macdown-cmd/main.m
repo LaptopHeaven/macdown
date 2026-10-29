@@ -9,6 +9,10 @@
 #import <sys/time.h>
 #import <AppKit/AppKit.h>
 #import <GBCli/GBCli.h>
+#import <stdio.h>
+#import <stdlib.h>
+#import <sys/stat.h>
+#import <unistd.h>
 #import "NSUserDefaults+Suite.h"
 #import "MPGlobals.h"
 #import "MPArgumentProcessor.h"
@@ -86,15 +90,46 @@ int main(int argc, const char * argv[])
         NSData *dataFromPipe = MPPipedData();
         
         if (dataFromPipe) {
-            // Store piped content in a temporary file which will be read by MacDown on launch
-            NSString *fileName = [NSString stringWithFormat:@"%@_%@", [[NSProcessInfo processInfo] globallyUniqueString], @"pipedText.txt"];
-            NSURL *fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
-            
-            NSError *writeError;
-            [dataFromPipe writeToFile:fileURL.path options:0 error:&writeError];
-            
-            if (writeError == nil) {
-                MPCollectPipedContentURLForMacDown(fileURL);
+            NSString *pathTemplate = [NSTemporaryDirectory()
+                stringByAppendingPathComponent:
+                    [kMPPipedContentFilePrefix stringByAppendingString:@"XXXXXX"]];
+            char *filePath = strdup(pathTemplate.fileSystemRepresentation);
+            if (filePath) {
+                int fileDescriptor = mkstemp(filePath);
+                if (fileDescriptor >= 0) {
+                    struct stat fileAttributes;
+                    BOOL privateFile = fstat(fileDescriptor, &fileAttributes) == 0
+                        && (fileAttributes.st_mode & 077) == 0;
+                    FILE *file = privateFile ? fdopen(fileDescriptor, "wb") : NULL;
+                    BOOL wroteAllData = NO;
+                    if (file) {
+                        wroteAllData = fwrite(dataFromPipe.bytes, 1,
+                                              dataFromPipe.length, file)
+                            == dataFromPipe.length;
+                        if (fflush(file) != 0)
+                            wroteAllData = NO;
+                        if (fclose(file) != 0)
+                            wroteAllData = NO;
+                    }
+                    else
+                    {
+                        close(fileDescriptor);
+                    }
+
+                    if (wroteAllData) {
+                        NSURL *fileURL = [NSURL fileURLWithFileSystemRepresentation:
+                            filePath isDirectory:NO relativeToURL:nil];
+                        if (fileURL)
+                            MPCollectPipedContentURLForMacDown(fileURL);
+                        else
+                            unlink(filePath);
+                    }
+                    else
+                    {
+                        unlink(filePath);
+                    }
+                }
+                free(filePath);
             }
         }
 
@@ -127,4 +162,3 @@ int main(int argc, const char * argv[])
     }
     return EXIT_SUCCESS;
 }
-

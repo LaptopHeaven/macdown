@@ -7,8 +7,10 @@
 //
 
 #import "MPUtilities.h"
+#import "MPGlobals.h"
 #import "NSString+Lookup.h"
 #import <JavaScriptCore/JavaScriptCore.h>
+#import <unistd.h>
 
 NSString * const kMPStylesDirectoryName = @"Styles";
 NSString * const kMPStyleFileExtension = @"css";
@@ -45,6 +47,26 @@ NSString *MPPathToDataFile(NSString *name, NSString *dirPath)
 {
     return [NSString pathWithComponents:@[MPDataDirectory(dirPath),
                                           name]];
+}
+
+static BOOL MPIsPipedContentTemporaryURL(NSURL *url)
+{
+    if (!url.isFileURL)
+        return NO;
+
+    NSURL *standardizedURL = url.standardizedURL;
+    NSString *temporaryDirectory =
+        [NSTemporaryDirectory() stringByStandardizingPath];
+    return [standardizedURL.path.stringByDeletingLastPathComponent
+                isEqualToString:temporaryDirectory]
+        && [standardizedURL.lastPathComponent hasPrefix:kMPPipedContentFilePrefix];
+}
+
+BOOL MPDeletePipedContentTemporaryFile(NSURL *url)
+{
+    if (!MPIsPipedContentTemporaryURL(url))
+        return NO;
+    return unlink(url.standardizedURL.path.fileSystemRepresentation) == 0;
 }
 
 NSArray *MPListEntriesForDirectory(
@@ -227,4 +249,3 @@ id MPGetObjectFromJavaScript(NSString *code, NSString *variableName)
         JSStringRelease(js);
     return object;
 }
-
