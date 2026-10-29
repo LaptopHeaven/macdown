@@ -7,13 +7,13 @@
 - [x] Exclude the MathJax listener's `_callbacks` storage from page JavaScript while retaining `invokeCallbackForKey:`; policy and callback regression checks pass (23/23 tests).
 - [x] Secure the CLI's piped-stdin handoff: `mkstemp` creates an owner-only file, the path is published only after a complete write, and the app unlinks only a generated temp path after importing the text. Tests verify permissions, path restrictions, and deletion (24/24).
 - [x] Upgrade vulnerable LibYAML 0.1.4 to upstream 0.2.5 with a repo-local podspec and SHA-256-pinned HTTPS source. This fixes CVE-2014-2525 (and CVE-2013-6393); front matter is parsed only when its preference is enabled, which defaults off. Long escaped-tag front-matter regression test passes; full suite is 25/25 and Release build succeeds.
+- [x] Review the remaining custom-spec dependencies. Hoedown 3.0.7 and the native Objective-C `handlebars-objc` 1.4.5 have no published GitHub advisories found; JavaScript Handlebars CVEs do not apply to this implementation. `Pods/` is ignored (not committed); `Podfile.lock` tracks versions and podspec checksums. Accept the remote tag/spec trust for this personal build; revisit before distribution or if a concrete advisory appears.
 - [x] Accept plug-in loading as an intentional personal-use trust boundary: only `.plugin` bundles in the user Application Support `PlugIns` directory are loaded for the dedicated Plug-ins menu; no bundled plugins or automatic download/install path was found. The current user PlugIns directory is absent. Bundles placed there execute as the user.
 
 ## In progress
 - None.
 
 ## Next
-- [ ] Review remaining custom-spec dependencies (`hoedown` 3.0.7 and `handlebars-objc` 1.4.5) for applicable advisories and provenance; determine whether any change is warranted.
 - [ ] Decide whether the personal build needs sandboxing or Hardened Runtime; avoid distribution hardening unless required.
 
 ## Never
@@ -22,4 +22,4 @@
 - Do not commit to `master` or modify upstream history.
 
 ## Heartbeat
-- 2026-10-29T14:12:07Z run 1 phase PREP complete; LibYAML upgraded to 0.2.5; regression test 25/25; Release build passed; ready to commit.
+- 2026-10-29T14:18:07Z run 1 phase PREP complete; remaining dependency advisories/source ownership reviewed; accepted for personal use; ready to commit.
