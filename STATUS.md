@@ -15,6 +15,7 @@
 - [x] Re-audit item 3: after rewriting MathJax to its bundled file, allow only `file:` and `data:` WebView resources. Scheme-policy test and full suite pass (27/27), Release build succeeds, and a runtime WebView check confirmed returning `nil` prevents the HTTP request. Remote CSS imports are now blocked; the two IBM Plex styles that relied on one had their fonts embedded instead (see the item 3 follow-up below).
 - [x] Re-audit item 4: for clicked links, allow `http:`, `https:`, `mailto:`, and local file URLs; ignore other schemes and remote-host `file:` URLs. Link-policy regression test and full suite pass (28/28); Release build succeeds.
 - [x] Item 3 follow-up: the two IBM Plex styles no longer `@import` Google Fonts (blocked by the new resource filter). The needed faces — Sans 400/600, Sans italic 400, Mono 400/600 — are embedded in each sheet as latin-subset WOFF2 `data:` URLs (SIL OFL 1.1), so preview and export are correct offline with no font installed. Non-latin glyphs fall back to the system stack. Each sheet is now ~167 KB; the selector sets remain identical between Dracula and Alucard.
+- [x] Font compliance: IBM Plex is OFL 1.1, which requires the copyright notice and license to ship with every copy. Added `LICENSE/ibm-plex.txt` and an IBM Plex acknowledgement to `Credits.rtf` in all 14 locales (that file is what the **About MacDown** panel renders); `textutil` parses it and the installed bundle was verified. Also credited Courtney Bearse (LaptopHeaven) in Contributors. Suite 28/28, Release build passes.
 
 ## In progress
 - None.
@@ -33,3 +34,4 @@
 - 2026-10-29T15:20:00Z run 2: forked upstream to `LaptopHeaven/macdown`; `origin` now points at the fork and `arm64-native` is pushed and tracking it; `.serena/` remains untracked.
 - 2026-10-29T15:31:00Z run 3: refreshed the rewritten commit hashes in `ASSESSMENT.md` and embedded the IBM Plex faces in both styles; installing and re-verifying preview rendering next.
 - 2026-10-29T15:40:00Z run 3: every commit hash in `ASSESSMENT.md` now resolves (14/14). Release built and installed to `/Applications/MacDown.app` (signature verified, universal), user-level styles refreshed past the seed-once trap, and the preview was checked by hand with the Dracula sheet — headings, bold, italic, inline code and tables all render in IBM Plex with no network request.
+- 2026-10-29T15:52:00Z run 3: OFL compliance and credit added; Release rebuilt, reinstalled and the About panel checked by hand. `.serena/` remains untracked.

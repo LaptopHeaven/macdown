@@ -43,6 +43,8 @@ The following editor themes and CSS files are extracted from [Mou](http://mouapp
 * GitHub
 * GitHub2
 
+The Dracula (IBM Plex) and Alucard (IBM Plex) styles embed the IBM Plex fonts as latin-subset WOFF2 data, so the preview and export render consistently with no network access. IBM Plex is © 2017 IBM Corp. and licensed under the SIL Open Font License 1.1; the full text is in `LICENSE/ibm-plex.txt` and in the **About MacDown** panel.
+
 ## Development
 
 ### Requirements
