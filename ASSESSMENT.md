@@ -213,6 +213,43 @@ Verified by rendering a sample of MacDown's emitted markup in a browser with the
 The Dracula CSS only covers the preview/export pane. The **editor** (the `NSTextView`) is styled by `Resources/Themes/*.style`, and there is no Dracula theme, so a Dracula preview still sits next to a light editor. `Themes/*.style` is a small JSON file and would be a quick follow-up; the editor *font* is a separate preference and is not part of the theme.
 ---
 
+### 5.7 Installed to /Applications
+
+Replaced `/Applications/MacDown.app` (0.7.3, x86_64 only, unsigned) with this build (`0.0.1113` / build `1111.2`, universal, ad-hoc signed). Old copy backed up to:
+
+```
+~/Library/Application Support/macdown-ngx-backup/MacDown-0.7.3.app
+```
+
+Preferences carry over untouched — same bundle identifier (`com.uranusjr.macdown`).
+
+**The trap: styles and themes do not live in the app bundle at runtime.** `MPMainController -copyFiles` seeds them from the bundle into `~/Library/Application Support/MacDown/{Styles,Themes}/` on launch, and it **only copies files that are missing** — it never overwrites. So:
+
+- Replacing the `.app` does *not* refresh an existing style or theme.
+- Editing a shipped style in the repo has no effect until the user-level copy is deleted (it re-seeds on the next launch) or overwritten directly.
+
+This bit us already: the first launch seeded `Dracula (IBM Plex).css` before the TOC fix landed, so Application Support held a stale copy. It has been overwritten with the current version. All other user styles and themes were verified byte-identical to the 0.7.3 bundle, i.e. nothing was customised.
+
+Two zero-byte styles sit in the user directory and show up as blank entries in the Styles menu:
+
+| File | Origin |
+|---|---|
+| `GitHub-2017.css` | shipped empty by upstream 0.7.3 (Jan 2020) |
+| `GitHub-2020.css` | generated empty by this build (§5.2) — re-seeds itself if deleted |
+
+Only `GitHub-2017.css` can be removed for good, since it is no longer in the bundle. Fixing the other one means fixing the generator, not deleting the file.
+
+Rebuild-and-reinstall, for reference:
+
+```bash
+xcodebuild -workspace MacDown.xcworkspace -scheme MacDown \
+  -configuration Release -derivedDataPath ./build build
+osascript -e 'quit app "MacDown"'
+ditto build/Build/Products/Release/MacDown.app /Applications/MacDown.app
+```
+
+---
+
 ## 6. Rewrite assessment (Option B)
 
 ### 6.1 Codebase size
