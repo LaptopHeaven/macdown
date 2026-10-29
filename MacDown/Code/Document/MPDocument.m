@@ -156,7 +156,7 @@ NS_INLINE NSColor *MPGetWebViewBackgroundColor(WebView *webview)
 
 - (int)rendererFlags
 {
-    int flags = 0;
+    int flags = HOEDOWN_HTML_ESCAPE;
     if (self.htmlTaskList)
         flags |= HOEDOWN_HTML_USE_TASK_LIST;
     if (self.htmlLineNumbers)

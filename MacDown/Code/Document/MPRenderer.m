@@ -177,13 +177,8 @@ NS_INLINE NSString *MPGetHTML(
     });
     NSCAssert(f.length, @"Could not read template");
 
-    NSString *titleTag = @"";
-    if (title.length)
-        titleTag = [NSString stringWithFormat:@"<title>%@</title>", title];
-
     NSDictionary *context = @{
         @"title": title ? title : @"",
-        @"titleTag": titleTag ? titleTag : @"",
         @"styleTags": styleTags ? styleTags : @[],
         @"body": body ? body : @"",
         @"scriptTags": scriptTags ? scriptTags : @[],

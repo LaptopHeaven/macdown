@@ -1,0 +1,24 @@
+# Security remediation loop
+
+## Done
+- [x] Prevent authored HTML and hostile filenames from injecting executable markup into preview/export; HTML-renderer regression test and full suite pass (21/21). This also resolves the duplicate low-severity title-injection finding.
+
+## In progress
+- None.
+
+## Next
+- [ ] Recheck the MathJax CDN finding against the WebResourceLoadDelegate redirect; close if the bundled copy is always used.
+- [ ] Verify whether invoking `brew` by bare name can resolve to an attacker-controlled executable; fix if confirmed.
+- [ ] Restrict the MathJax JavaScript bridge to the minimum surface; verify whether `_callbacks` is exposed.
+- [ ] Secure and clean up the CLI's piped-stdin temporary file.
+- [ ] Review plug-in code loading as an intentional trust boundary; record whether any change is warranted.
+- [ ] Review dependency provenance and known vulnerability status for the checked-in Pods and custom CocoaPods specs.
+- [ ] Decide whether the personal build needs sandboxing or Hardened Runtime; avoid distribution hardening unless required.
+
+## Never
+- Do not modify `.serena/` (existing untracked user data).
+- Do not modify `/Applications/MacDown.app` or `~/Library/Application Support/MacDown` during this code-only remediation pass.
+- Do not commit to `master` or modify upstream history.
+
+## Heartbeat
+- 2026-10-29T13:41:06Z run 1 phase PREP complete; first issue verified; 21/21 tests pass; ready to commit.
