@@ -19,6 +19,7 @@ NSString *MPDataDirectory(NSString *relativePath);
 NSString *MPPathToDataFile(NSString *name, NSString *dirPath);
 BOOL MPDeletePipedContentTemporaryFile(NSURL *url);
 BOOL MPPreviewResourceURLIsAllowed(NSURL *url);
+BOOL MPPreviewLinkURLIsAllowed(NSURL *url);
 
 NSArray *MPListEntriesForDirectory(
     NSString *dirName, NSString *(^processor)(NSString *absolutePath)

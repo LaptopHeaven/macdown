@@ -75,6 +75,20 @@ BOOL MPPreviewResourceURLIsAllowed(NSURL *url)
     return [scheme isEqualToString:@"file"] || [scheme isEqualToString:@"data"];
 }
 
+BOOL MPPreviewLinkURLIsAllowed(NSURL *url)
+{
+    if (url.isFileURL)
+    {
+        NSString *host = url.host.lowercaseString;
+        return !host.length || [host isEqualToString:@"localhost"];
+    }
+
+    NSString *scheme = url.scheme.lowercaseString;
+    return [scheme isEqualToString:@"http"]
+        || [scheme isEqualToString:@"https"]
+        || [scheme isEqualToString:@"mailto"];
+}
+
 NSArray *MPListEntriesForDirectory(
     NSString *dirName, NSString *(^processor)(NSString *absolutePath))
 {

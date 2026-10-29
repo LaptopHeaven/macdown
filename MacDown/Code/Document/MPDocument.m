@@ -941,6 +941,11 @@ static void (^MPGetPreviewLoadingCompletionHandler(MPDocument *doc))()
     switch ([information[WebActionNavigationTypeKey] integerValue])
     {
         case WebNavigationTypeLinkClicked:
+            if (!MPPreviewLinkURLIsAllowed(request.URL))
+            {
+                [listener ignore];
+                return;
+            }
             // If the target is exactly as the current one, ignore.
             if ([self.currentBaseUrl isEqual:request.URL])
             {

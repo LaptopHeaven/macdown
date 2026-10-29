@@ -183,6 +183,28 @@
         [NSURL URLWithString:@"mailto:user@example.com"]));
 }
 
+- (void)testPreviewLinkPolicyAllowsWebMailAndLocalFileURLs
+{
+    XCTAssertTrue(MPPreviewLinkURLIsAllowed(
+        [NSURL fileURLWithPath:@"/tmp/local.md"]));
+    XCTAssertTrue(MPPreviewLinkURLIsAllowed(
+        [NSURL URLWithString:@"file://localhost/tmp/local.md"]));
+    XCTAssertFalse(MPPreviewLinkURLIsAllowed(
+        [NSURL URLWithString:@"file://example.com/tmp/remote.md"]));
+    XCTAssertTrue(MPPreviewLinkURLIsAllowed(
+        [NSURL URLWithString:@"http://example.com"]));
+    XCTAssertTrue(MPPreviewLinkURLIsAllowed(
+        [NSURL URLWithString:@"https://example.com"]));
+    XCTAssertTrue(MPPreviewLinkURLIsAllowed(
+        [NSURL URLWithString:@"mailto:user@example.com"]));
+    XCTAssertFalse(MPPreviewLinkURLIsAllowed(
+        [NSURL URLWithString:@"javascript:alert(1)"]));
+    XCTAssertFalse(MPPreviewLinkURLIsAllowed(
+        [NSURL URLWithString:@"data:text/plain,content"]));
+    XCTAssertFalse(MPPreviewLinkURLIsAllowed(
+        [NSURL URLWithString:@"ftp://example.com/file"]));
+}
+
 - (void)testFrontMatterHandlesLongEscapedTagURI
 {
     NSMutableString *tag = [NSMutableString stringWithString:@"tag:example.com,2024:"];

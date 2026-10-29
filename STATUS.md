@@ -13,9 +13,10 @@
 - [x] Re-audit item 1: default and initialize renderer HTML-escape flags before the first parse; regression test exercises the safe default (25/25) and Release build succeeds.
 - [x] Re-audit item 2: pin LibYAML to upstream fix commit `51843fe` and cap nesting at 1,000; a 1,100-level front-matter regression test rejects input safely. Full suite 26/26 and Release build pass. Pod installation now uses upstream `bootstrap`/Autotools, which are present on this personal build machine.
 - [x] Re-audit item 3: after rewriting MathJax to its bundled file, allow only `file:` and `data:` WebView resources. Scheme-policy test and full suite pass (27/27), Release build succeeds, and a runtime WebView check confirmed returning `nil` prevents the HTTP request. Remote CSS imports (including Google Fonts in bundled themes) are now blocked; local IBM Plex fonts are installed, but the visual fallback was not rechecked.
+- [x] Re-audit item 4: for clicked links, allow `http:`, `https:`, `mailto:`, and local file URLs; ignore other schemes and remote-host `file:` URLs. Link-policy regression test and full suite pass (28/28); Release build succeeds.
 
 ## In progress
-- [ ] Re-audit item 4: allow only http/https/mailto for non-file link clicks; preserve local file links.
+- None.
 
 ## Next
 - None.
@@ -26,4 +27,4 @@
 - Do not commit to `master` or modify upstream history.
 
 ## Heartbeat
-- 2026-10-29T15:11:39Z run 2: item 3 verified (27/27 tests, Release build, runtime cancellation confirmed) and ready to commit; item 4 now in progress; `.serena/` remains write-protected.
+- 2026-10-29T15:14:22Z run 2: item 4 verified (28/28 tests, Release build); re-audit queue complete; `.serena/` remains write-protected.
