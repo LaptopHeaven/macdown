@@ -22,4 +22,4 @@
 - Do not commit to `master` or modify upstream history.
 
 ## Heartbeat
-- 2026-10-29T14:19:23Z run 1 phase PREP complete; sandbox/Hardened Runtime deferred by approval; all audit items closed or accepted; ready to commit.
+- 2026-10-29T14:20:11Z run 1 complete; all audit items fixed or explicitly accepted/deferred; item commits recorded through dd108e5; `.serena/` left untouched.
