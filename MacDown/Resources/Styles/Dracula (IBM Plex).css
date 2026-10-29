@@ -224,7 +224,7 @@ html body pre[data-information]::before {
   font-family: var(--mono);
   font-size: 0.72em;
   line-height: 1.9;
-  color: var(--comment);
+  color: var(--fg);
   background: var(--line);
   border-radius: 0 7px 0 7px;
 }

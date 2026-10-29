@@ -1,0 +1,340 @@
+/*
+ * Alucard (IBM Plex) — the light counterpart to Dracula (IBM Plex).
+ *
+ * Palette: https://draculatheme.com — "Alucard Classic" tokens.
+ * Type:    IBM Plex — Sans for prose, Mono for code.
+ *
+ * Deliberately structured identically to Dracula (IBM Plex).css so the two can
+ * be diffed against each other when either changes.
+ *
+ * IBM Plex is pulled from Google Fonts so the preview looks right without a
+ * local install. A locally installed copy wins if the network is unavailable,
+ * because the family stack resolves against system fonts when no @font-face
+ * matches. Fully offline with no install, the Apple system stack takes over.
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
+
+:root {
+  --bg:        #fffbeb;
+  --bg-code:   #ece9df;
+  --line:      #ceccc0;
+  --fg:        #1f1f1f;
+  --comment:   #6c664b;
+  --cyan:      #036a96;
+  --green:     #14710a;
+  --orange:    #a34d14;
+  --pink:      #a3144d;
+  --purple:    #644ac9;
+  --red:       #cb3a2a;
+  --yellow:    #846e15;
+  --selection: #cfcfde;
+
+  --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+          Helvetica, Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+          monospace;
+}
+
+/* ---------------------------------------------------------------- base --- */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+}
+
+body {
+  color: var(--fg);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.7;
+  padding: 34px 40px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-wrap: break-word;
+}
+
+::selection {
+  background: var(--selection);
+}
+
+/* ------------------------------------------------------------ headings --- */
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--purple);
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 1.9em 0 0.7em;
+}
+
+h1 {
+  font-size: 2em;
+  color: var(--pink);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.3em;
+}
+
+h2 {
+  font-size: 1.55em;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.3em;
+}
+
+h3 { font-size: 1.3em; }
+h4 { font-size: 1.12em; }
+
+h5 {
+  font-size: 1em;
+  color: var(--comment);
+}
+
+h6 {
+  font-size: 0.85em;
+  color: var(--comment);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+body > h1:first-child,
+body > h2:first-child,
+body > h3:first-child,
+body > h4:first-child,
+body > h5:first-child,
+body > h6:first-child {
+  margin-top: 0;
+}
+
+/* ---------------------------------------------------------------- text --- */
+
+p {
+  margin: 0 0 1.2em;
+}
+
+strong {
+  color: var(--orange);
+  font-weight: 600;
+}
+
+em {
+  color: var(--yellow);
+}
+
+del {
+  color: var(--comment);
+}
+
+/* --------------------------------------------------------------- links --- */
+
+a {
+  color: var(--cyan);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--pink);
+  text-underline-offset: 2px;
+}
+
+/* --------------------------------------------------------------- lists --- */
+
+ul, ol {
+  margin: 0 0 1.2em;
+  padding-left: 1.6em;
+}
+
+li {
+  margin: 0.3em 0;
+}
+
+li > ul,
+li > ol {
+  margin: 0.3em 0 0.3em;
+}
+
+li.task-list-item {
+  list-style: none;
+}
+
+li.task-list-item > input[type="checkbox"] {
+  margin: 0 0.5em 0 0;
+  vertical-align: -0.05em;
+  accent-color: var(--purple);
+}
+
+/* ---------------------------------------------------------- blockquote --- */
+
+blockquote {
+  margin: 0 0 1.4em;
+  padding: 0.1em 1.2em;
+  border-left: 4px solid var(--purple);
+  border-radius: 0 6px 6px 0;
+  background: rgba(100, 74, 201, 0.06);
+  color: rgba(31, 31, 31, 0.85);
+}
+
+blockquote > :first-child { margin-top: 0; }
+blockquote > :last-child  { margin-bottom: 0; }
+
+/* ----------------------------------------------------------------- code --- */
+
+code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  color: var(--pink);
+  background: var(--line);
+  padding: 0.15em 0.42em;
+  border-radius: 4px;
+}
+
+pre {
+  position: relative;
+  margin: 0 0 1.5em;
+  padding: 1em 1.15em;
+  background: var(--bg-code);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: var(--mono);
+  line-height: 1.55;
+  tab-size: 4;
+}
+
+pre code {
+  display: block;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  color: var(--fg);
+  font-size: 0.9em;
+}
+
+/*
+ * The code-block language label. MacDown's own show-information.css targets
+ * pre[class*='language-'], but the language class lands on the inner <code>
+ * element, so that selector never matches and the label goes unstyled. This
+ * one does match, and its extra specificity keeps it winning if the extension
+ * stylesheet is loaded alongside.
+ */
+html body pre[data-information]::before {
+  content: attr(data-information);
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 0.6em;
+  font-family: var(--mono);
+  font-size: 0.72em;
+  line-height: 1.9;
+  color: var(--fg);
+  background: var(--line);
+  border-radius: 0 7px 0 7px;
+}
+
+/* --------------------------------------------------------------- tables --- */
+
+table {
+  width: 100%;
+  margin: 0 0 1.5em;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  font-variant-numeric: tabular-nums;
+}
+
+th,
+td {
+  padding: 0.6em 0.9em;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+
+th {
+  background: var(--line);
+  color: var(--fg);
+  font-weight: 600;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+tbody tr:nth-child(even) {
+  background: rgba(31, 31, 31, 0.02);
+}
+
+/* ---------------------------------------------------------------- misc --- */
+
+hr {
+  height: 1px;
+  margin: 2.2em 0;
+  border: 0;
+  background: var(--line);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+kbd {
+  font-family: var(--mono);
+  font-size: 0.85em;
+  color: var(--fg);
+  background: var(--line);
+  border: 1px solid rgba(31, 31, 31, 0.08);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  padding: 0.1em 0.45em;
+}
+
+/* ----------------------------------------------------------- table of contents --- */
+
+ul.toc {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul.toc ul {
+  list-style: none;
+  padding-left: 1.1em;
+}
+
+ul.toc li {
+  margin: 0.25em 0;
+}
+
+/* --------------------------------------------------------- scrollbars --- */
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border: 3px solid var(--bg);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--comment);
+}
+
+/* ---------------------------------------------------------------- print --- */
+
+@media print {
+  body {
+    margin: 2cm;
+    padding: 0;
+  }
+}
