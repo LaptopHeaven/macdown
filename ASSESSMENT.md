@@ -1,10 +1,12 @@
 # MacDown: arm64 patch vs. Swift/SwiftUI rewrite
 
-Assessment for `macdown-ngx`. Written 2026-10-22.
+Assessment for `macdown-ngx`. Written 2026-10-22, updated 2026-10-28.
 
 **Verdict: patch it now, decide on a rewrite later with evidence. The two are sequential, not competing.**
 
-> **Status: Option A is DONE and verified.** Branch `arm64-native`, commit `a073a4c`. The app now builds and runs natively on arm64. See §5.1 for results. Options A+ and B remain open.
+> **Status: Option A is DONE and verified, plus three follow-ups (2026-10-28).** Branch `arm64-native`:
+> `a073a4c` arm64 patch · `b214461` this doc · `054186c` deprecated APIs · `b071a1e` ad-hoc signing · `17873f5` Dracula style.
+> The app builds, runs natively on arm64, and has no non-WebKit deprecation warnings left. Options A+ and B remain open — see §5.3–§5.6 for what landed and §9 for what is still unknown.
 
 ---
 
@@ -137,9 +139,9 @@ Three changes:
 3. **Sparkle `~> 1.18` → `~> 1.24`** in the `Podfile`.
 
 Not addressed by this patch (still open):
-- Signing/notarization for distribution: the repo has no entitlements; PR #1377 adds `MacDown.entitlements`.
-- Deprecated API sites (~6 call sites, warnings only): `NSAutoPagination`, `NSFileHandlingPanelOKButton`, `NSOnState`, `colorUsingColorSpaceName:`, `unarchiveObjectWithFile:`, `insertText:`.
-- `WebView` → `WKWebView` (3 files) — see §6.2.
+- `WebView` → `WKWebView` (3 files). Every remaining deprecation warning is in this family — see §5.3.
+- Distribution signing. Ad-hoc signing now happens (§5.4), but Gatekeeper still rejects the app; shipping it needs a Developer ID certificate and notarization.
+- The editor pane still looks like 2014. The Dracula style added in §5.5 is a preview/export stylesheet only; the editor is styled by `Resources/Themes/*.style`, and no matching theme exists yet.
 
 ### 5.1 Result — applied and verified
 
@@ -147,7 +149,7 @@ Branch `arm64-native`, commit `a073a4c`. Deployment target set to **12.0** (not 
 
 | Check | Result |
 |---|---|
-| Release build | ✅ succeeds (only pre-existing deprecation warnings) |
+| Release build | ✅ succeeds, no errors |
 | App binary | ✅ `x86_64 arm64` |
 | `macdown` CLI | ✅ `x86_64 arm64` |
 | Embedded `Sparkle.framework` | ✅ `x86_64 arm64` |
@@ -173,6 +175,42 @@ Two side effects of running `pod install` with CocoaPods 1.16.2 (reproducible; r
 
 **Pre-existing, not arm64-related** — a fresh clone on x86_64 behaves identically, and PR #1352 accidentally committed a 0-byte copy of this file. `Tools/build_for_release.py` never installs the node deps either. Fix options: vendor the real CSS from a released `.app`, or make the recipe fail loudly (e.g. `set -o pipefail`) so the empty file never lands.
 
+### 5.3 Deprecated APIs — done
+
+Every non-WebKit deprecated API was replaced: **89 deprecation warnings → 0** in the Release build. The 62 that remain are all `WebView`/`DOM`/`Web*`. Commit `054186c`.
+
+Most were straight renames (`NSAutoPagination`, `NSFileHandlingPanelOKButton`, `NSOnState`, `NSDragPboard`, `colorUsingColorSpaceName:`, `base64Encoding`, `insertText:`, `stringByAddingPercentEscapesUsingEncoding:`). Four were real behaviour changes: save/export panels now use `allowedContentTypes` with `UTType`; file drops read `NSURL` objects via `readObjectsForClasses:`; `MPGetDataMap` uses `+unarchivedObjectOfClasses:fromData:error:`; and the CLI launches via `NSWorkspaceOpenConfiguration`.
+
+Two things were deliberately **not** migrated:
+
+- **`-disableFlushWindow` / `-enableFlushWindow` / `isFlushWindowDisabled`.** Apple's suggested replacement, `+[NSAnimationContext runAnimationGroup:]`, cannot express this pair — the calls straddle runloop turns (`didCommitLoad` … MathJax completion callback), so batching them would mean restructuring the preview reload path, which can't be verified without a GUI test. Behaviour is unchanged; the two call sites became one helper with the warning silenced and the reasoning recorded in the code.
+- **The WebView family.** Deprecated since 10.14 but still functional. Migrating to `WKWebView` touches `MPDocument.m`'s ~200 lines of delegate code, the MathJax CDN interception, plugin JS injection, and scroll sync. Still a separate, larger change.
+
+`MPGetDataMap` carried real risk: `data.map`/`treats.map` were archived with PyObjC's `OC_PythonString`. Tested standalone before committing — `$classhints` substitute `NSString`, and both maps decode identically under the secure API (verified with a throwaway harness, not assumed).
+
+### 5.4 Signing — done
+
+Ad-hoc, for the same reason the whole port was cheap. Commit `b071a1e`.
+
+**It was not required to run locally.** The arm64 linker already ad-hoc signs the executable, which is what Apple Silicon enforces, and the app launched through LaunchServices before the change. What was missing was a *sealed bundle*: with `CODE_SIGN_IDENTITY = ""`, `codesign --verify --deep --strict` said "code object is not signed at all" and `spctl` rejected it. That only bites once the `.app` is copied or zipped.
+
+Setting both configurations to `"-"` (Xcode's "Sign to Run Locally") fixes it — the signature now verifies. **It still does not satisfy Gatekeeper**: `spctl` will keep rejecting an ad-hoc signature, and distribution needs a Developer ID certificate plus notarization. That is a separate, opt-in step.
+
+### 5.5 A Dracula style — added
+
+`MacDown/Resources/Styles/Dracula (IBM Plex).css`. Commit `17873f5`.
+
+Dracula palette with IBM Plex Sans for prose and IBM Plex Mono for code. It shows up in the Styles menu with no project changes, because `Resources/Styles` is a folder reference. IBM Plex is fetched from Google Fonts so the preview is right without a local install, while the stack still resolves a locally installed copy offline.
+
+It styles the structures the renderer actually emits, taken from `hoedown_html_patch.c`: `<div><pre data-information="…"><code class="language-x">` blocks, `li.task-list-item`, `ul.toc`, and the standard hoedown set.
+
+It also fixes a small upstream bug: `show-information.css` styles the language label with `pre[class*='language-']`, but the language class lands on the inner `<code>`, so that selector never matches and the label goes unstyled. The new sheet targets `pre[data-information]` with enough specificity to win even when the extension stylesheet loads, so the info string now appears.
+
+Verified by rendering a sample of MacDown's emitted markup in a browser with the sheet inlined the way the app does it — palette, fonts, and the `::before` label all check out.
+
+### 5.6 No matching editor theme — open
+
+The Dracula CSS only covers the preview/export pane. The **editor** (the `NSTextView`) is styled by `Resources/Themes/*.style`, and there is no Dracula theme, so a Dracula preview still sits next to a light editor. `Themes/*.style` is a small JSON file and would be a quick follow-up; the editor *font* is a separate preference and is not part of the theme.
 ---
 
 ## 6. Rewrite assessment (Option B)
@@ -286,10 +324,15 @@ To reproduce the original crash, build at the untouched `master` revision and la
 ## 9. Open questions
 
 - [x] ~~Does a clean window launch after the toolbar guard?~~ **Yes — verified, §5.1.**
+- [x] ~~Deprecated APIs~~ **Done — §5.3.**
+- [x] ~~Do we need ad-hoc signing locally?~~ **No — but the bundle is now sealed anyway, §5.4.**
 - [ ] Does auto-update actually work with Sparkle 1.27.3 on arm64? (unverified: the framework now links and loads, but the update flow was never exercised)
 - [ ] `SUUpdater` in `MainMenu.xib` — now resolves on arm64 since Sparkle links. Confirm the delegate wiring fires.
 - [ ] Ship the real `GitHub-2020.css`, or drop the style (§5.2)
-- [ ] Do we sign/notarize for distribution, or keep this a local build?
+- [ ] Sign/notarize for distribution, or keep this a local build? (§5.4: ad-hoc now, but Gatekeeper still rejects)
+- [ ] Add the matching Dracula **editor theme**, or leave the editor light (§5.6)
+- [ ] `WebView` → `WKWebView` (§5.3) — the last deprecation, and a real project
+- [ ] Verify the modernised behaviours by hand: file drops into the editor, the save/export panels' file-type restrictions, and the CLI's launch path (§5.3)
 - [ ] Which features do we actually use? (drives the rewrite decision)
 - [ ] hoedown vs. cmark-gfm — the real rewrite schedule driver
 - [ ] Is iOS/iPadOS a goal? (a strong argument for B)
@@ -301,6 +344,9 @@ To reproduce the original crash, build at the untouched `master` revision and la
 
 - Sparkle's update flow was not exercised end-to-end — that needs a signed build and a live appcast.
 - The editor and preview were not manually exercised. Verification covered launch, window creation, arch, and the unit tests (20/20), not editing or rendering behaviour.
+- The Dracula stylesheet was verified by rendering a **reconstruction** of MacDown's markup in Chromium, built from the exact strings in `hoedown_html_patch.c` — not from the app's own renderer output. The structure should match, but it is not app-verified.
+- The four behaviour-changing deprecation fixes (file drops, save/export `UTType` filters, `NSWorkspaceOpenConfiguration` launch) compile and the app runs, but each specific interaction was not driven by hand.
+- `MPGetDataMap`'s secure unarchive **was** verified empirically against both bundled maps, with a throwaway harness rather than assumed.
 - `macdown-cmd` builds universal, but its runtime behaviour was not exercised: it writes file paths and piped content into MacDown's real user defaults, so running it would have side effects on the host.
 - TextKit 2 editor packages were assessed from their documentation, not hands-on.
 - Localization effort is estimated as "mechanical" only; it assumes the existing translations are accepted as-is.
