@@ -285,6 +285,34 @@ codesign --verify --deep --strict /Applications/MacDown.app   # always check
 
 ---
 
+### 5.9 Preference panes rewritten in SwiftUI
+
+All five panes are SwiftUI now: `d77dcb7` General, `a677b0c` Markdown, `2be843d` Rendering, `246d12b` Editor, `17ddd84` Terminal. This is the first half of the A+ option — the app keeps its `NSApplication`/`NSDocument` lifecycle and only the pane contents moved.
+
+The only ObjC left in `Code/Preferences` is `MPPreferences` and the shared `MPPreferencesViewController` base, which holds the notification constants and the `preferences` accessor.
+
+**Toolchain.** The target had no Swift at all: `SWIFT_VERSION`, a bridging header, `PRODUCT_MODULE_NAME`/`DEFINES_MODULE` for the generated `MacDown-Swift.h`. The MASPreferences protocol arrives through the bridging header, not `import MASPreferences` — that pod has no Swift-importable module.
+
+**State.** Values go through `MPPreferences`, not `@AppStorage`. PAPreferences does store them in `NSUserDefaults`, but routing through the object keeps every existing KVO and notification-driven refresh path identical. `PreferencesStore` sends `objectWillChange` by hand, since `MPPreferences` is a plain ObjC object.
+
+**Two traps, both silent.**
+
+1. `MASPreferencesViewController`'s `toolbarItemLabel` and `toolbarItemImage` are `@optional`. Omitting them — or the required `viewIdentifier` — compiles, links and launches, and then the Settings window never appears. No crash, nothing on stderr. Found by logging: `preferencesWindowController` was reached while `loadView` never was.
+
+2. The panes were initially given a frame copied from their nib, and the SwiftUI content wanted more height in every case — 11pt for General, 53pt for Rendering, which clipped. Panes are now sized from the hosting view's `fittingSize`. A consequence: pane width varies with language, since German labels are longer (Markdown is 350pt in English, 548pt in German). Nothing is truncated either way.
+
+**Localization was nearly lost.** The pane labels are translated into 18–21 languages, but through per-XIB `.strings` files keyed by **nib object ID** (`"2Uj-Sx-FjV.title"`), which only resolve while that XIB is loaded. Each entry's English source text is recorded in its `ibtool` comment, so the translations were recovered and re-keyed.
+
+Keys are namespaced (`pref.<pane>.<name>`) with the English as the `NSLocalizedString` fallback, and that is not cosmetic: keying on the English text collided with the toolbar's buttons in ten language/string pairs, and the forms differ — the Markdown pane's *Highlight* checkbox is German "Markierung" while the toolbar button is "Markiert", likewise "Durchgestrichen"/"Durchstreichen" and "Unterstrichen"/"Unterstreichen". One shared key would have silently picked one and broken the other.
+
+Namespacing is only for strings being introduced for the first time. `(Default)`, `Shell utility installed`, `Uninstall`, `<Not installed>` and the pane titles were already `NSLocalizedString` in ObjC, so they keep their existing keys and translations. `<binary location>` was dropped instead: it was a nib design-time placeholder never displayed at runtime.
+
+**Interop that could not be replaced with a SwiftUI view:** the system `NSFontPanel` (Editor), `NSPathControl` (Rendering), and `NSFontManager`-driven font selection. Each is bridged rather than faked.
+
+**Verification.** Builds, 20/20 tests pass, and all five panes open in German with zero bytes on stderr and no crash reports. Window titles translate (`Einstellungen`). A static check confirms every `pref.*` key referenced in Swift resolves to an entry in `Base.lproj/Localizable.strings` — 68 used, 68 defined, no leftovers — because a key typo is the realistic way this migration fails silently.
+
+**Not verified:** the interactions. Pickers, Reveal/Reload, the font panel, and Terminal's install/uninstall compile and render but were not driven by hand.
+
 ## 6. Rewrite assessment (Option B)
 
 ### 6.1 Codebase size
@@ -404,6 +432,8 @@ To reproduce the original crash, build at the untouched `master` revision and la
 - [ ] Ship the real `GitHub-2020.css`, or drop the style (§5.2)
 - [ ] Verify the modernised behaviours by hand: file drops into the editor, the save/export panels' file-type restrictions, and the CLI's launch path (§5.3)
 - [ ] Sign/notarize for distribution? Only if this stops being a personal build (§5.4)
+- [x] ~~SwiftUI settings?~~ **Done for all five panes — §5.9.**
+- [ ] Drive the new pane interactions by hand: pickers, Reveal/Reload, the font panel, Terminal install/uninstall (§5.9)
 - [ ] Which features do we actually use? (drives the rewrite decision)
 - [ ] hoedown vs. cmark-gfm — the real rewrite schedule driver
 - [ ] Is iOS/iPadOS a goal? (a strong argument for B)
@@ -420,4 +450,5 @@ To reproduce the original crash, build at the untouched `master` revision and la
 - `MPGetDataMap`'s secure unarchive **was** verified empirically against both bundled maps, with a throwaway harness rather than assumed.
 - `macdown-cmd` builds universal, but its runtime behaviour was not exercised: it writes file paths and piped content into MacDown's real user defaults, so running it would have side effects on the host.
 - TextKit 2 editor packages were assessed from their documentation, not hands-on.
+- The SwiftUI panes render and are content-sized, but no control was driven by hand; System Events will not descend into SwiftUI's accessibility tree here, so control-level checks were done statically or via runtime logs.
 - Localization effort is estimated as "mechanical" only; it assumes the existing translations are accepted as-is.
