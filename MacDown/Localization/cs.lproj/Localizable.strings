@@ -149,3 +149,19 @@
 "pref.general.ensureOpenDocumentOnLaunch" = "Otevřít dokumenty při spuštění";
 "pref.general.showWordCount" = "Zobrazit počet slov";
 "pref.general.syncScroll" = "Synchronizovat posuvníky editoru a náhledu";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.markdown.autolink" = "Automatické propojení";
+"pref.markdown.blockFormatting" = "Blokové formátování";
+"pref.markdown.documentFormatting" = "Formátování dokumentu";
+"pref.markdown.fencedCode" = "Zamknutý blok kódu";
+"pref.markdown.footnote" = "Zápatí";
+"pref.markdown.highlight" = "Zvýraznění";
+"pref.markdown.inlineFormatting" = "Řádkové formátování";
+"pref.markdown.intraWordEmphasis" = "Zvýraznění uprostřed slova";
+"pref.markdown.quote" = "Citovat";
+"pref.markdown.smartypants" = "Smartypants";
+"pref.markdown.strikethrough" = "Přeškrtnutí";
+"pref.markdown.superscript" = "Horní index";
+"pref.markdown.table" = "Tabulka";
+"pref.markdown.underline" = "Podtržení";

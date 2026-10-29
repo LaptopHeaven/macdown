@@ -7,3 +7,19 @@
 "pref.general.ensureOpenDocumentOnLaunch" = "Ensure open document on launch";
 "pref.general.showWordCount" = "Show word count";
 "pref.general.syncScroll" = "Sync preview scrollbar when editor scrolls";
+
+/* Markdown preference pane labels. */
+"pref.markdown.autolink" = "Autolink";
+"pref.markdown.blockFormatting" = "Block formatting";
+"pref.markdown.documentFormatting" = "Document formatting";
+"pref.markdown.fencedCode" = "Fenced code block";
+"pref.markdown.footnote" = "Footnote";
+"pref.markdown.highlight" = "Highlight";
+"pref.markdown.inlineFormatting" = "Inline formatting";
+"pref.markdown.intraWordEmphasis" = "Intra-word emphasis";
+"pref.markdown.quote" = "Quote";
+"pref.markdown.smartypants" = "Smartypants";
+"pref.markdown.strikethrough" = "Strikethrough";
+"pref.markdown.superscript" = "Superscript";
+"pref.markdown.table" = "Table";
+"pref.markdown.underline" = "Underline";

@@ -14,7 +14,6 @@
 #import "NSUserDefaults+Suite.h"
 #import "MPPreferences.h"
 #import "MacDown-Swift.h"
-#import "MPMarkdownPreferencesViewController.h"
 #import "MPEditorPreferencesViewController.h"
 #import "MPHtmlPreferencesViewController.h"
 #import "MPTerminalPreferencesViewController.h"

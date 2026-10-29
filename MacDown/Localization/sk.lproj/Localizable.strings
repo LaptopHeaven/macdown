@@ -97,3 +97,14 @@
 "pref.general.editorOnRight" = "Editor umiestniť na pravú stranu";
 "pref.general.showWordCount" = "Zobraziť počet slov";
 "pref.general.syncScroll" = "Synchronizovať posuvník ukážky pri rolovaní editora";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.markdown.blockFormatting" = "Formátovanie bloku";
+"pref.markdown.documentFormatting" = "Formátovanie dokumentu";
+"pref.markdown.footnote" = "Poznámka pod čiarou";
+"pref.markdown.highlight" = "Zvýrazniť";
+"pref.markdown.quote" = "Citát";
+"pref.markdown.strikethrough" = "Prečiarknuť";
+"pref.markdown.superscript" = "Horný index";
+"pref.markdown.table" = "Tabuľka";
+"pref.markdown.underline" = "Podčiarknuť";

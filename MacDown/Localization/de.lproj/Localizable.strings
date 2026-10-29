@@ -149,3 +149,19 @@
 "pref.general.ensureOpenDocumentOnLaunch" = "Bei Programmstart neues Dokument erstellen";
 "pref.general.showWordCount" = "Wortanzahl einblenden";
 "pref.general.syncScroll" = "Vorschau mit dem Editor scrollen";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.markdown.autolink" = "Automatische Links";
+"pref.markdown.blockFormatting" = "Block-Formatierung";
+"pref.markdown.documentFormatting" = "Dokumentformatierung";
+"pref.markdown.fencedCode" = "Abgetrennte (fenced) Code-Blöcke";
+"pref.markdown.footnote" = "Fußnote";
+"pref.markdown.highlight" = "Markierung";
+"pref.markdown.inlineFormatting" = "Inline-Formatierung";
+"pref.markdown.intraWordEmphasis" = "Hervorhebung innerhalb von Wörtern";
+"pref.markdown.quote" = "Zitat";
+"pref.markdown.smartypants" = "Intelligente Anführungszeichen";
+"pref.markdown.strikethrough" = "Durchgestrichen";
+"pref.markdown.superscript" = "Hochgestellt";
+"pref.markdown.table" = "Tabellen";
+"pref.markdown.underline" = "Unterstrichen";

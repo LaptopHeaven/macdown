@@ -146,3 +146,18 @@
 "pref.general.ensureOpenDocumentOnLaunch" = "啟動時永遠開啟文件";
 "pref.general.showWordCount" = "顯示字數統計";
 "pref.general.syncScroll" = "編輯器捲動時同步預覽捲軸";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.markdown.autolink" = "自動連結";
+"pref.markdown.blockFormatting" = "程式碼區塊格式";
+"pref.markdown.documentFormatting" = "文件格式";
+"pref.markdown.fencedCode" = "圍欄式程式碼區";
+"pref.markdown.footnote" = "註腳";
+"pref.markdown.highlight" = " 高亮";
+"pref.markdown.inlineFormatting" = "行內格式";
+"pref.markdown.quote" = "引言";
+"pref.markdown.smartypants" = "Smartypants";
+"pref.markdown.strikethrough" = "刪除線";
+"pref.markdown.superscript" = "上標";
+"pref.markdown.table" = "表格";
+"pref.markdown.underline" = "底線";

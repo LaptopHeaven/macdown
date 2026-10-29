@@ -149,3 +149,19 @@
 "pref.general.ensureOpenDocumentOnLaunch" = "Sikre at et dokument er åpent ved oppstart";
 "pref.general.showWordCount" = "Vis antall ord";
 "pref.general.syncScroll" = "Synkroniser forhåndsvisningas rulling med redigeringsvinduet";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.markdown.autolink" = "Autolenking";
+"pref.markdown.blockFormatting" = "Blokkformatering";
+"pref.markdown.documentFormatting" = "Dokumentformatering";
+"pref.markdown.fencedCode" = "Inngjerda kodeblokk";
+"pref.markdown.footnote" = "Fotnote";
+"pref.markdown.highlight" = "Merka tekst";
+"pref.markdown.inlineFormatting" = "Inline-formatering";
+"pref.markdown.intraWordEmphasis" = "Utheva tekst inne i ord";
+"pref.markdown.quote" = "Sitat";
+"pref.markdown.smartypants" = "Smartypants";
+"pref.markdown.strikethrough" = "Gjennomstrek";
+"pref.markdown.superscript" = "Heva skrift";
+"pref.markdown.table" = "Tabell";
+"pref.markdown.underline" = "Understrek";

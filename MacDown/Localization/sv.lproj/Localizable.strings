@@ -44,3 +44,15 @@
 "pref.general.ensureOpenDocumentOnLaunch" = "Öppna dokument vid start";
 "pref.general.showWordCount" = "Visa antal ord";
 "pref.general.syncScroll" = "Synkronisera förhandsvisnings-scrollning med regierings-vyn's scrollning";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.markdown.blockFormatting" = "Block-formattering";
+"pref.markdown.documentFormatting" = "Dokument-formattering";
+"pref.markdown.footnote" = "Fotnot";
+"pref.markdown.inlineFormatting" = "Inline-formattering";
+"pref.markdown.quote" = "Citat";
+"pref.markdown.smartypants" = "Smartypants";
+"pref.markdown.strikethrough" = "Genomstrykning";
+"pref.markdown.superscript" = "Superscript";
+"pref.markdown.table" = "Tabell";
+"pref.markdown.underline" = "Understrykning";

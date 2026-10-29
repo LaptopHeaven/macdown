@@ -69,3 +69,12 @@
 "pref.general.editorOnRight" = "Hafa ritilinn hægra megin";
 "pref.general.ensureOpenDocumentOnLaunch" = "Tryggja að skrá sé opin við ræsingu";
 "pref.general.showWordCount" = "Sýna orðafjölda";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.markdown.documentFormatting" = "Snið skjals";
+"pref.markdown.highlight" = "Merkja";
+"pref.markdown.quote" = "Tilvitnun";
+"pref.markdown.strikethrough" = "Yfirstrikað";
+"pref.markdown.superscript" = "Neðanmálsgrein";
+"pref.markdown.table" = "Tafla";
+"pref.markdown.underline" = "Undirstrikað";

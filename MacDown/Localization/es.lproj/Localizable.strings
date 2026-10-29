@@ -149,3 +149,19 @@
 "pref.general.ensureOpenDocumentOnLaunch" = "Asegurar un documento abierto al iniciar";
 "pref.general.showWordCount" = "Mostrar el recuento de palabras";
 "pref.general.syncScroll" = "Sincronizar la barra de desplazamiento de la vista previa al desplazar el editor";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.markdown.autolink" = "Autoenlace";
+"pref.markdown.blockFormatting" = "Formato de bloque";
+"pref.markdown.documentFormatting" = "Formato del documento";
+"pref.markdown.fencedCode" = "Bloque de código cercado";
+"pref.markdown.footnote" = "Nota al pie";
+"pref.markdown.highlight" = "Destacar";
+"pref.markdown.inlineFormatting" = "Formato en línea";
+"pref.markdown.intraWordEmphasis" = "Énfasis intra-palabra";
+"pref.markdown.quote" = "Cita";
+"pref.markdown.smartypants" = "Smartypants";
+"pref.markdown.strikethrough" = "Tachado";
+"pref.markdown.superscript" = "Superíndice";
+"pref.markdown.table" = "Tabla";
+"pref.markdown.underline" = "Subrayado";

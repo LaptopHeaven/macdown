@@ -149,3 +149,19 @@
 "pref.general.ensureOpenDocumentOnLaunch" = "保证启动时有打开的文档";
 "pref.general.showWordCount" = "显示字词统计";
 "pref.general.syncScroll" = "预览窗口同步滚动";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.markdown.autolink" = "自动链接";
+"pref.markdown.blockFormatting" = "代码块格式";
+"pref.markdown.documentFormatting" = "文档格式";
+"pref.markdown.fencedCode" = "围栏式代码块";
+"pref.markdown.footnote" = "脚注";
+"pref.markdown.highlight" = "高亮";
+"pref.markdown.inlineFormatting" = "行内格式";
+"pref.markdown.intraWordEmphasis" = "单词内强调";
+"pref.markdown.quote" = "引用";
+"pref.markdown.smartypants" = "Smartypants";
+"pref.markdown.strikethrough" = "删除线";
+"pref.markdown.superscript" = "上标";
+"pref.markdown.table" = "表格";
+"pref.markdown.underline" = "下划线";

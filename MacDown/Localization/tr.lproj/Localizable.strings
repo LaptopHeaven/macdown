@@ -69,3 +69,12 @@
 "pref.general.editorOnRight" = "Editörü sağa yerleştir";
 "pref.general.showWordCount" = "Kelime sayısını göster";
 "pref.general.syncScroll" = "Editör kaydırıldığında önizlemeyi de kaydır";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.markdown.documentFormatting" = "Döküman biçimlendirmesi";
+"pref.markdown.footnote" = "Dipnot";
+"pref.markdown.intraWordEmphasis" = "Kelime içi vurgu";
+"pref.markdown.quote" = "Alıntı";
+"pref.markdown.strikethrough" = "Üstü çizili";
+"pref.markdown.table" = "Tablo";
+"pref.markdown.underline" = "Altı çizili";

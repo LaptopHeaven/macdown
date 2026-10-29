@@ -149,3 +149,19 @@
 "pref.general.ensureOpenDocumentOnLaunch" = "Åbn MacDown med tomt dokument";
 "pref.general.showWordCount" = "Vis ordantal";
 "pref.general.syncScroll" = "Synkroniser preview- og editor rulleskakter";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.markdown.autolink" = "Autolink";
+"pref.markdown.blockFormatting" = "Blokformattering";
+"pref.markdown.documentFormatting" = "Dokumentformatering";
+"pref.markdown.fencedCode" = "Afgrænset kodeblok";
+"pref.markdown.footnote" = "Fodnote";
+"pref.markdown.highlight" = "Fremhæv";
+"pref.markdown.inlineFormatting" = "Inline formatering";
+"pref.markdown.intraWordEmphasis" = "Intra-ord fremhævelse";
+"pref.markdown.quote" = "Citat";
+"pref.markdown.smartypants" = "Smartypants";
+"pref.markdown.strikethrough" = "Gennemstreg";
+"pref.markdown.superscript" = "Hævet skrift";
+"pref.markdown.table" = "Tabel";
+"pref.markdown.underline" = "Understreg";

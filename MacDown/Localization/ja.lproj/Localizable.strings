@@ -149,3 +149,19 @@
 "pref.general.ensureOpenDocumentOnLaunch" = "起動時に必ずドキュメントを開く";
 "pref.general.showWordCount" = "単語数を表示";
 "pref.general.syncScroll" = "エディタと連動してプレビューもスクロール";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.markdown.autolink" = "自動リンク";
+"pref.markdown.blockFormatting" = "ブロックフォーマット";
+"pref.markdown.documentFormatting" = "ドキュメントフォーマット";
+"pref.markdown.fencedCode" = "別行立てコードブロック";
+"pref.markdown.footnote" = "脚注";
+"pref.markdown.highlight" = "ハイライト";
+"pref.markdown.inlineFormatting" = "インラインフォーマット";
+"pref.markdown.intraWordEmphasis" = "単語内強調";
+"pref.markdown.quote" = "引用";
+"pref.markdown.smartypants" = "Smartypants";
+"pref.markdown.strikethrough" = "打ち消し線";
+"pref.markdown.superscript" = "上付き文字";
+"pref.markdown.table" = "表組み";
+"pref.markdown.underline" = "下線";

@@ -116,3 +116,15 @@
 "pref.general.behavior" = "Käitumine";
 "pref.general.editorOnRight" = "Pane redaktor paremale";
 "pref.general.showWordCount" = "Näita sõnade arvu";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.markdown.autolink" = "Automaatne linkimine";
+"pref.markdown.documentFormatting" = "Dokumendi vormindamine";
+"pref.markdown.footnote" = "Allmärkus";
+"pref.markdown.highlight" = "Esiletõstmine";
+"pref.markdown.intraWordEmphasis" = "Sõnasisene rõhk";
+"pref.markdown.quote" = "Tsitaat";
+"pref.markdown.strikethrough" = "Läbijoonitud";
+"pref.markdown.superscript" = "Ülaindeks";
+"pref.markdown.table" = "Tabel";
+"pref.markdown.underline" = "Alljoonitud";

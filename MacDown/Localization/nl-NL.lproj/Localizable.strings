@@ -149,3 +149,19 @@
 "pref.general.ensureOpenDocumentOnLaunch" = "Open document bij opstarten";
 "pref.general.showWordCount" = "Toon woordtelling";
 "pref.general.syncScroll" = "Sychroniseer voorbeeldscrollbalk tijdens scrollen";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.markdown.autolink" = "Link automatisch";
+"pref.markdown.blockFormatting" = "Blokopmaak";
+"pref.markdown.documentFormatting" = "Documentopmaak";
+"pref.markdown.fencedCode" = "Afgesloten codeblok";
+"pref.markdown.footnote" = "Voetnoot";
+"pref.markdown.highlight" = "Markeer";
+"pref.markdown.inlineFormatting" = "Regelopmaak";
+"pref.markdown.intraWordEmphasis" = "Benadruk woorden";
+"pref.markdown.quote" = "Citaat";
+"pref.markdown.smartypants" = "Slimmerik";
+"pref.markdown.strikethrough" = "Haal door";
+"pref.markdown.superscript" = "Superscript";
+"pref.markdown.table" = "Tabel";
+"pref.markdown.underline" = "Onderstreep";
