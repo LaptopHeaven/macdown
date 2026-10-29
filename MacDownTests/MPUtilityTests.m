@@ -9,6 +9,13 @@
 #import <XCTest/XCTest.h>
 #import "MPUtilities.h"
 #import "MPHomebrewSubprocessController.h"
+#import "MPMathJaxListener.h"
+
+
+@interface MPMathJaxListener (WebScriptingTest)
++ (BOOL)isSelectorExcludedFromWebScript:(SEL)selector;
++ (BOOL)isKeyExcludedFromWebScript:(const char *)name;
+@end
 
 
 @interface MPHomebrewSubprocessController (MPUtilityTestAccess)
@@ -72,6 +79,22 @@
         [completed fulfill];
     }];
     [self waitForExpectationsWithTimeout:10 handler:nil];
+}
+
+- (void)testMathJaxBridgeExposesOnlyItsCompletionCallback
+{
+    XCTAssertTrue([MPMathJaxListener isKeyExcludedFromWebScript:"_callbacks"]);
+    XCTAssertTrue([MPMathJaxListener isKeyExcludedFromWebScript:"callbacks"]);
+    XCTAssertFalse([MPMathJaxListener isSelectorExcludedFromWebScript:
+        @selector(invokeCallbackForKey:)]);
+    XCTAssertTrue([MPMathJaxListener isSelectorExcludedFromWebScript:
+        @selector(addCallback:forKey:)]);
+
+    MPMathJaxListener *listener = [[MPMathJaxListener alloc] init];
+    __block BOOL invoked = NO;
+    [listener addCallback:^{ invoked = YES; } forKey:@"End"];
+    [listener invokeCallbackForKey:@"End"];
+    XCTAssertTrue(invoked);
 }
 
 @end

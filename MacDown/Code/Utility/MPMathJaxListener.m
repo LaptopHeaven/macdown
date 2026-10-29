@@ -48,8 +48,6 @@
 
 + (BOOL)isKeyExcludedFromWebScript:(const char *)name
 {
-    if (strncmp(name, "_callbacks", 10) == 0)
-        return NO;
     return YES;
 }
 
