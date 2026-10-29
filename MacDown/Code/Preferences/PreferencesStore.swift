@@ -19,8 +19,30 @@ final class PreferencesStore: ObservableObject {
 
     let prefs: MPPreferences
 
+    private var changeObserver: NSObjectProtocol?
+
     init(_ prefs: MPPreferences) {
         self.prefs = prefs
+
+        // PAPreferences posts this from every generated setter, and only for real
+        // preference writes. NSUserDefaultsDidChangeNotification would also fire
+        // for window frames and split-view state, which is a lot of pointless
+        // SwiftUI invalidation. Without this, a preference written from outside
+        // the pane — MPDocument clears editorStyleName when a theme goes missing —
+        // would leave an open pane showing a stale value.
+        changeObserver = NotificationCenter.default.addObserver(
+            forName: .PAPreferencesDidChange,
+            object: prefs,
+            queue: .main
+        ) { [weak self] _ in
+            self?.objectWillChange.send()
+        }
+    }
+
+    deinit {
+        if let changeObserver = changeObserver {
+            NotificationCenter.default.removeObserver(changeObserver)
+        }
     }
 
     /// Two-way binding to an `MPPreferences` property.

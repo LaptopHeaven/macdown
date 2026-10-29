@@ -22,6 +22,8 @@ final class MPGeneralPreferencesViewController: PreferencesPaneController {
         NSLocalizedString("General", comment: "Preference pane title.")
     }
 
+    override var paneWidth: CGFloat { 353 }
+
     override func content(store: PreferencesStore) -> AnyView {
         AnyView(GeneralSettingsView(store: store))
     }

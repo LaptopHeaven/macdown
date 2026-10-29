@@ -20,6 +20,8 @@ final class MPMarkdownPreferencesViewController: PreferencesPaneController {
         NSLocalizedString("Markdown", comment: "Preference pane title.")
     }
 
+    override var paneWidth: CGFloat { 400 }
+
     override func content(store: PreferencesStore) -> AnyView {
         AnyView(MarkdownSettingsView(store: store))
     }

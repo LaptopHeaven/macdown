@@ -20,6 +20,8 @@ final class MPTerminalPreferencesViewController: PreferencesPaneController {
         NSLocalizedString("Terminal", comment: "Preference pane title.")
     }
 
+    override var paneWidth: CGFloat { 360 }
+
     override func content(store: PreferencesStore) -> AnyView {
         AnyView(TerminalSettingsView(store: store))
     }

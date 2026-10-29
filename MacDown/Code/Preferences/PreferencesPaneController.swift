@@ -31,6 +31,12 @@ class PreferencesPaneController: MPPreferencesViewController, MASPreferencesView
 
     var toolbarItemLabel: String? { nil }
 
+    /// The pane's width. Fixed per pane, at the value its nib declared, so that a
+    /// longer translation makes the pane taller rather than wider — otherwise the
+    /// window resizes when the UI language changes. Height stays content-driven,
+    /// so nothing is clipped.
+    var paneWidth: CGFloat { 400 }
+
     lazy var store: PreferencesStore = PreferencesStore(preferences)
 
     /// The pane's content. Subclasses must override.
@@ -39,14 +45,12 @@ class PreferencesPaneController: MPPreferencesViewController, MASPreferencesView
     }
 
     override func loadView() {
-        let host = NSHostingView(rootView: content(store: store))
-
-        // Size the pane to its content rather than to a number copied from the
-        // nib. MASPreferences sizes the window from `controller.view.bounds` with
-        // height sizing disabled, so whatever frame is set here *is* the pane —
-        // and a hardcoded frame silently clips content that needs more room.
-        // Measured against the nib sizes, the SwiftUI content wanted more height
-        // in every pane, and 53pt more in Rendering.
+        // The width is applied in SwiftUI, not to the hosting view's frame, so
+        // that `fittingSize` reports the height the content needs *at that width*
+        // — including any label wrapping. Setting a narrow AppKit frame instead
+        // would wrap the content without the measured height growing to match,
+        // and the bottom would clip.
+        let host = NSHostingView(rootView: content(store: store).frame(width: paneWidth))
         host.layoutSubtreeIfNeeded()
         host.frame = NSRect(origin: .zero, size: host.fittingSize)
         view = host

@@ -21,6 +21,8 @@ final class MPHtmlPreferencesViewController: PreferencesPaneController {
         NSLocalizedString("Rendering", comment: "Preference pane title.")
     }
 
+    override var paneWidth: CGFloat { 405 }
+
     override func content(store: PreferencesStore) -> AnyView {
         AnyView(RenderingSettingsView(store: store))
     }

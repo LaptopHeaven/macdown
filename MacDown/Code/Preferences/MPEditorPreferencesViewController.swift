@@ -20,6 +20,8 @@ final class MPEditorPreferencesViewController: PreferencesPaneController {
         NSLocalizedString("Editor", comment: "Preference pane title.")
     }
 
+    override var paneWidth: CGFloat { 482 }
+
     override func content(store: PreferencesStore) -> AnyView {
         AnyView(EditorSettingsView(store: store))
     }
