@@ -1,4 +1,4 @@
-platform :osx, "10.8"
+platform :osx, "12.0"
 
 source 'https://github.com/MacDownApp/cocoapods-specs.git'  # Patched libraries.
 source 'https://cdn.cocoapods.org/'
@@ -14,7 +14,7 @@ target "MacDown" do
   pod 'LibYAML', '~> 0.1'
   pod 'M13OrderedDictionary', '~> 1.1'
   pod 'MASPreferences', '~> 1.3'
-  pod 'Sparkle', '~> 1.18', :inhibit_warnings => false
+  pod 'Sparkle', '~> 1.24', :inhibit_warnings => false
 
   # Locked on 0.4.x until we drop 10.8.
   pod 'PAPreferences', '~> 0.4'
@@ -26,4 +26,14 @@ end
 
 target "macdown-cmd" do
   pod 'GBCli', '~> 1.1'
+end
+
+# Keep the generated Pods project on the same deployment target as the app
+# project; Xcode 14+ dropped support for pre-12.0 targets.
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['MACOSX_DEPLOYMENT_TARGET'] = '12.0'
+    end
+  end
 end

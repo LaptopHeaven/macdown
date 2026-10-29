@@ -132,9 +132,14 @@ static CGFloat itemWidth = 37;
     // Mixed identifiers from dictionary and space at below specified indices
     NSMutableArray *defaultItemIdentifiers = [NSMutableArray new];
     
-    // Add space after the specified toolbar item indices
+    // Add space after the specified toolbar item indices. The loop counters can
+    // run past the end of these arrays, so every access is bounds-checked; the
+    // unchecked read was benign on x86_64 but fatal under the arm64 optimizer.
     int spaceAfterIndices[] = {}; // No space in the default set
+    const int spaceAfterIndicesCount = 0;
     int flexibleSpaceAfterIndices[] = {2, 3, 5, 7, 11};
+    const int flexibleSpaceAfterIndicesCount =
+        (int)(sizeof(flexibleSpaceAfterIndices) / sizeof(flexibleSpaceAfterIndices[0]));
     int i = 0;
     int j = 0;
     int k = 0;
@@ -150,13 +155,13 @@ static CGFloat itemWidth = 37;
             [defaultItemIdentifiers addObject:itemIdentifier];
         }
         
-        if (i == spaceAfterIndices[j])
+        if (j < spaceAfterIndicesCount && i == spaceAfterIndices[j])
         {
             [defaultItemIdentifiers addObject:NSToolbarSpaceItemIdentifier];
             j++;
         }
         
-        if (i == flexibleSpaceAfterIndices[k])
+        if (k < flexibleSpaceAfterIndicesCount && i == flexibleSpaceAfterIndices[k])
         {
             [defaultItemIdentifiers addObject:NSToolbarFlexibleSpaceItemIdentifier];
             k++;
