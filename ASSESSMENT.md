@@ -173,7 +173,9 @@ Two side effects of running `pod install` with CocoaPods 1.16.2 (reproducible; r
 
 `MPHtmlPreferencesViewController -loadStylesheets` enumerates the Styles directory, so the app presents a blank "GitHub 2020" style entry.
 
-**Pre-existing, not arm64-related** — a fresh clone on x86_64 behaves identically, and PR #1352 accidentally committed a 0-byte copy of this file. `Tools/build_for_release.py` never installs the node deps either. Fix options: vendor the real CSS from a released `.app`, or make the recipe fail loudly (e.g. `set -o pipefail`) so the empty file never lands.
+**Pre-existing, not arm64-related** — a fresh clone on x86_64 behaves identically, and PR #1352 accidentally committed a 0-byte copy of this file. `Tools/build_for_release.py` never installs the node deps either.
+
+**Resolved — the style was dropped (§5.10).** The "vendor the real CSS from a release" option turned out not to exist: the official `0.8.0d71` `.app` ships `GitHub-2020.css` at **0 bytes** as well, so the generator has never produced a working stylesheet in any shipped build, including the maintainer's.
 
 ### 5.3 Deprecated APIs — done
 
@@ -313,6 +315,20 @@ Namespacing is only for strings being introduced for the first time. `(Default)`
 
 **Not verified:** the interactions. Pickers, Reveal/Reload, the font panel, and Terminal's install/uninstall compile and render but were not driven by hand.
 
+### 5.10 Three follow-ups — live updates, blank styles, pane width
+
+Commit `1219b1e`.
+
+**Live preference updates.** A real regression from the nib migration: the panes only notified on their own writes, so a preference changed elsewhere left an open pane stale — `MPDocument.m` clears `editorStyleName` when a theme cannot be loaded. The nibs' Cocoa bindings were KVO-based and did update live. `PreferencesStore` now observes `PAPreferencesDidChangeNotification` on the `MPPreferences` instance and forwards it to `objectWillChange`.
+
+That notification is the right signal rather than `NSUserDefaultsDidChangeNotification`: PAPreferences' generated setters post it, and only for real preference writes, whereas the defaults notification also fires for window frames and split-view state. It does not cover an external `defaults write`, but neither did the nib bindings — this restores parity rather than exceeding it. Verified at runtime with a temporary log, since the wiring is the whole point: the observer fired on an in-process preference write.
+
+**Blank style entries.** `GitHub-2020.css`, the `Tools/GitHub-style-generator` build phase and its directory are gone, along with the `.gitignore` entry and both blank entries in the Styles menu (`GitHub-2017.css` was the other, shipped empty by 0.7.3).
+
+**Stable pane width.** Panes were sized entirely from content, so the window resized when the UI language changed — Markdown was 350pt in English and 548pt in German. Width is now a per-pane constant from the nib (353/400/482/405/360) with the height still content-driven, so a longer translation makes a pane taller rather than wider. Widths are now identical in both languages while heights adapt (Markdown 307 → 320, Editor 488 → 510).
+
+One subtlety worth keeping: the width is applied with SwiftUI's `.frame(width:)` rather than to the hosting view's frame. `fittingSize` then reports the height the content needs *at that width*, including any label wrapping. Setting a narrow AppKit frame instead would wrap the content without the measured height growing to match, and the bottom would clip.
+
 ## 6. Rewrite assessment (Option B)
 
 ### 6.1 Codebase size
@@ -429,10 +445,12 @@ To reproduce the original crash, build at the untouched `master` revision and la
 - [x] ~~Add matching editor themes?~~ **Done — §5.6.**
 - [x] ~~Sparkle: migrate to 2.x, or leave it?~~ **Neither — removed, §5.7.**
 - [ ] `WebView` → `WKWebView` (§5.3) — the last deprecation, and the only remaining item with a technical forcing function
-- [ ] Ship the real `GitHub-2020.css`, or drop the style (§5.2)
+- [x] ~~Ship the real `GitHub-2020.css`, or drop the style?~~ **Dropped — the release ships it empty too, §5.10.**
 - [ ] Verify the modernised behaviours by hand: file drops into the editor, the save/export panels' file-type restrictions, and the CLI's launch path (§5.3)
 - [ ] Sign/notarize for distribution? Only if this stops being a personal build (§5.4)
 - [x] ~~SwiftUI settings?~~ **Done for all five panes — §5.9.**
+- [x] ~~Panes don't refresh on external preference changes?~~ **Fixed — §5.10.**
+- [x] ~~Pane width varies by language?~~ **Fixed — §5.10.**
 - [ ] Drive the new pane interactions by hand: pickers, Reveal/Reload, the font panel, Terminal install/uninstall (§5.9)
 - [ ] Which features do we actually use? (drives the rewrite decision)
 - [ ] hoedown vs. cmark-gfm — the real rewrite schedule driver
