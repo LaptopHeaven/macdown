@@ -11,6 +11,7 @@
 #import "MPGlobals.h"
 #import "MPHomebrewSubprocessController.h"
 #import "MPMathJaxListener.h"
+#import "NSString+Lookup.h"
 #import <stdlib.h>
 #import <string.h>
 #import <sys/stat.h>
@@ -164,6 +165,20 @@
     XCTAssertFalse(MPDeletePipedContentTemporaryFile(
         [NSURL fileURLWithPath:@"/private/etc/passwd"]));
     free(validPath);
+}
+
+- (void)testFrontMatterHandlesLongEscapedTagURI
+{
+    NSMutableString *tag = [NSMutableString stringWithString:@"tag:example.com,2024:"];
+    for (NSUInteger i = 0; i < 256; i++)
+        [tag appendString:@"%C3%A9"];
+    NSString *markdown = [NSString stringWithFormat:
+        @"---\nvalue: !<%@> safe\n---\nbody", tag];
+
+    NSUInteger contentOffset = 0;
+    NSDictionary *frontMatter = [markdown frontMatter:&contentOffset];
+    XCTAssertGreaterThan(contentOffset, 0);
+    XCTAssertEqualObjects(frontMatter[@"value"], @"safe");
 }
 
 @end
