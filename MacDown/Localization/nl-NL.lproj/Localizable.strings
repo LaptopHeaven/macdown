@@ -207,3 +207,10 @@
 "pref.editor.textInsets" = "Tekstinvoegingen:";
 "pref.editor.theme" = "Thema:";
 "pref.editor.times" = "×";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.terminal.indicator" = "●";
+"pref.terminal.info" = "Door shell-ondersteuning te activeren, kun je het macdown-hulpmiddel gebruiken om MacDown en documenten te openen vanuit een shell.";
+"pref.terminal.install" = "Installeer";
+"pref.terminal.location" = "Locatie:";
+"pref.terminal.notInstalled" = "Shell-ondersteuning is niet geïnstalleerd";

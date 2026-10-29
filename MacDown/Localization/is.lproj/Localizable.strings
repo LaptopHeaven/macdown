@@ -99,3 +99,9 @@
 "pref.editor.marker.plus" = "+ (Plús merkið)";
 "pref.editor.theme" = "Þema:";
 "pref.editor.times" = "×";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.terminal.indicator" = "●";
+"pref.terminal.install" = "Setja upp";
+"pref.terminal.location" = "Staðsetning:";
+"pref.terminal.notInstalled" = "Stuðningur fyrir skel er ekki uppsett";

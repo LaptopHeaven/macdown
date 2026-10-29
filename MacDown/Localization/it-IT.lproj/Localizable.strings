@@ -172,3 +172,8 @@
 "pref.editor.textInsets" = "Box di Testo:";
 "pref.editor.theme" = "Tema:";
 "pref.editor.times" = "x";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.terminal.info" = "Attivando il supporto della shell potrai usare l'utility macdown per aprire documenti di MacDown direttamente dalla shell.";
+"pref.terminal.install" = "Installa";
+"pref.terminal.notInstalled" = "Supporto alla shell non installato";

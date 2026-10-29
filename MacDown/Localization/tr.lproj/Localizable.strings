@@ -106,3 +106,8 @@
 "pref.editor.smartHome" = "⌘← satırdaki ilk boşluk harici karaktere atlar";
 "pref.editor.theme" = "Tema:";
 "pref.editor.times" = "×";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.terminal.indicator" = "●";
+"pref.terminal.install" = "Yükle";
+"pref.terminal.location" = "Konum:";

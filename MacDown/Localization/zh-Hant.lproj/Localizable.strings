@@ -196,3 +196,9 @@
 "pref.editor.smartHome" = "⌘← 跳至行內第一個非空白字元";
 "pref.editor.theme" = "主題：";
 "pref.editor.times" = "×";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.terminal.info" = "啟用 Shell 工具後即可在 Shell 中使用 MacDown 工具打開 MacDown 和文件。";
+"pref.terminal.install" = "安裝";
+"pref.terminal.location" = "位置：";
+"pref.terminal.notInstalled" = "未安裝 Shell 插件";

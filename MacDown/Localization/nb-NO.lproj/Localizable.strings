@@ -207,3 +207,10 @@
 "pref.editor.textInsets" = "Innfelt tekst:";
 "pref.editor.theme" = "Tema:";
 "pref.editor.times" = "×";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.terminal.indicator" = "●";
+"pref.terminal.info" = "Ved å aktivere terminalstøtte kan du bruke macdown-verktøyet for å åpne MacDown og dokumenter fra en terminal.";
+"pref.terminal.install" = "Installer";
+"pref.terminal.location" = "Plassering:";
+"pref.terminal.notInstalled" = "Terminalstøtte ikke installert";

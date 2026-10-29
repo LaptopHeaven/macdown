@@ -207,3 +207,10 @@
 "pref.editor.textInsets" = "字符空间：";
 "pref.editor.theme" = "主题：";
 "pref.editor.times" = "×";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.terminal.indicator" = "●";
+"pref.terminal.info" = "启用 Shell 支持即可在 Shell 中使用 MacDown 工具打开 MacDown 和文档。";
+"pref.terminal.install" = "安装";
+"pref.terminal.location" = "位置：";
+"pref.terminal.notInstalled" = "未安装 shell 支持";

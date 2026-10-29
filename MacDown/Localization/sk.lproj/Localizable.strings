@@ -143,3 +143,9 @@
 "pref.editor.textInsets" = "Odsadenia textu:";
 "pref.editor.theme" = "Téma:";
 "pref.editor.times" = "×";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.terminal.indicator" = "●";
+"pref.terminal.install" = "Inštalovať";
+"pref.terminal.location" = "Umiestnenie:";
+"pref.terminal.notInstalled" = "Podpora shell-u nie je nainštalovaná";

@@ -207,3 +207,10 @@
 "pref.editor.textInsets" = "テキスト領域：";
 "pref.editor.theme" = "テーマ：";
 "pref.editor.times" = "×";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.terminal.indicator" = "●";
+"pref.terminal.info" = "コマンドラインツールをインストールすると macdown コマンドを用いて MacDown をシェルから起動することができます．";
+"pref.terminal.install" = "インストール";
+"pref.terminal.location" = "場所：";
+"pref.terminal.notInstalled" = "コマンドラインツール 未インストール";

@@ -69,3 +69,10 @@
 "pref.editor.textInsets" = "Text insets:";
 "pref.editor.theme" = "Theme:";
 "pref.editor.times" = "×";
+
+/* Terminal preference pane labels. */
+"pref.terminal.indicator" = "●";
+"pref.terminal.info" = "By activating shell support you can use the macdown utility to open MacDown and documents from a shell.";
+"pref.terminal.install" = "Install";
+"pref.terminal.location" = "Location:";
+"pref.terminal.notInstalled" = "Shell support not installed";
