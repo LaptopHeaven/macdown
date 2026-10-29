@@ -186,3 +186,24 @@
 "pref.rendering.theme" = "Design:";
 "pref.rendering.toc" = "Token für Inhaltsverzeichnis erkennen";
 "pref.rendering.zoom" = "Schriftgröße der Vorschau an Editor anpassen";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.editor.autoIncrementLists" = "Nummerierung in geordneten Listen automatisch erhöhen";
+"pref.editor.baseFont" = "Basis-Schriftart:";
+"pref.editor.behavior" = "Verhalten";
+"pref.editor.change" = "Ändern … ";
+"pref.editor.completeMatchingCharacters" = "Umschließende Zeichen automatisch ergänzen";
+"pref.editor.convertTabs" = "Leerzeichen anstelle von Tabs einfügen";
+"pref.editor.ensuresNewlineAtEOF" = "Beim Speichern Zeilenumbruch am Ende hinzufügen";
+"pref.editor.insertPrefixInBlock" = "Für aktuellen Block Zeilen-Präfix automatisch einfügen";
+"pref.editor.limitWidth" = "Breite des Editors beschränken auf";
+"pref.editor.lineSpacing" = "Zeilenabstand:";
+"pref.editor.listMarker" = "Zeichen für Listen:";
+"pref.editor.marker.asterisk" = "* (Sternchen)";
+"pref.editor.marker.minus" = "- (Minus-Zeichen)";
+"pref.editor.marker.plus" = "+ (Plus-Zeichen)";
+"pref.editor.scrollsPastEnd" = "Über letzte Zeile hinaus scrollen";
+"pref.editor.smartHome" = "⌘← springt zu erstem Nicht-Whitespace-Zeichen in der Zeile";
+"pref.editor.textInsets" = "Abstand zum Rand:";
+"pref.editor.theme" = "Design:";
+"pref.editor.times" = "×";

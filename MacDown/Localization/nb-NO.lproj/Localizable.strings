@@ -186,3 +186,24 @@
 "pref.rendering.theme" = "Tema:";
 "pref.rendering.toc" = "Gjenkjenn innholdsfortegnelse";
 "pref.rendering.zoom" = "Skaler forhåndsvisning basert på skriftstørrelse i redingeringsvinduet";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.editor.autoIncrementLists" = "Øk nummereringer i sorterte lister automatisk";
+"pref.editor.baseFont" = "Grunnfont:";
+"pref.editor.behavior" = "Oppførsel";
+"pref.editor.change" = "Endre...";
+"pref.editor.completeMatchingCharacters" = "Auto-fullfør passende tegn";
+"pref.editor.convertTabs" = "Sett inn mellomrom i stedet for tabulatorer";
+"pref.editor.ensuresNewlineAtEOF" = "Sikre at fila ender på ei ny linje under lagring";
+"pref.editor.insertPrefixInBlock" = "Sett inn linjeprefiks for den gjeldende blokka automatisk";
+"pref.editor.limitWidth" = "Begrens redigeringsvinduets bredde til";
+"pref.editor.lineSpacing" = "Linjemellomrom:";
+"pref.editor.listMarker" = "Listemarkør:";
+"pref.editor.marker.asterisk" = "* (Asterisk)";
+"pref.editor.marker.minus" = "- (Minustegn)";
+"pref.editor.marker.plus" = "+ (Plusstegn)";
+"pref.editor.scrollsPastEnd" = "Rull forbi slutten";
+"pref.editor.smartHome" = "⌘← hopper til det første tegnet som ikke er mellomrom eller enter på linja";
+"pref.editor.textInsets" = "Innfelt tekst:";
+"pref.editor.theme" = "Tema:";
+"pref.editor.times" = "×";

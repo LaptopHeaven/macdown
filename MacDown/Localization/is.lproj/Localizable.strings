@@ -85,3 +85,17 @@
 "pref.rendering.css" = "CSS:";
 "pref.rendering.lineNumbers" = "Sýna línunúmer";
 "pref.rendering.theme" = "Þema:";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.editor.baseFont" = "Grunnleturgerð:";
+"pref.editor.behavior" = "Hegðun";
+"pref.editor.change" = "Breyta...";
+"pref.editor.convertTabs" = "Nota bil í stað flipa";
+"pref.editor.ensuresNewlineAtEOF" = "Tryggja að ný lína er á enda skráarinnar við vistun";
+"pref.editor.limitWidth" = "Takmarka vídd ritils við";
+"pref.editor.lineSpacing" = "Línubil:";
+"pref.editor.marker.asterisk" = "* (Stjarna)";
+"pref.editor.marker.minus" = "- (Mínus merkið)";
+"pref.editor.marker.plus" = "+ (Plús merkið)";
+"pref.editor.theme" = "Þema:";
+"pref.editor.times" = "×";

@@ -122,3 +122,24 @@
 "pref.rendering.mathJaxNote" = "Podpora matematiky vyžaduje internetové pripojenie.";
 "pref.rendering.syntaxHighlighting" = "Syntakticky zvýraznený blok kódov";
 "pref.rendering.theme" = "Téma:";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.editor.autoIncrementLists" = "Automatické zvyšovanie číslovania v usporiadaných zoznamoch";
+"pref.editor.baseFont" = "Základné písmo:";
+"pref.editor.behavior" = "Správanie";
+"pref.editor.change" = "Zmeniť...";
+"pref.editor.completeMatchingCharacters" = "Automatické dopĺňanie zodpovedajúcich znakov";
+"pref.editor.convertTabs" = "Vkladať medzery namiesto tabov";
+"pref.editor.ensuresNewlineAtEOF" = "Zabezpečiť nový riadok na konci súboru po uložení";
+"pref.editor.insertPrefixInBlock" = "Automaticky vložiť odsadenie riadku pre aktuálny blok";
+"pref.editor.limitWidth" = "Obmedziť šírku editora na";
+"pref.editor.lineSpacing" = "Riadkovanie:";
+"pref.editor.listMarker" = "Značka zoznamu:";
+"pref.editor.marker.asterisk" = "* (Hviezdička)";
+"pref.editor.marker.minus" = "- (Znak mínus)";
+"pref.editor.marker.plus" = "+ (Znak plus)";
+"pref.editor.scrollsPastEnd" = "Rolovať za koniec";
+"pref.editor.smartHome" = "⌘← skočí na prvý znak v riadku";
+"pref.editor.textInsets" = "Odsadenia textu:";
+"pref.editor.theme" = "Téma:";
+"pref.editor.times" = "×";

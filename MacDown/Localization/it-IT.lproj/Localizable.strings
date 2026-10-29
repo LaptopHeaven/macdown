@@ -151,3 +151,24 @@
 "pref.rendering.theme" = "Tema:";
 "pref.rendering.toc" = "Identifica simboli per sommario";
 "pref.rendering.zoom" = "Ridimensiona anteprima in base alla dimensione del carattere";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.editor.autoIncrementLists" = "Numerazione crescente automatica nelle liste";
+"pref.editor.baseFont" = "Font predefinito";
+"pref.editor.behavior" = "Comportamento";
+"pref.editor.change" = "Modifica...";
+"pref.editor.completeMatchingCharacters" = "Auto-completa caratteri corrispondenti";
+"pref.editor.convertTabs" = "Inserisci spazi al posto di tab";
+"pref.editor.ensuresNewlineAtEOF" = "Inserisci una riga vuota alla fine del file al salvataggio";
+"pref.editor.insertPrefixInBlock" = "Inserisci automaticamente il prefisso della linea per il blocco corrente";
+"pref.editor.limitWidth" = "Limita larghezza editor a";
+"pref.editor.lineSpacing" = "Interlinea";
+"pref.editor.listMarker" = "Marcatori di lista:";
+"pref.editor.marker.asterisk" = "* (Asterisco)";
+"pref.editor.marker.minus" = "- (Segno meno)";
+"pref.editor.marker.plus" = "+ (Segno più)";
+"pref.editor.scrollsPastEnd" = "Scorri oltre la fine del file";
+"pref.editor.smartHome" = "⌘← vai al primo carattere della riga";
+"pref.editor.textInsets" = "Box di Testo:";
+"pref.editor.theme" = "Tema:";
+"pref.editor.times" = "x";

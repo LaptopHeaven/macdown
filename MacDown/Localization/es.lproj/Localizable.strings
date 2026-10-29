@@ -186,3 +186,24 @@
 "pref.rendering.theme" = "Tema:";
 "pref.rendering.toc" = "Detectar token de tabla de contenidos";
 "pref.rendering.zoom" = "Escalar la previsualización en función del tamaño de letra del editor";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.editor.autoIncrementLists" = "Incrementar automáticamente la numeración en listas ordenadas";
+"pref.editor.baseFont" = "Tipo de letra base:";
+"pref.editor.behavior" = "Comportamiento";
+"pref.editor.change" = "Modificar...";
+"pref.editor.completeMatchingCharacters" = "Completar automáticamente caracteres coincidentes";
+"pref.editor.convertTabs" = "Insertar espacios en lugar de tabuladores";
+"pref.editor.ensuresNewlineAtEOF" = "Asegurar un salto de línea en el final del fichero al guardar";
+"pref.editor.insertPrefixInBlock" = "Insertar automáticamente un prefijo de línea para el bloque actual";
+"pref.editor.limitWidth" = "Limitar el ancho del editor a";
+"pref.editor.lineSpacing" = "Interlineado:";
+"pref.editor.listMarker" = "Símbolo de lista:";
+"pref.editor.marker.asterisk" = "* (Asterisco)";
+"pref.editor.marker.minus" = "- (Signo menos)";
+"pref.editor.marker.plus" = "+ (Signo más)";
+"pref.editor.scrollsPastEnd" = "Desplazar después del final";
+"pref.editor.smartHome" = "⌘← salta al primer carácter de tipo no-espacio-en-blanco";
+"pref.editor.textInsets" = "Márgenes del texto:";
+"pref.editor.theme" = "Tema:";
+"pref.editor.times" = "×";

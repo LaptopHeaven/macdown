@@ -13,6 +13,10 @@
 extern NSString * const MPDidRequestEditorSetupNotification;
 extern NSString * const MPDidRequestPreviewRenderNotification;
 
+/// userInfo key naming the preference that changed in a
+/// MPDidRequestEditorSetupNotification.
+extern NSString * const MPDidRequestEditorSetupNotificationKeyName;
+
 @interface MPPreferencesViewController : NSViewController
 
 - (id)init;

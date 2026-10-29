@@ -186,3 +186,24 @@
 "pref.rendering.theme" = "Vzhled:";
 "pref.rendering.toc" = "Detekovat obsah";
 "pref.rendering.zoom" = "Měřítko náhledů je podle velikosti základního písma";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.editor.autoIncrementLists" = "Automatické číslování v číslovaných seznamech";
+"pref.editor.baseFont" = "Základní písmo:";
+"pref.editor.behavior" = "Chování";
+"pref.editor.change" = "Změnit…";
+"pref.editor.completeMatchingCharacters" = "Automatické dokončování";
+"pref.editor.convertTabs" = "Vložit mezery místo tabulátoru";
+"pref.editor.ensuresNewlineAtEOF" = "Přidat prázdný řádek na konec dokumentu";
+"pref.editor.insertPrefixInBlock" = "Automaticky vložit prefix před aktuální blok";
+"pref.editor.limitWidth" = "Omezit šířku editoru na";
+"pref.editor.lineSpacing" = "Řádkování:";
+"pref.editor.listMarker" = "Odrážka seznamu";
+"pref.editor.marker.asterisk" = "* (hvěždička)";
+"pref.editor.marker.minus" = "- (mínus)";
+"pref.editor.marker.plus" = "+ (plus)";
+"pref.editor.scrollsPastEnd" = "Přejít na konec";
+"pref.editor.smartHome" = "⌘← přechod na první viditelný znak na řádku";
+"pref.editor.textInsets" = "Textové vložky:";
+"pref.editor.theme" = "Vzhled:";
+"pref.editor.times" = "×";

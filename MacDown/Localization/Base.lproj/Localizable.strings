@@ -46,3 +46,26 @@
 "pref.rendering.theme" = "Theme:";
 "pref.rendering.toc" = "Detect table of contents token";
 "pref.rendering.zoom" = "Scale preview based on editor font size";
+
+/* Editor preference pane labels. */
+"pref.editor.autoIncrementLists" = "Auto-increment numbering in ordered lists";
+"pref.editor.baseFont" = "Base font:";
+"pref.editor.behavior" = "Behavior";
+"pref.editor.change" = "Change…";
+"pref.editor.completeMatchingCharacters" = "Auto-complete matching characters";
+"pref.editor.convertTabs" = "Insert spaces instead of tabs";
+"pref.editor.ensuresNewlineAtEOF" = "Ensure newline at end of file on save";
+"pref.editor.insertPrefixInBlock" = "Automatically insert line prefix for the current block";
+"pref.editor.limitWidth" = "Limit editor width to";
+"pref.editor.lineSpacing" = "Line spacing:";
+"pref.editor.listMarker" = "List marker:";
+"pref.editor.marker.asterisk" = "* (Asterisk)";
+"pref.editor.marker.minus" = "- (Minus sign)";
+"pref.editor.marker.plus" = "+ (Plus sign)";
+"pref.editor.reload" = "Reload";
+"pref.editor.reveal" = "Reveal";
+"pref.editor.scrollsPastEnd" = "Scroll past end";
+"pref.editor.smartHome" = "⌘← jumps to first non-whitespace character in line";
+"pref.editor.textInsets" = "Text insets:";
+"pref.editor.theme" = "Theme:";
+"pref.editor.times" = "×";

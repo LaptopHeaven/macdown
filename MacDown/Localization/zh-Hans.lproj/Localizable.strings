@@ -186,3 +186,24 @@
 "pref.rendering.theme" = "主题：";
 "pref.rendering.toc" = "检测目录标记";
 "pref.rendering.zoom" = "依编辑器字体大小缩放预览";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.editor.autoIncrementLists" = "自动增加有序列表的序号";
+"pref.editor.baseFont" = "默认字体：";
+"pref.editor.behavior" = "行为";
+"pref.editor.change" = "更改…";
+"pref.editor.completeMatchingCharacters" = "自动补全匹配字符";
+"pref.editor.convertTabs" = "使用空格而不是制表符";
+"pref.editor.ensuresNewlineAtEOF" = "在保存时确保文末有换行符";
+"pref.editor.insertPrefixInBlock" = "在当前代码块中自动插入行前缀";
+"pref.editor.limitWidth" = "限制编辑窗口最大宽度为：";
+"pref.editor.lineSpacing" = "行间距";
+"pref.editor.listMarker" = "列表标志：";
+"pref.editor.marker.asterisk" = "* (星号)";
+"pref.editor.marker.minus" = "- (减号)";
+"pref.editor.marker.plus" = "+ (加号)";
+"pref.editor.scrollsPastEnd" = "滚动可超过文档底部";
+"pref.editor.smartHome" = "⌘← 跳至本行的第一个非空白字符";
+"pref.editor.textInsets" = "字符空间：";
+"pref.editor.theme" = "主题：";
+"pref.editor.times" = "×";

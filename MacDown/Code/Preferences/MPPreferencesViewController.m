@@ -14,6 +14,8 @@ NSString * const MPDidRequestPreviewRenderNotification =
     @"MPDidRequestPreviewRenderNotificationName";
 NSString * const MPDidRequestEditorSetupNotification =
     @"MPDidRequestEditorSetupNotificationName";
+NSString * const MPDidRequestEditorSetupNotificationKeyName =
+    @"MPDidRequestEditorSetupNotificationKeyNameKey";
 
 @implementation MPPreferencesViewController
 

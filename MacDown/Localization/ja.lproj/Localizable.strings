@@ -186,3 +186,24 @@
 "pref.rendering.theme" = "テーマ：";
 "pref.rendering.toc" = "目次シンタックス";
 "pref.rendering.zoom" = "エディタのフォントサイズに応じてプレビューを拡大";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.editor.autoIncrementLists" = "番号付きリストの数字を自動的にインクリメント";
+"pref.editor.baseFont" = "フォント：";
+"pref.editor.behavior" = "動作";
+"pref.editor.change" = "変更…";
+"pref.editor.completeMatchingCharacters" = "対応する括弧等を自動的に補完";
+"pref.editor.convertTabs" = "タブをスペースに自動的に展開";
+"pref.editor.ensuresNewlineAtEOF" = "保存時にファイル末尾が必ず改行になるようにする";
+"pref.editor.insertPrefixInBlock" = "改行時にリストや引用のプレフィックスを自動挿入";
+"pref.editor.limitWidth" = "エディタの最大幅を設定";
+"pref.editor.lineSpacing" = "行間：";
+"pref.editor.listMarker" = "リストマーカー：";
+"pref.editor.marker.asterisk" = "* (アスタリスク)";
+"pref.editor.marker.minus" = "- (マイナス)";
+"pref.editor.marker.plus" = "+ (プラス)";
+"pref.editor.scrollsPastEnd" = "最終行の先までスクロール可能にする";
+"pref.editor.smartHome" = "⌘← で行の最初の非空白文字にジャンプ";
+"pref.editor.textInsets" = "テキスト領域：";
+"pref.editor.theme" = "テーマ：";
+"pref.editor.times" = "×";

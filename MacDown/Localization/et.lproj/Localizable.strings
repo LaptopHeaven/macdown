@@ -142,3 +142,17 @@
 "pref.rendering.taskList" = "Ülesannete nimekirja süntaks";
 "pref.rendering.theme" = "Teema:";
 "pref.rendering.zoom" = "Muuda eelvaate suurust vastavalt redaktori tekstisuurusele";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.editor.behavior" = "Käitumine";
+"pref.editor.change" = "Muuda...";
+"pref.editor.ensuresNewlineAtEOF" = "Veendu, et faili lõpus oleks salvestamisel tühi rida";
+"pref.editor.lineSpacing" = "Reavahed:";
+"pref.editor.listMarker" = "Nimekirja marker:";
+"pref.editor.marker.asterisk" = "* (tärn)";
+"pref.editor.marker.minus" = "- (miinusmärk)";
+"pref.editor.marker.plus" = "+ (pluss märk)";
+"pref.editor.smartHome" = "⌘← hüppab reas esimese märgi juurde, mis pole tühik";
+"pref.editor.textInsets" = "Teksti sisestamine:";
+"pref.editor.theme" = "Teema:";
+"pref.editor.times" = "×";

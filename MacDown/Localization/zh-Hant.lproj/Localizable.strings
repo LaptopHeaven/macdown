@@ -176,3 +176,23 @@
 "pref.rendering.syntaxHighlighting" = "程式碼區塊語法高亮";
 "pref.rendering.theme" = "主題：";
 "pref.rendering.zoom" = "依視窗大小自動縮放內容";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.editor.autoIncrementLists" = "自動遞增列表數字";
+"pref.editor.baseFont" = "基礎字型：";
+"pref.editor.behavior" = "行為";
+"pref.editor.change" = "更改⋯";
+"pref.editor.completeMatchingCharacters" = "自動補完成對字元";
+"pref.editor.convertTabs" = "Tab 鍵插入空白";
+"pref.editor.ensuresNewlineAtEOF" = "儲存時確認檔案末尾包含空行";
+"pref.editor.insertPrefixInBlock" = "根據當下區塊自動插入行前綴";
+"pref.editor.limitWidth" = "限制編輯器寬度";
+"pref.editor.lineSpacing" = "行距：";
+"pref.editor.listMarker" = "列表標記：";
+"pref.editor.marker.asterisk" = "* (星號)";
+"pref.editor.marker.minus" = "- (減號)";
+"pref.editor.marker.plus" = "+ (加號)";
+"pref.editor.scrollsPastEnd" = "捲動超過檔案末端";
+"pref.editor.smartHome" = "⌘← 跳至行內第一個非空白字元";
+"pref.editor.theme" = "主題：";
+"pref.editor.times" = "×";

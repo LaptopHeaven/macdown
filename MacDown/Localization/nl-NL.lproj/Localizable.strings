@@ -186,3 +186,24 @@
 "pref.rendering.theme" = "Thema:";
 "pref.rendering.toc" = "Detecteer inhoudsopgavenummer";
 "pref.rendering.zoom" = "Schaal voorbeeld gebaseerd op lettertypegrootte van bewerker";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.editor.autoIncrementLists" = "Voeg automatisch nummers toe aan geordende lijsten";
+"pref.editor.baseFont" = "Hoofdlettertype:";
+"pref.editor.behavior" = "Gedrag";
+"pref.editor.change" = "Wijzig...";
+"pref.editor.completeMatchingCharacters" = "Vervolledig overeenkomende tekens automatisch";
+"pref.editor.convertTabs" = "Voeg spaties in in plaats van tabs";
+"pref.editor.ensuresNewlineAtEOF" = "Pas nieuwe regel toe aan einde van bestand bij opslaan";
+"pref.editor.insertPrefixInBlock" = "Voeg automatisch regelvoorvoegsel toe voor huidig blok";
+"pref.editor.limitWidth" = "Beperk breedte van bewerker tot";
+"pref.editor.lineSpacing" = "Regelafstand:";
+"pref.editor.listMarker" = "Lijstmarkering:";
+"pref.editor.marker.asterisk" = "* (sterretje)";
+"pref.editor.marker.minus" = "- (minteken)";
+"pref.editor.marker.plus" = "+ (plusteken)";
+"pref.editor.scrollsPastEnd" = "Scroll voorbij het einde";
+"pref.editor.smartHome" = "⌘← springt naar eerste niet-witruimteteken op de regel";
+"pref.editor.textInsets" = "Tekstinvoegingen:";
+"pref.editor.theme" = "Thema:";
+"pref.editor.times" = "×";

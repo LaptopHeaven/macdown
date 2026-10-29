@@ -95,3 +95,14 @@
 "pref.rendering.defaultPath" = "기본 경로:";
 "pref.rendering.lineNumbers" = "행 번호 보이기";
 "pref.rendering.theme" = "테마:";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.editor.baseFont" = "기본 서체:";
+"pref.editor.change" = "변경...";
+"pref.editor.lineSpacing" = "행 간격";
+"pref.editor.listMarker" = "목록 마커:";
+"pref.editor.marker.asterisk" = "*(별표)";
+"pref.editor.marker.minus" = "-(빼기 기호)";
+"pref.editor.marker.plus" = "+(더하기 기호)";
+"pref.editor.theme" = "테마:";
+"pref.editor.times" = "x";

@@ -26,7 +26,6 @@
 #import "MPEditorView.h"
 #import "MPRenderer.h"
 #import "MPPreferencesViewController.h"
-#import "MPEditorPreferencesViewController.h"
 #import "MPExportPanelAccessoryViewController.h"
 #import "MPMathJaxListener.h"
 #import "WebView+WebViewPrivateHeaders.h"

@@ -69,3 +69,13 @@
 "pref.rendering.taskList" = "Checklist-syntax";
 "pref.rendering.theme" = "Tema:";
 "pref.rendering.zoom" = "Förhandsvisning skalas baserat på redigeraren's font-storlek";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.editor.behavior" = "Beteende";
+"pref.editor.change" = "Ändra…";
+"pref.editor.limitWidth" = "Begränsa redigerings-vyn's bredd till";
+"pref.editor.lineSpacing" = "Rad-avstånd:";
+"pref.editor.marker.asterisk" = "* (asterisk)";
+"pref.editor.marker.minus" = "- (minus)";
+"pref.editor.marker.plus" = "+ (plus)";
+"pref.editor.theme" = "Tema:";

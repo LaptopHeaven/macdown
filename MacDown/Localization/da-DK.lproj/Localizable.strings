@@ -186,3 +186,24 @@
 "pref.rendering.theme" = "Tema:";
 "pref.rendering.toc" = "Registrer indholdsfortegnelse";
 "pref.rendering.zoom" = "Skaler preview baseret skriftstørrelse i editoren";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.editor.autoIncrementLists" = "Automatisk nummerforøgelse i nummererede lister";
+"pref.editor.baseFont" = "Grundskrifttype";
+"pref.editor.behavior" = "Opførsel";
+"pref.editor.change" = "Skift...";
+"pref.editor.completeMatchingCharacters" = "Autofuldfør matchende tegn";
+"pref.editor.convertTabs" = "Erstat tabulatortegn med mellemrum";
+"pref.editor.ensuresNewlineAtEOF" = "Indsæt linieskift i slutningen af arkiv ved arkivering";
+"pref.editor.insertPrefixInBlock" = "Indsæt automatisk linjepræfiks for den aktuelle blok";
+"pref.editor.limitWidth" = "Begræns linjebredde til";
+"pref.editor.lineSpacing" = "Linjeafstand:";
+"pref.editor.listMarker" = "Listemarkør:";
+"pref.editor.marker.asterisk" = "* (Asterisk)";
+"pref.editor.marker.minus" = "- (Minus)";
+"pref.editor.marker.plus" = "+ (plus)";
+"pref.editor.scrollsPastEnd" = "Rul forbi enden";
+"pref.editor.smartHome" = "⌘← springer til første ikke-blanke tegn i linjen";
+"pref.editor.textInsets" = "Tekstindryk:";
+"pref.editor.theme" = "Tema:";
+"pref.editor.times" = "×";

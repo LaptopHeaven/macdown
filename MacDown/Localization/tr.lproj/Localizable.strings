@@ -90,3 +90,19 @@
 "pref.rendering.mathJax" = "TeX-vari matematik sözdizimi";
 "pref.rendering.mathJaxNote" = "Matematik desteği Internet bağlantısı gerektirir.";
 "pref.rendering.theme" = "Tema:";
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.editor.baseFont" = "Taban font:";
+"pref.editor.behavior" = "Davranış";
+"pref.editor.change" = "Değiştir...";
+"pref.editor.completeMatchingCharacters" = "Eşleşen karakterleri otomatik olarak tamamla";
+"pref.editor.convertTabs" = "Sekme yerine boşluk ekle";
+"pref.editor.limitWidth" = "Editör genişliğini sınırla:";
+"pref.editor.lineSpacing" = "Satır boşluğu:";
+"pref.editor.listMarker" = "Liste İşareti:";
+"pref.editor.marker.minus" = "- (Eksi işareti)";
+"pref.editor.marker.plus" = "+ (Artı işareti)";
+"pref.editor.scrollsPastEnd" = "En sona kaydır";
+"pref.editor.smartHome" = "⌘← satırdaki ilk boşluk harici karaktere atlar";
+"pref.editor.theme" = "Tema:";
+"pref.editor.times" = "×";
