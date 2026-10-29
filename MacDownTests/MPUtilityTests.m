@@ -167,6 +167,22 @@
     free(validPath);
 }
 
+- (void)testPreviewResourcePolicyAllowsOnlyFileAndDataURLs
+{
+    XCTAssertTrue(MPPreviewResourceURLIsAllowed(
+        [NSURL fileURLWithPath:@"/tmp/local-image.png"]));
+    XCTAssertTrue(MPPreviewResourceURLIsAllowed(
+        [NSURL URLWithString:@"data:image/png;base64,AA=="]));
+    XCTAssertFalse(MPPreviewResourceURLIsAllowed(
+        [NSURL URLWithString:@"https://example.com/image.png"]));
+    XCTAssertFalse(MPPreviewResourceURLIsAllowed(
+        [NSURL URLWithString:@"http://127.0.0.1/metadata"]));
+    XCTAssertFalse(MPPreviewResourceURLIsAllowed(
+        [NSURL URLWithString:@"ftp://example.com/image.png"]));
+    XCTAssertFalse(MPPreviewResourceURLIsAllowed(
+        [NSURL URLWithString:@"mailto:user@example.com"]));
+}
+
 - (void)testFrontMatterHandlesLongEscapedTagURI
 {
     NSMutableString *tag = [NSMutableString stringWithString:@"tag:example.com,2024:"];

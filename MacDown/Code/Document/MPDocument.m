@@ -872,7 +872,7 @@ static void (^MPGetPreviewLoadingCompletionHandler(MPDocument *doc))()
         request = [NSURLRequest requestWithURL:[updatedComps URL]];
     }
     
-    return request;
+    return MPPreviewResourceURLIsAllowed(request.URL) ? request : nil;
 }
 
 #pragma mark - WebFrameLoadDelegate

@@ -69,6 +69,12 @@ BOOL MPDeletePipedContentTemporaryFile(NSURL *url)
     return unlink(url.standardizedURL.path.fileSystemRepresentation) == 0;
 }
 
+BOOL MPPreviewResourceURLIsAllowed(NSURL *url)
+{
+    NSString *scheme = url.scheme.lowercaseString;
+    return [scheme isEqualToString:@"file"] || [scheme isEqualToString:@"data"];
+}
+
 NSArray *MPListEntriesForDirectory(
     NSString *dirName, NSString *(^processor)(NSString *absolutePath))
 {

@@ -12,12 +12,13 @@
 - [x] Accept plug-in loading as an intentional personal-use trust boundary: only `.plugin` bundles in the user Application Support `PlugIns` directory are loaded for the dedicated Plug-ins menu; no bundled plugins or automatic download/install path was found. The current user PlugIns directory is absent. Bundles placed there execute as the user.
 - [x] Re-audit item 1: default and initialize renderer HTML-escape flags before the first parse; regression test exercises the safe default (25/25) and Release build succeeds.
 - [x] Re-audit item 2: pin LibYAML to upstream fix commit `51843fe` and cap nesting at 1,000; a 1,100-level front-matter regression test rejects input safely. Full suite 26/26 and Release build pass. Pod installation now uses upstream `bootstrap`/Autotools, which are present on this personal build machine.
+- [x] Re-audit item 3: after rewriting MathJax to its bundled file, allow only `file:` and `data:` WebView resources. Scheme-policy test and full suite pass (27/27), Release build succeeds, and a runtime WebView check confirmed returning `nil` prevents the HTTP request. Remote CSS imports (including Google Fonts in bundled themes) are now blocked; local IBM Plex fonts are installed, but the visual fallback was not rechecked.
 
 ## In progress
-- [ ] Re-audit item 3: block remote WebView subresources by default while retaining local file/data resources.
+- [ ] Re-audit item 4: allow only http/https/mailto for non-file link clicks; preserve local file links.
 
 ## Next
-- [ ] Re-audit item 4: allow only http/https/mailto for non-file link clicks; preserve local file links.
+- None.
 
 ## Never
 - Do not modify `.serena/` (existing untracked user data).
@@ -25,4 +26,4 @@
 - Do not commit to `master` or modify upstream history.
 
 ## Heartbeat
-- 2026-10-29T14:56:34Z run 2: item 2 verified (26/26 tests, Release build) and ready to commit; item 3 now in progress; `.serena/` remains write-protected.
+- 2026-10-29T15:11:39Z run 2: item 3 verified (27/27 tests, Release build, runtime cancellation confirmed) and ready to commit; item 4 now in progress; `.serena/` remains write-protected.
