@@ -202,7 +202,7 @@ Setting both configurations to `"-"` (Xcode's "Sign to Run Locally") fixes it �
 
 `MacDown/Resources/Styles/Dracula (IBM Plex).css` and `Alucard (IBM Plex).css`. Commits `d12fa9b`, `b95b889`.
 
-Dracula is dark, Alucard is Dracula's official light counterpart. Both use IBM Plex Sans for prose and IBM Plex Mono for code, and both appear in the Styles menu with no project changes, because `Resources/Styles` is a folder reference. IBM Plex is fetched from Google Fonts so the preview is right without a local install, while the stack still resolves a locally installed copy offline.
+Dracula is dark, Alucard is Dracula's official light counterpart. Both use IBM Plex Sans for prose and IBM Plex Mono for code, and both appear in the Styles menu with no project changes, because `Resources/Styles` is a folder reference. IBM Plex is embedded in each sheet as latin-subset WOFF2 `data:` URLs, so the preview needs neither the network nor a local install; glyphs outside the latin subset fall back to the system stack. (This replaced a Google Fonts `@import`, which the preview's resource filter now blocks — see `STATUS.md`.)
 
 Alucard is built from the official "Alucard Classic" tokens (`Background #fffbeb`, `Foreground #1f1f1f`, `Selection #cfcfde`, `Comment #6c664b`, `Cyan #036a96`, `Green #14710a`, `Orange #a34d14`, `Pink #a3144d`, `Purple #644ac9`, `Red #cb3a2a`, `Yellow #846e15`). Its "Current Line" token equals Comment, so code and table surfaces use adjacent UI tokens instead — `#ece9df` for code, `#ceccc0` for borders and raised surfaces.
 

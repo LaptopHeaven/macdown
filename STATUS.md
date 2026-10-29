@@ -12,8 +12,9 @@
 - [x] Accept plug-in loading as an intentional personal-use trust boundary: only `.plugin` bundles in the user Application Support `PlugIns` directory are loaded for the dedicated Plug-ins menu; no bundled plugins or automatic download/install path was found. The current user PlugIns directory is absent. Bundles placed there execute as the user.
 - [x] Re-audit item 1: default and initialize renderer HTML-escape flags before the first parse; regression test exercises the safe default (25/25) and Release build succeeds.
 - [x] Re-audit item 2: pin LibYAML to upstream fix commit `51843fe` and cap nesting at 1,000; a 1,100-level front-matter regression test rejects input safely. Full suite 26/26 and Release build pass. Pod installation now uses upstream `bootstrap`/Autotools, which are present on this personal build machine.
-- [x] Re-audit item 3: after rewriting MathJax to its bundled file, allow only `file:` and `data:` WebView resources. Scheme-policy test and full suite pass (27/27), Release build succeeds, and a runtime WebView check confirmed returning `nil` prevents the HTTP request. Remote CSS imports (including Google Fonts in bundled themes) are now blocked; local IBM Plex fonts are installed, but the visual fallback was not rechecked.
+- [x] Re-audit item 3: after rewriting MathJax to its bundled file, allow only `file:` and `data:` WebView resources. Scheme-policy test and full suite pass (27/27), Release build succeeds, and a runtime WebView check confirmed returning `nil` prevents the HTTP request. Remote CSS imports are now blocked; the two IBM Plex styles that relied on one had their fonts embedded instead (see the item 3 follow-up below).
 - [x] Re-audit item 4: for clicked links, allow `http:`, `https:`, `mailto:`, and local file URLs; ignore other schemes and remote-host `file:` URLs. Link-policy regression test and full suite pass (28/28); Release build succeeds.
+- [x] Item 3 follow-up: the two IBM Plex styles no longer `@import` Google Fonts (blocked by the new resource filter). The needed faces — Sans 400/600, Sans italic 400, Mono 400/600 — are embedded in each sheet as latin-subset WOFF2 `data:` URLs (SIL OFL 1.1), so preview and export are correct offline with no font installed. Non-latin glyphs fall back to the system stack. Each sheet is now ~167 KB; the selector sets remain identical between Dracula and Alucard.
 
 ## In progress
 - None.
@@ -30,3 +31,4 @@
 ## Heartbeat
 - 2026-10-29T15:14:22Z run 2: item 4 verified (28/28 tests, Release build); re-audit queue complete; `.serena/` remains write-protected.
 - 2026-10-29T15:20:00Z run 2: forked upstream to `LaptopHeaven/macdown`; `origin` now points at the fork and `arm64-native` is pushed and tracking it; `.serena/` remains untracked.
+- 2026-10-29T15:31:00Z run 3: refreshed the rewritten commit hashes in `ASSESSMENT.md` and embedded the IBM Plex faces in both styles; installing and re-verifying preview rendering next.
