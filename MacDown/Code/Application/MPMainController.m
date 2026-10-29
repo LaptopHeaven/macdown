@@ -13,7 +13,7 @@
 #import "NSDocumentController+Document.h"
 #import "NSUserDefaults+Suite.h"
 #import "MPPreferences.h"
-#import "MPGeneralPreferencesViewController.h"
+#import "MacDown-Swift.h"
 #import "MPMarkdownPreferencesViewController.h"
 #import "MPEditorPreferencesViewController.h"
 #import "MPHtmlPreferencesViewController.h"

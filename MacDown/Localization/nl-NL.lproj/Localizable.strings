@@ -140,3 +140,12 @@
 /* (No Comment) */
 "WORDS_PLURAL_STRING" = "%@ woord;%@ woorden";
 
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.general.automaticPreview" = "Werk voorbeeld automatisch bij tijdens typen";
+"pref.general.behavior" = "Gedrag";
+"pref.general.createFileForLinkTarget" = "Creëer automatisch bestanden voor linkdoelen";
+"pref.general.editorOnRight" = "Plaats bewerkpaneel rechts";
+"pref.general.ensureOpenDocumentOnLaunch" = "Open document bij opstarten";
+"pref.general.showWordCount" = "Toon woordtelling";
+"pref.general.syncScroll" = "Sychroniseer voorbeeldscrollbalk tijdens scrollen";

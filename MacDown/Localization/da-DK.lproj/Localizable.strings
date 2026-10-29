@@ -140,3 +140,12 @@
 /* (No Comment) */
 "WORDS_PLURAL_STRING" = "%@ ord;%@ ord";
 
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.general.automaticPreview" = "Opdater preview automatisk";
+"pref.general.behavior" = "Opførsel";
+"pref.general.createFileForLinkTarget" = "Opret automatisk filer til link-mål";
+"pref.general.editorOnRight" = "Flyt editorpanel til højre";
+"pref.general.ensureOpenDocumentOnLaunch" = "Åbn MacDown med tomt dokument";
+"pref.general.showWordCount" = "Vis ordantal";
+"pref.general.syncScroll" = "Synkroniser preview- og editor rulleskakter";

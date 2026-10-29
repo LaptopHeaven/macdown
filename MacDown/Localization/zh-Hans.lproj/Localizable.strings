@@ -140,3 +140,12 @@
 /* (No Comment) */
 "WORDS_PLURAL_STRING" = "%@ 个词;%@ 个词";
 
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.general.automaticPreview" = "打字时自动更新预览";
+"pref.general.behavior" = "行为";
+"pref.general.createFileForLinkTarget" = "自动创建链接目标文件";
+"pref.general.editorOnRight" = "编辑窗口置于右侧";
+"pref.general.ensureOpenDocumentOnLaunch" = "保证启动时有打开的文档";
+"pref.general.showWordCount" = "显示字词统计";
+"pref.general.syncScroll" = "预览窗口同步滚动";

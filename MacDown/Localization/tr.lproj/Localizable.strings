@@ -62,3 +62,10 @@
 /* (No Comment) */
 "WORDS_PLURAL_STRING" = "%@ kelime;%@ kelime";
 
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.general.automaticPreview" = "Yazdıkça önizlemeyi otomatik olarak güncelle";
+"pref.general.behavior" = "Davranış";
+"pref.general.editorOnRight" = "Editörü sağa yerleştir";
+"pref.general.showWordCount" = "Kelime sayısını göster";
+"pref.general.syncScroll" = "Editör kaydırıldığında önizlemeyi de kaydır";

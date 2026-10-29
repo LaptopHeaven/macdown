@@ -140,3 +140,12 @@
 /* (No Comment) */
 "WORDS_PLURAL_STRING" = "%@ slovo;%@ slov";
 
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.general.automaticPreview" = "Živý náhled během psaní";
+"pref.general.behavior" = "Chování";
+"pref.general.createFileForLinkTarget" = "Automaticky vytvářet odkazy na neexistující soubory";
+"pref.general.editorOnRight" = "Přesunout editor vpravo";
+"pref.general.ensureOpenDocumentOnLaunch" = "Otevřít dokumenty při spuštění";
+"pref.general.showWordCount" = "Zobrazit počet slov";
+"pref.general.syncScroll" = "Synchronizovat posuvníky editoru a náhledu";

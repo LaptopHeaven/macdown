@@ -110,3 +110,9 @@
 /* (No Comment) */
 "WORDS_PLURAL_STRING" = "%@ sõna;%@ sõna";
 
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.general.automaticPreview" = "Uuenda eelvaadet kirjutamise ajal";
+"pref.general.behavior" = "Käitumine";
+"pref.general.editorOnRight" = "Pane redaktor paremale";
+"pref.general.showWordCount" = "Näita sõnade arvu";

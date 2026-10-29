@@ -89,3 +89,11 @@
 /* (No Comment) */
 "WORDS_PLURAL_STRING" = "%@ slovo;%@ slov";
 
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.general.automaticPreview" = "Automaticky aktualizovať náhľad počas písania";
+"pref.general.behavior" = "Správanie";
+"pref.general.createFileForLinkTarget" = "Automaticky vytvárať súbory pre ciele odkazov";
+"pref.general.editorOnRight" = "Editor umiestniť na pravú stranu";
+"pref.general.showWordCount" = "Zobraziť počet slov";
+"pref.general.syncScroll" = "Synchronizovať posuvník ukážky pri rolovaní editora";

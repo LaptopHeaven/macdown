@@ -140,3 +140,12 @@
 /* (No Comment) */
 "WORDS_PLURAL_STRING" = "%@ ord;%@ ord";
 
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.general.automaticPreview" = "Oppdater forhåndsvisning automatisk under skriving";
+"pref.general.behavior" = "Oppførsel";
+"pref.general.createFileForLinkTarget" = "Lag filer for lenkemål automatisk";
+"pref.general.editorOnRight" = "Plasser redigeringsvinduet til høyre";
+"pref.general.ensureOpenDocumentOnLaunch" = "Sikre at et dokument er åpent ved oppstart";
+"pref.general.showWordCount" = "Vis antall ord";
+"pref.general.syncScroll" = "Synkroniser forhåndsvisningas rulling med redigeringsvinduet";

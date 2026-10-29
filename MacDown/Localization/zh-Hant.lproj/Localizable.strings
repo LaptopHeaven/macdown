@@ -137,3 +137,12 @@
 /* (No Comment) */
 "WORDS_PLURAL_STRING" = "%@ 個字;%@ 個字";
 
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.general.automaticPreview" = "輸入時自動更新預覽";
+"pref.general.behavior" = "行為";
+"pref.general.createFileForLinkTarget" = "自動新增檔案於連結目標";
+"pref.general.editorOnRight" = "將編輯器置於右側";
+"pref.general.ensureOpenDocumentOnLaunch" = "啟動時永遠開啟文件";
+"pref.general.showWordCount" = "顯示字數統計";
+"pref.general.syncScroll" = "編輯器捲動時同步預覽捲軸";

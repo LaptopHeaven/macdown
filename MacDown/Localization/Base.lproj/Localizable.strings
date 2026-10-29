@@ -1,0 +1,9 @@
+
+/* Preference pane labels, migrated from the pane xib. */
+"pref.general.automaticPreview" = "Update preview automatically as you type";
+"pref.general.behavior" = "Behavior";
+"pref.general.createFileForLinkTarget" = "Automatically create files for link targets";
+"pref.general.editorOnRight" = "Put editor on the right";
+"pref.general.ensureOpenDocumentOnLaunch" = "Ensure open document on launch";
+"pref.general.showWordCount" = "Show word count";
+"pref.general.syncScroll" = "Sync preview scrollbar when editor scrolls";

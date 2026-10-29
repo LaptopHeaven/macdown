@@ -80,3 +80,6 @@
 /* default filename if no title can be determined */
 "Untitled" = "제목없음";
 
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.general.showWordCount" = "단어수 보기";

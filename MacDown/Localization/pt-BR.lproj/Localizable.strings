@@ -140,3 +140,12 @@
 /* (No Comment) */
 "WORDS_PLURAL_STRING" = "%@ palavra;%@ palavras";
 
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.general.automaticPreview" = "Atualizar visualização automaticamente com a digitação";
+"pref.general.behavior" = "Comportamento";
+"pref.general.createFileForLinkTarget" = "Criar automaticamente arquivos para os links de destino";
+"pref.general.editorOnRight" = "Colocar o editor na direita";
+"pref.general.ensureOpenDocumentOnLaunch" = "Garantir abertura de novo documento na inicialização";
+"pref.general.showWordCount" = "Mostrar contagem de palavras";
+"pref.general.syncScroll" = "Sincronizar a rolagem da visualização quando o editor rolar";

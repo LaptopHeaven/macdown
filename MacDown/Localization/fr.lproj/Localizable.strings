@@ -140,3 +140,12 @@
 /* (No Comment) */
 "WORDS_PLURAL_STRING" = "%@ mot;%@ mots";
 
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.general.automaticPreview" = "Mettre à jour automatiquement la prévisualisation à la saisie";
+"pref.general.behavior" = "Comportement";
+"pref.general.createFileForLinkTarget" = "Créer automatiquement les fichiers des cibles de lien";
+"pref.general.editorOnRight" = "Afficher l’éditeur à droite";
+"pref.general.ensureOpenDocumentOnLaunch" = "Forcer l’ouverture d’un document vierge au démarrage";
+"pref.general.showWordCount" = "Afficher le compteur de mots";
+"pref.general.syncScroll" = "Synchroniser le défilement de la prévisualisation quand l'éditeur défile";

@@ -37,3 +37,10 @@
 /* (No Comment) */
 "WORDS_PLURAL_STRING" = "%@ ord;%@ ord";
 
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.general.automaticPreview" = "Uppdatera förhandsvisning automatiskt när du skriver";
+"pref.general.editorOnRight" = "Redigerings-vy till höger";
+"pref.general.ensureOpenDocumentOnLaunch" = "Öppna dokument vid start";
+"pref.general.showWordCount" = "Visa antal ord";
+"pref.general.syncScroll" = "Synkronisera förhandsvisnings-scrollning med regierings-vyn's scrollning";

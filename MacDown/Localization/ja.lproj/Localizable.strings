@@ -140,3 +140,12 @@
 /* (No Comment) */
 "WORDS_PLURAL_STRING" = "%@ word;%@ words";
 
+
+/* Preference pane labels, migrated from the pane xib (see the pane's Swift view). */
+"pref.general.automaticPreview" = "プレビューを自動的に更新";
+"pref.general.behavior" = "動作";
+"pref.general.createFileForLinkTarget" = "リンク先のファイルを自動的に作成";
+"pref.general.editorOnRight" = "エディタを右側に表示";
+"pref.general.ensureOpenDocumentOnLaunch" = "起動時に必ずドキュメントを開く";
+"pref.general.showWordCount" = "単語数を表示";
+"pref.general.syncScroll" = "エディタと連動してプレビューもスクロール";

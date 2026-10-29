@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1642AA0A6CF70E4C1690ACCF /* PreferencesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CFAC40C34DEAF91EA94B0D /* PreferencesStore.swift */; };
 		1F002A23195B3DAE008B8D93 /* MPRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F002A22195B3DAE008B8D93 /* MPRenderer.m */; };
 		1F0D9D65194AC7CF008E1856 /* NSString+Lookup.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D9D5F194AC7CF008E1856 /* NSString+Lookup.m */; };
 		1F0D9D66194AC7CF008E1856 /* NSTextView+Autocomplete.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D9D61194AC7CF008E1856 /* NSTextView+Autocomplete.m */; };
@@ -64,8 +65,6 @@
 		1FB3C0241E5061A2002AEB6A /* MPExportPanelAccessoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FB3C0221E5061A2002AEB6A /* MPExportPanelAccessoryViewController.xib */; };
 		1FBBD4CB194CA36500BB3C88 /* hoedown_html_patch.c in Sources */ = {isa = PBXBuildFile; fileRef = 1FBBD4CA194CA36500BB3C88 /* hoedown_html_patch.c */; };
 		1FBDFE9C196170FE00BEEA70 /* Extensions in Resources */ = {isa = PBXBuildFile; fileRef = 1FBDFE9B196170FE00BEEA70 /* Extensions */; };
-		1FBDFEA11962A25A00BEEA70 /* MPGeneralPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDFE9F1962A25A00BEEA70 /* MPGeneralPreferencesViewController.m */; };
-		1FBDFEA51962A27300BEEA70 /* MPGeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FBDFEA31962A27300BEEA70 /* MPGeneralPreferencesViewController.xib */; };
 		1FBE8E0F1A11DB1E003E1EF4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FBE8E0E1A11DB1E003E1EF4 /* main.m */; };
 		1FC29F5C1944FC2600D616C7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FC29F5B1944FC2600D616C7 /* XCTest.framework */; };
 		1FC29F5E1944FC4F00D616C7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FCDCA321944F96E00B1F966 /* InfoPlist.strings */; };
@@ -83,12 +82,15 @@
 		1FFEB32B19737D6E00B2254F /* YAMLSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FFEB32A19737D6E00B2254F /* YAMLSerialization.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-unused-variable"; }; };
 		1FFF301D1948A5320009AF24 /* MPStringLookupTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF301C1948A5320009AF24 /* MPStringLookupTests.m */; };
 		3028039E1FD84EAC0055B0DA /* contribute.md in Resources */ = {isa = PBXBuildFile; fileRef = 3028039D1FD84EAB0055B0DA /* contribute.md */; };
+		616172C063F3B7704ED21CAE /* MPGeneralPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D8128F0B331486B533EC90 /* MPGeneralPreferencesViewController.swift */; };
 		770BB49E962A302D0715A6A5 /* libPods-MacDown.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F926DD38559C7CEDB6E42F /* libPods-MacDown.a */; };
 		852D523C1E260A6400BA7162 /* MPTerminalPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 852D523A1E260A6400BA7162 /* MPTerminalPreferencesViewController.m */; };
 		85E24E5C1E5019C00056E696 /* MPToolbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E24E5B1E5019C00056E696 /* MPToolbarController.m */; };
+		88572AE500D6BD637FF2F02D /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935980A58F37FB26B513B314 /* GeneralSettingsView.swift */; };
 		905EF1A9196164CA00FC3CE9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905EF1A8196164CA00FC3CE9 /* Foundation.framework */; };
 		905EF1B7196164F300FC3CE9 /* macdown in Copy Command Line Utility */ = {isa = PBXBuildFile; fileRef = 905EF1A7196164CA00FC3CE9 /* macdown */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		B5C5C1666A506FEA86435D25 /* libPods-macdown-cmd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 263367245B2D78A42C2F19D7 /* libPods-macdown-cmd.a */; };
+		C39606176F00A605BC634CF5 /* PreferencesPaneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEA3120905C335F3D465A87 /* PreferencesPaneController.swift */; };
 		EBFE3157737058F5A63699C8 /* libPods-MacDownTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C949FDE45493AE77DAD9BF4 /* libPods-MacDownTests.a */; };
 /* End PBXBuildFile section */
 
@@ -154,7 +156,6 @@
 		1F002A22195B3DAE008B8D93 /* MPRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPRenderer.m; sourceTree = "<group>"; };
 		1F05E8AB1F36E53B00E4D06C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = Localization/fr.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		1F05E8AC1F36E53C00E4D06C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = Localization/fr.lproj/MPExportPanelAccessoryViewController.strings; sourceTree = "<group>"; };
-		1F05E8AD1F36E53C00E4D06C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = Localization/fr.lproj/MPGeneralPreferencesViewController.strings; sourceTree = "<group>"; };
 		1F05E8AE1F36E53C00E4D06C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = Localization/fr.lproj/MPMarkdownPreferencesViewController.strings; sourceTree = "<group>"; };
 		1F05E8AF1F36E53C00E4D06C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = Localization/fr.lproj/MPEditorPreferencesViewController.strings; sourceTree = "<group>"; };
 		1F05E8B01F36E53C00E4D06C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = Localization/fr.lproj/MPHtmlPreferencesViewController.strings; sourceTree = "<group>"; };
@@ -163,7 +164,6 @@
 		1F05E8B31F36E53C00E4D06C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = fr; path = Localization/fr.lproj/Credits.rtf; sourceTree = "<group>"; };
 		1F05E8B41F36E56200E4D06C /* is */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = is; path = Localization/is.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		1F05E8B51F36E56200E4D06C /* is */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = is; path = Localization/is.lproj/MPExportPanelAccessoryViewController.strings; sourceTree = "<group>"; };
-		1F05E8B61F36E56200E4D06C /* is */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = is; path = Localization/is.lproj/MPGeneralPreferencesViewController.strings; sourceTree = "<group>"; };
 		1F05E8B71F36E56200E4D06C /* is */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = is; path = Localization/is.lproj/MPMarkdownPreferencesViewController.strings; sourceTree = "<group>"; };
 		1F05E8B81F36E56300E4D06C /* is */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = is; path = Localization/is.lproj/MPEditorPreferencesViewController.strings; sourceTree = "<group>"; };
 		1F05E8B91F36E56300E4D06C /* is */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = is; path = Localization/is.lproj/MPHtmlPreferencesViewController.strings; sourceTree = "<group>"; };
@@ -172,7 +172,6 @@
 		1F05E8BC1F36E56300E4D06C /* is */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = is; path = Localization/is.lproj/Credits.rtf; sourceTree = "<group>"; };
 		1F05E8BD1F36E58700E4D06C /* ko-KR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ko-KR"; path = "Localization/ko-KR.lproj/MainMenu.strings"; sourceTree = "<group>"; };
 		1F05E8BE1F36E58700E4D06C /* ko-KR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ko-KR"; path = "Localization/ko-KR.lproj/MPExportPanelAccessoryViewController.strings"; sourceTree = "<group>"; };
-		1F05E8BF1F36E58700E4D06C /* ko-KR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ko-KR"; path = "Localization/ko-KR.lproj/MPGeneralPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1F05E8C01F36E58700E4D06C /* ko-KR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ko-KR"; path = "Localization/ko-KR.lproj/MPMarkdownPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1F05E8C11F36E58800E4D06C /* ko-KR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ko-KR"; path = "Localization/ko-KR.lproj/MPEditorPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1F05E8C21F36E58800E4D06C /* ko-KR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ko-KR"; path = "Localization/ko-KR.lproj/MPHtmlPreferencesViewController.strings"; sourceTree = "<group>"; };
@@ -181,7 +180,6 @@
 		1F05E8C51F36E58800E4D06C /* ko-KR */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = "ko-KR"; path = "Localization/ko-KR.lproj/Credits.rtf"; sourceTree = "<group>"; };
 		1F05E8C61F36E5A900E4D06C /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "Localization/pt-BR.lproj/MainMenu.strings"; sourceTree = "<group>"; };
 		1F05E8C71F36E5A900E4D06C /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "Localization/pt-BR.lproj/MPExportPanelAccessoryViewController.strings"; sourceTree = "<group>"; };
-		1F05E8C81F36E5AA00E4D06C /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "Localization/pt-BR.lproj/MPGeneralPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1F05E8C91F36E5AA00E4D06C /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "Localization/pt-BR.lproj/MPMarkdownPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1F05E8CA1F36E5AA00E4D06C /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "Localization/pt-BR.lproj/MPEditorPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1F05E8CB1F36E5AA00E4D06C /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "Localization/pt-BR.lproj/MPHtmlPreferencesViewController.strings"; sourceTree = "<group>"; };
@@ -224,7 +222,6 @@
 		1F20EA272099A18A00C81510 /* nb-NO */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nb-NO"; path = "Localization/nb-NO.lproj/MPHtmlPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1F20EA282099A18A00C81510 /* nb-NO */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nb-NO"; path = "nb-NO.lproj/MPTerminalPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1F20EA292099A18A00C81510 /* nb-NO */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nb-NO"; path = "Localization/nb-NO.lproj/MPEditorPreferencesViewController.strings"; sourceTree = "<group>"; };
-		1F20EA2A2099A18A00C81510 /* nb-NO */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nb-NO"; path = "Localization/nb-NO.lproj/MPGeneralPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1F20EA2B2099A18A00C81510 /* nb-NO */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nb-NO"; path = "Localization/nb-NO.lproj/MPMarkdownPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1F20EA2C2099A18A00C81510 /* nb-NO */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nb-NO"; path = "Localization/nb-NO.lproj/MPDocument.strings"; sourceTree = "<group>"; };
 		1F23A91F19928E650052DB78 /* MPMathJaxListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPMathJaxListener.h; sourceTree = "<group>"; };
@@ -275,7 +272,6 @@
 		1F5601412099A1E60035F207 /* de-DE */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "de-DE"; path = "de-DE.lproj/MPTerminalPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1F5601422099A1E60035F207 /* de-DE */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "de-DE"; path = "Localization/de-DE.lproj/MPHtmlPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1F5601432099A1E60035F207 /* de-DE */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "de-DE"; path = "Localization/de-DE.lproj/MPEditorPreferencesViewController.strings"; sourceTree = "<group>"; };
-		1F5601442099A1E60035F207 /* de-DE */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "de-DE"; path = "Localization/de-DE.lproj/MPGeneralPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1F5601452099A1E60035F207 /* de-DE */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "de-DE"; path = "Localization/de-DE.lproj/MPMarkdownPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1F5601462099A1E60035F207 /* de-DE */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "de-DE"; path = "Localization/de-DE.lproj/MPDocument.strings"; sourceTree = "<group>"; };
 		1F59491A1AB57C78007394CB /* syntax_highlighting.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = syntax_highlighting.json; path = Resources/syntax_highlighting.json; sourceTree = "<group>"; };
@@ -289,7 +285,6 @@
 		1F64CCC8195F5AB900CE619A /* MPAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPAsset.m; sourceTree = "<group>"; };
 		1F6B58F21F5D2EA2006559CB /* nl-NL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-NL"; path = "Localization/nl-NL.lproj/MainMenu.strings"; sourceTree = "<group>"; };
 		1F6B58F31F5D2EA2006559CB /* nl-NL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-NL"; path = "Localization/nl-NL.lproj/MPExportPanelAccessoryViewController.strings"; sourceTree = "<group>"; };
-		1F6B58F41F5D2EA2006559CB /* nl-NL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-NL"; path = "Localization/nl-NL.lproj/MPGeneralPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1F6B58F51F5D2EA2006559CB /* nl-NL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-NL"; path = "Localization/nl-NL.lproj/MPMarkdownPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1F6B58F61F5D2EA2006559CB /* nl-NL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-NL"; path = "Localization/nl-NL.lproj/MPEditorPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1F6B58F71F5D2EA2006559CB /* nl-NL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-NL"; path = "Localization/nl-NL.lproj/MPHtmlPreferencesViewController.strings"; sourceTree = "<group>"; };
@@ -316,7 +311,6 @@
 		1F8A837E195348C500B6BF69 /* peg-markdown-highlight.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "peg-markdown-highlight.xcodeproj"; path = "Dependency/peg-markdown-highlight/peg-markdown-highlight.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		1F90340D1EC556A900D97F9C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = Localization/de.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		1F90340E1EC556A900D97F9C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = Localization/de.lproj/MPExportPanelAccessoryViewController.strings; sourceTree = "<group>"; };
-		1F90340F1EC556A900D97F9C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = Localization/de.lproj/MPGeneralPreferencesViewController.strings; sourceTree = "<group>"; };
 		1F9034101EC556A900D97F9C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = Localization/de.lproj/MPMarkdownPreferencesViewController.strings; sourceTree = "<group>"; };
 		1F9034111EC556A900D97F9C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = Localization/de.lproj/MPEditorPreferencesViewController.strings; sourceTree = "<group>"; };
 		1F9034121EC556A900D97F9C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = Localization/de.lproj/MPHtmlPreferencesViewController.strings; sourceTree = "<group>"; };
@@ -327,7 +321,6 @@
 		1F9034171EC556AA00D97F9C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1F9034181EC556C900D97F9C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localization/es.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		1F9034191EC556C900D97F9C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localization/es.lproj/MPExportPanelAccessoryViewController.strings; sourceTree = "<group>"; };
-		1F90341A1EC556C900D97F9C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localization/es.lproj/MPGeneralPreferencesViewController.strings; sourceTree = "<group>"; };
 		1F90341B1EC556C900D97F9C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localization/es.lproj/MPMarkdownPreferencesViewController.strings; sourceTree = "<group>"; };
 		1F90341C1EC556C900D97F9C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localization/es.lproj/MPEditorPreferencesViewController.strings; sourceTree = "<group>"; };
 		1F90341D1EC556C900D97F9C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localization/es.lproj/MPHtmlPreferencesViewController.strings; sourceTree = "<group>"; };
@@ -338,7 +331,6 @@
 		1F9034221EC556CA00D97F9C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1F9034231EC556E400D97F9C /* it-IT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "it-IT"; path = "Localization/it-IT.lproj/MainMenu.strings"; sourceTree = "<group>"; };
 		1F9034241EC556E400D97F9C /* it-IT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "it-IT"; path = "Localization/it-IT.lproj/MPExportPanelAccessoryViewController.strings"; sourceTree = "<group>"; };
-		1F9034251EC556E400D97F9C /* it-IT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "it-IT"; path = "Localization/it-IT.lproj/MPGeneralPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1F9034261EC556E400D97F9C /* it-IT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "it-IT"; path = "Localization/it-IT.lproj/MPMarkdownPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1F9034271EC556E400D97F9C /* it-IT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "it-IT"; path = "Localization/it-IT.lproj/MPEditorPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1F9034281EC556E400D97F9C /* it-IT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "it-IT"; path = "Localization/it-IT.lproj/MPHtmlPreferencesViewController.strings"; sourceTree = "<group>"; };
@@ -349,7 +341,6 @@
 		1F90342D1EC556E500D97F9C /* it-IT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "it-IT"; path = "it-IT.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		1F90342E1EC556EC00D97F9C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = Localization/ja.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		1F90342F1EC556EC00D97F9C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = Localization/ja.lproj/MPExportPanelAccessoryViewController.strings; sourceTree = "<group>"; };
-		1F9034301EC556EC00D97F9C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = Localization/ja.lproj/MPGeneralPreferencesViewController.strings; sourceTree = "<group>"; };
 		1F9034311EC556EC00D97F9C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = Localization/ja.lproj/MPMarkdownPreferencesViewController.strings; sourceTree = "<group>"; };
 		1F9034321EC556EC00D97F9C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = Localization/ja.lproj/MPEditorPreferencesViewController.strings; sourceTree = "<group>"; };
 		1F9034331EC556EC00D97F9C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = Localization/ja.lproj/MPHtmlPreferencesViewController.strings; sourceTree = "<group>"; };
@@ -360,7 +351,6 @@
 		1F9034381EC556EC00D97F9C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1F9034391EC556F300D97F9C /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = Localization/sk.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		1F90343A1EC556F300D97F9C /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = Localization/sk.lproj/MPExportPanelAccessoryViewController.strings; sourceTree = "<group>"; };
-		1F90343B1EC556F300D97F9C /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = Localization/sk.lproj/MPGeneralPreferencesViewController.strings; sourceTree = "<group>"; };
 		1F90343C1EC556F300D97F9C /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = Localization/sk.lproj/MPMarkdownPreferencesViewController.strings; sourceTree = "<group>"; };
 		1F90343D1EC556F300D97F9C /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = Localization/sk.lproj/MPEditorPreferencesViewController.strings; sourceTree = "<group>"; };
 		1F90343E1EC556F300D97F9C /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = Localization/sk.lproj/MPHtmlPreferencesViewController.strings; sourceTree = "<group>"; };
@@ -371,7 +361,6 @@
 		1F9034431EC556F300D97F9C /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1F9034441EC5576E00D97F9C /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = Localization/ar.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		1F9034451EC5576E00D97F9C /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = Localization/ar.lproj/MPExportPanelAccessoryViewController.strings; sourceTree = "<group>"; };
-		1F9034461EC5576E00D97F9C /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = Localization/ar.lproj/MPGeneralPreferencesViewController.strings; sourceTree = "<group>"; };
 		1F9034471EC5576E00D97F9C /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = Localization/ar.lproj/MPMarkdownPreferencesViewController.strings; sourceTree = "<group>"; };
 		1F9034481EC5576E00D97F9C /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = Localization/ar.lproj/MPEditorPreferencesViewController.strings; sourceTree = "<group>"; };
 		1F9034491EC5576E00D97F9C /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = Localization/ar.lproj/MPHtmlPreferencesViewController.strings; sourceTree = "<group>"; };
@@ -394,7 +383,6 @@
 		1F9F351F2099A1FC00C4B4F1 /* sk-SK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sk-SK"; path = "Localization/sk-SK.lproj/MPHtmlPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1F9F35202099A1FC00C4B4F1 /* sk-SK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sk-SK"; path = "sk-SK.lproj/MPTerminalPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1F9F35212099A1FC00C4B4F1 /* sk-SK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sk-SK"; path = "Localization/sk-SK.lproj/MPEditorPreferencesViewController.strings"; sourceTree = "<group>"; };
-		1F9F35222099A1FC00C4B4F1 /* sk-SK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sk-SK"; path = "Localization/sk-SK.lproj/MPGeneralPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1F9F35232099A1FC00C4B4F1 /* sk-SK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sk-SK"; path = "Localization/sk-SK.lproj/MPMarkdownPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1F9F35242099A1FC00C4B4F1 /* sk-SK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sk-SK"; path = "Localization/sk-SK.lproj/MPDocument.strings"; sourceTree = "<group>"; };
 		1FA6DE211941CC9E000409FB /* MacDown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacDown.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -411,7 +399,6 @@
 		1FB813A62099A228004EC5D7 /* et */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = et; path = et.lproj/MPTerminalPreferencesViewController.strings; sourceTree = "<group>"; };
 		1FB813A72099A228004EC5D7 /* et */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = et; path = Localization/et.lproj/MPHtmlPreferencesViewController.strings; sourceTree = "<group>"; };
 		1FB813A82099A228004EC5D7 /* et */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = et; path = Localization/et.lproj/MPEditorPreferencesViewController.strings; sourceTree = "<group>"; };
-		1FB813A92099A228004EC5D7 /* et */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = et; path = Localization/et.lproj/MPGeneralPreferencesViewController.strings; sourceTree = "<group>"; };
 		1FB813AA2099A228004EC5D7 /* et */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = et; path = Localization/et.lproj/MPMarkdownPreferencesViewController.strings; sourceTree = "<group>"; };
 		1FB813AB2099A228004EC5D7 /* et */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = et; path = Localization/et.lproj/MPDocument.strings; sourceTree = "<group>"; };
 		1FBBD4C9194CA35900BB3C88 /* hoedown_html_patch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hoedown_html_patch.h; sourceTree = "<group>"; };
@@ -422,18 +409,13 @@
 		1FBD43102099A1A200B348CD /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/MPTerminalPreferencesViewController.strings; sourceTree = "<group>"; };
 		1FBD43112099A1A200B348CD /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = Localization/tr.lproj/MPHtmlPreferencesViewController.strings; sourceTree = "<group>"; };
 		1FBD43122099A1A200B348CD /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = Localization/tr.lproj/MPEditorPreferencesViewController.strings; sourceTree = "<group>"; };
-		1FBD43132099A1A200B348CD /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = Localization/tr.lproj/MPGeneralPreferencesViewController.strings; sourceTree = "<group>"; };
 		1FBD43142099A1A200B348CD /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = Localization/tr.lproj/MPMarkdownPreferencesViewController.strings; sourceTree = "<group>"; };
 		1FBD43152099A1A200B348CD /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = Localization/tr.lproj/MPDocument.strings; sourceTree = "<group>"; };
 		1FBDFE9B196170FE00BEEA70 /* Extensions */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Extensions; path = Resources/Extensions; sourceTree = "<group>"; };
-		1FBDFE9E1962A25A00BEEA70 /* MPGeneralPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPGeneralPreferencesViewController.h; sourceTree = "<group>"; };
-		1FBDFE9F1962A25A00BEEA70 /* MPGeneralPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPGeneralPreferencesViewController.m; sourceTree = "<group>"; };
-		1FBDFEA41962A27300BEEA70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = MacDown/Localization/Base.lproj/MPGeneralPreferencesViewController.xib; sourceTree = SOURCE_ROOT; };
 		1FBE8E0E1A11DB1E003E1EF4 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "macdown-cmd/main.m"; sourceTree = SOURCE_ROOT; };
 		1FC29F5B1944FC2600D616C7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1FCBDF0B1E536C8400C0F56B /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = Localization/sv.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		1FCBDF0C1E536C8400C0F56B /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = Localization/sv.lproj/MPExportPanelAccessoryViewController.strings; sourceTree = "<group>"; };
-		1FCBDF0D1E536C8400C0F56B /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = Localization/sv.lproj/MPGeneralPreferencesViewController.strings; sourceTree = "<group>"; };
 		1FCBDF0E1E536C8400C0F56B /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = Localization/sv.lproj/MPMarkdownPreferencesViewController.strings; sourceTree = "<group>"; };
 		1FCBDF0F1E536C8400C0F56B /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = Localization/sv.lproj/MPEditorPreferencesViewController.strings; sourceTree = "<group>"; };
 		1FCBDF101E536C8500C0F56B /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = Localization/sv.lproj/MPHtmlPreferencesViewController.strings; sourceTree = "<group>"; };
@@ -444,7 +426,6 @@
 		1FCBDF151E536C9F00C0F56B /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = Localization/sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1FCBDF161E536CAE00C0F56B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "Localization/zh-Hant.lproj/MainMenu.strings"; sourceTree = "<group>"; };
 		1FCBDF171E536CAE00C0F56B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "Localization/zh-Hant.lproj/MPExportPanelAccessoryViewController.strings"; sourceTree = "<group>"; };
-		1FCBDF181E536CAE00C0F56B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "Localization/zh-Hant.lproj/MPGeneralPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1FCBDF191E536CAE00C0F56B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "Localization/zh-Hant.lproj/MPMarkdownPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1FCBDF1A1E536CAE00C0F56B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "Localization/zh-Hant.lproj/MPEditorPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1FCBDF1B1E536CAE00C0F56B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "Localization/zh-Hant.lproj/MPHtmlPreferencesViewController.strings"; sourceTree = "<group>"; };
@@ -455,7 +436,6 @@
 		1FCBDF201E536CAF00C0F56B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		1FCBDF211E536CB600C0F56B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "Localization/zh-Hans.lproj/MainMenu.strings"; sourceTree = "<group>"; };
 		1FCBDF221E536CB600C0F56B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "Localization/zh-Hans.lproj/MPExportPanelAccessoryViewController.strings"; sourceTree = "<group>"; };
-		1FCBDF231E536CB600C0F56B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "Localization/zh-Hans.lproj/MPGeneralPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1FCBDF241E536CB600C0F56B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "Localization/zh-Hans.lproj/MPMarkdownPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1FCBDF251E536CB600C0F56B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "Localization/zh-Hans.lproj/MPEditorPreferencesViewController.strings"; sourceTree = "<group>"; };
 		1FCBDF261E536CB700C0F56B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "Localization/zh-Hans.lproj/MPHtmlPreferencesViewController.strings"; sourceTree = "<group>"; };
@@ -490,14 +470,18 @@
 		3D175F0F1974282400A5EFE8 /* WebView+WebViewPrivateHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WebView+WebViewPrivateHeaders.h"; sourceTree = "<group>"; };
 		42F926DD38559C7CEDB6E42F /* libPods-MacDown.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MacDown.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DBAA63927A60EB2150642B3 /* Pods-macdown-cmd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-macdown-cmd.debug.xcconfig"; path = "Pods/Target Support Files/Pods-macdown-cmd/Pods-macdown-cmd.debug.xcconfig"; sourceTree = "<group>"; };
+		62CFAC40C34DEAF91EA94B0D /* PreferencesStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferencesStore.swift; sourceTree = "<group>"; };
 		7A8EA75FA95818275755F0B6 /* Pods-macdown-cmd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-macdown-cmd.release.xcconfig"; path = "Pods/Target Support Files/Pods-macdown-cmd/Pods-macdown-cmd.release.xcconfig"; sourceTree = "<group>"; };
 		852D52391E260A6400BA7162 /* MPTerminalPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPTerminalPreferencesViewController.h; sourceTree = "<group>"; };
 		852D523A1E260A6400BA7162 /* MPTerminalPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPTerminalPreferencesViewController.m; sourceTree = "<group>"; };
 		85E24E5A1E5019C00056E696 /* MPToolbarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPToolbarController.h; path = Code/Application/MPToolbarController.h; sourceTree = "<group>"; };
 		85E24E5B1E5019C00056E696 /* MPToolbarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPToolbarController.m; path = Code/Application/MPToolbarController.m; sourceTree = "<group>"; };
+		8612E3C3C03DF6B76481BADB /* MacDown-Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MacDown-Bridging-Header.h"; path = "Code/MacDown-Bridging-Header.h"; sourceTree = "<group>"; };
 		8CDC5EA0050D2F722FB1AADD /* Pods-MacDownTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacDownTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MacDownTests/Pods-MacDownTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8CEA3120905C335F3D465A87 /* PreferencesPaneController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferencesPaneController.swift; sourceTree = "<group>"; };
 		905EF1A7196164CA00FC3CE9 /* macdown */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = macdown; sourceTree = BUILT_PRODUCTS_DIR; };
 		905EF1A8196164CA00FC3CE9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		935980A58F37FB26B513B314 /* GeneralSettingsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
 		E70ECDD4241C933C00537A46 /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "Localization/ru-RU.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		E70ECDD5241C933C00537A46 /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "Localization/ru-RU.lproj/MainMenu.strings"; sourceTree = "<group>"; };
 		E70ECDD6241C933C00537A46 /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "Localization/ru-RU.lproj/MPMarkdownPreferencesViewController.strings"; sourceTree = "<group>"; };
@@ -508,7 +492,6 @@
 		E744518D241C934C00D9ABD9 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/MPTerminalPreferencesViewController.strings; sourceTree = "<group>"; };
 		E744518E241C934C00D9ABD9 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = Localization/cs.lproj/MPHtmlPreferencesViewController.strings; sourceTree = "<group>"; };
 		E744518F241C934C00D9ABD9 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = Localization/cs.lproj/MPEditorPreferencesViewController.strings; sourceTree = "<group>"; };
-		E7445190241C934C00D9ABD9 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = Localization/cs.lproj/MPGeneralPreferencesViewController.strings; sourceTree = "<group>"; };
 		E7445191241C934C00D9ABD9 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = Localization/cs.lproj/MPDocument.strings; sourceTree = "<group>"; };
 		E7445192241C934C00D9ABD9 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = Localization/cs.lproj/MPMarkdownPreferencesViewController.strings; sourceTree = "<group>"; };
 		E7543774241C935F00F181F1 /* nl-NL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-NL"; path = "Localization/nl-NL.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -518,11 +501,12 @@
 		E77E5D6D241C935100699B5A /* da-DK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "da-DK"; path = "Localization/da-DK.lproj/MPHtmlPreferencesViewController.strings"; sourceTree = "<group>"; };
 		E77E5D6E241C935100699B5A /* da-DK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "da-DK"; path = "da-DK.lproj/MPTerminalPreferencesViewController.strings"; sourceTree = "<group>"; };
 		E77E5D6F241C935100699B5A /* da-DK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "da-DK"; path = "Localization/da-DK.lproj/MPEditorPreferencesViewController.strings"; sourceTree = "<group>"; };
-		E77E5D70241C935100699B5A /* da-DK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "da-DK"; path = "Localization/da-DK.lproj/MPGeneralPreferencesViewController.strings"; sourceTree = "<group>"; };
 		E77E5D71241C935100699B5A /* da-DK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "da-DK"; path = "Localization/da-DK.lproj/MPMarkdownPreferencesViewController.strings"; sourceTree = "<group>"; };
 		E77E5D72241C935100699B5A /* da-DK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "da-DK"; path = "Localization/da-DK.lproj/MPDocument.strings"; sourceTree = "<group>"; };
 		E7D458CB241C933800411A36 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = Localization/fi.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		E7DD09F1241C9368008FBC25 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = Localization/da.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		F1D8128F0B331486B533EC90 /* MPGeneralPreferencesViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MPGeneralPreferencesViewController.swift; sourceTree = "<group>"; };
+		F2BBE5B055E5BAAC6381D8EB /* Base */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = Base; path = Localization/Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -611,9 +595,6 @@
 			children = (
 				1F0D9D74194AC7F7008E1856 /* MPPreferencesViewController.h */,
 				1F0D9D75194AC7F7008E1856 /* MPPreferencesViewController.m */,
-				1FBDFE9E1962A25A00BEEA70 /* MPGeneralPreferencesViewController.h */,
-				1FBDFE9F1962A25A00BEEA70 /* MPGeneralPreferencesViewController.m */,
-				1FBDFEA31962A27300BEEA70 /* MPGeneralPreferencesViewController.xib */,
 				1F0D9D6F194AC7F7008E1856 /* MPMarkdownPreferencesViewController.h */,
 				1F0D9D70194AC7F7008E1856 /* MPMarkdownPreferencesViewController.m */,
 				1F0D9D89194AC83C008E1856 /* MPMarkdownPreferencesViewController.xib */,
@@ -628,6 +609,10 @@
 				1F3619E81F36DA0F00EDA15A /* MPTerminalPreferencesViewController.xib */,
 				1F0D9D72194AC7F7008E1856 /* MPPreferences.h */,
 				1F0D9D73194AC7F7008E1856 /* MPPreferences.m */,
+				62CFAC40C34DEAF91EA94B0D /* PreferencesStore.swift */,
+				8CEA3120905C335F3D465A87 /* PreferencesPaneController.swift */,
+				935980A58F37FB26B513B314 /* GeneralSettingsView.swift */,
+				F1D8128F0B331486B533EC90 /* MPGeneralPreferencesViewController.swift */,
 			);
 			name = Preferences;
 			path = Code/Preferences;
@@ -818,6 +803,7 @@
 				1F0D9D68194AC7F7008E1856 /* Preferences */,
 				1F0D9D90194AC852008E1856 /* Document */,
 				1FCDCA2D1944F8F600B1F966 /* Supporting Files */,
+				8612E3C3C03DF6B76481BADB /* MacDown-Bridging-Header.h */,
 			);
 			path = MacDown;
 			sourceTree = "<group>";
@@ -1049,7 +1035,6 @@
 				1F27896B1973BEB100EE696A /* Localizable.strings in Resources */,
 				1F0D9DAD194AC8EF008E1856 /* Images.xcassets in Resources */,
 				1F0D9DAA194AC8CB008E1856 /* Credits.rtf in Resources */,
-				1FBDFEA51962A27300BEEA70 /* MPGeneralPreferencesViewController.xib in Resources */,
 				1F0F3BFC195F75F200FC0B3B /* MathJax in Resources */,
 				1F3619E61F36DA0F00EDA15A /* MPTerminalPreferencesViewController.xib in Resources */,
 				1F4C8E9A194AE0B9004BF82E /* MarkdownDocument.icns in Resources */,
@@ -1224,7 +1209,6 @@
 				1F9A14EC194EEE9900D1C6A9 /* MPExportPanelAccessoryViewController.m in Sources */,
 				85E24E5C1E5019C00056E696 /* MPToolbarController.m in Sources */,
 				1F5A37101C868EC0006E63E7 /* MPPlugIn.m in Sources */,
-				1FBDFEA11962A25A00BEEA70 /* MPGeneralPreferencesViewController.m in Sources */,
 				1F9A14ED194EEE9900D1C6A9 /* MPMainController.m in Sources */,
 				1F002A23195B3DAE008B8D93 /* MPRenderer.m in Sources */,
 				1FBBD4CB194CA36500BB3C88 /* hoedown_html_patch.c in Sources */,
@@ -1236,6 +1220,10 @@
 				1F8A835D1953454F00B6BF69 /* HGMarkdownHighlighter.m in Sources */,
 				1F847BC61DCC9DB600A47385 /* NSUserDefaults+Suite.m in Sources */,
 				1F3386E61A6B999600FC88C4 /* DOMNode+Text.m in Sources */,
+				1642AA0A6CF70E4C1690ACCF /* PreferencesStore.swift in Sources */,
+				C39606176F00A605BC634CF5 /* PreferencesPaneController.swift in Sources */,
+				88572AE500D6BD637FF2F02D /* GeneralSettingsView.swift in Sources */,
+				616172C063F3B7704ED21CAE /* MPGeneralPreferencesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1511,6 +1499,8 @@
 				E70ECDD4241C933C00537A46 /* ru-RU */,
 				E744518B241C934C00D9ABD9 /* cs */,
 				E77E5D6A241C935100699B5A /* da-DK */,
+				F2BBE5B055E5BAAC6381D8EB /* Base */,
+				F2BBE5B055E5BAAC6381D8EB /* Base */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1572,36 +1562,6 @@
 				E77E5D6B241C935100699B5A /* da-DK */,
 			);
 			name = MPExportPanelAccessoryViewController.xib;
-			sourceTree = "<group>";
-		};
-		1FBDFEA31962A27300BEEA70 /* MPGeneralPreferencesViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1FBDFEA41962A27300BEEA70 /* Base */,
-				1FCBDF0D1E536C8400C0F56B /* sv */,
-				1FCBDF181E536CAE00C0F56B /* zh-Hant */,
-				1FCBDF231E536CB600C0F56B /* zh-Hans */,
-				1F90340F1EC556A900D97F9C /* de */,
-				1F90341A1EC556C900D97F9C /* es */,
-				1F9034251EC556E400D97F9C /* it-IT */,
-				1F9034301EC556EC00D97F9C /* ja */,
-				1F90343B1EC556F300D97F9C /* sk */,
-				1F9034461EC5576E00D97F9C /* ar */,
-				1F05E8AD1F36E53C00E4D06C /* fr */,
-				1F05E8B61F36E56200E4D06C /* is */,
-				1F05E8BF1F36E58700E4D06C /* ko-KR */,
-				1F05E8C81F36E5AA00E4D06C /* pt-BR */,
-				1F6B58F41F5D2EA2006559CB /* nl-NL */,
-				1F20EA2A2099A18A00C81510 /* nb-NO */,
-				1FBD43132099A1A200B348CD /* tr */,
-				1F5601442099A1E60035F207 /* de-DE */,
-				1F9F35222099A1FC00C4B4F1 /* sk-SK */,
-				1FB813A92099A228004EC5D7 /* et */,
-				E7445190241C934C00D9ABD9 /* cs */,
-				E77E5D70241C935100699B5A /* da-DK */,
-			);
-			name = MPGeneralPreferencesViewController.xib;
-			path = ../..;
 			sourceTree = "<group>";
 		};
 		1FCDCA321944F96E00B1F966 /* InfoPlist.strings */ = {
@@ -1731,13 +1691,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MacDown/Code/MacDown-Prefix.pch";
 				INFOPLIST_FILE = "MacDown/MacDown-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.uranusjr.${PRODUCT_NAME:rfc1034identifier:lower}-debug";
+				PRODUCT_MODULE_NAME = MacDown;
 				PRODUCT_NAME = MacDown;
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "MacDown/Code/MacDown-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1749,13 +1713,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MacDown/Code/MacDown-Prefix.pch";
 				INFOPLIST_FILE = "MacDown/MacDown-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.uranusjr.${PRODUCT_NAME:rfc1034identifier:lower}";
+				PRODUCT_MODULE_NAME = MacDown;
 				PRODUCT_NAME = MacDown;
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "MacDown/Code/MacDown-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
