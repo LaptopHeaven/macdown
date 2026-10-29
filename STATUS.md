@@ -25,6 +25,8 @@
 - Do not modify `.serena/` (existing untracked user data).
 - Do not modify `/Applications/MacDown.app` or `~/Library/Application Support/MacDown` during this code-only remediation pass.
 - Do not commit to `master` or modify upstream history.
+- Push only to the fork remote `origin` (`LaptopHeaven/macdown`); `upstream` (`MacDownApp/macdown`) is fetch-only.
 
 ## Heartbeat
 - 2026-10-29T15:14:22Z run 2: item 4 verified (28/28 tests, Release build); re-audit queue complete; `.serena/` remains write-protected.
+- 2026-10-29T15:20:00Z run 2: forked upstream to `LaptopHeaven/macdown`; `origin` now points at the fork and `arm64-native` is pushed and tracking it; `.serena/` remains untracked.
