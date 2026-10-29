@@ -25,13 +25,26 @@
     if (!self)
         return nil;
 
-    NSPipe *stdoutPipe = [[NSPipe alloc] init];
-    NSFileHandle *stdoutReadHandle = stdoutPipe.fileHandleForReading;
-
     _task = [[NSTask alloc] init];
-    _task.launchPath = @"brew";
+    // shortcut: standard Homebrew prefixes only; add configured custom-prefix support if needed.
+    NSArray *paths = @[@"/opt/homebrew/bin/brew", @"/usr/local/bin/brew"];
+    NSFileManager *manager = [NSFileManager defaultManager];
+    for (NSString *path in paths)
+    {
+        if ([manager isExecutableFileAtPath:path])
+        {
+            _task.executableURL = [NSURL fileURLWithPath:path];
+            break;
+        }
+    }
     if (args)
         _task.arguments = args;
+
+    if (!_task.executableURL)
+        return self;
+
+    NSPipe *stdoutPipe = [[NSPipe alloc] init];
+    NSFileHandle *stdoutReadHandle = stdoutPipe.fileHandleForReading;
     _task.standardOutput = stdoutPipe;
 
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
@@ -60,12 +73,18 @@
 - (void)runWithCompletionHandler:(void(^)(NSString *))handler
 {
     self.completionHandler = handler;
-    @try
+    if (!self.task.executableURL)
     {
-        [self.task launch];
+        if (handler)
+            handler(nil);
+        return;
     }
-    @catch (NSException *exception)     // Homebrew not installed.
+
+    if (![self.task launchAndReturnError:NULL])
     {
+        self.completionHandler = nil;
+        NSPipe *stdoutPipe = self.task.standardOutput;
+        [stdoutPipe.fileHandleForWriting closeFile];
         if (handler)
             handler(nil);
     }
@@ -90,4 +109,3 @@ void MPDetectHomebrewPrefixWithCompletionhandler(void(^handler)(NSString *))
         [[MPHomebrewSubprocessController alloc] initWithArguments:args];
     [c runWithCompletionHandler:handler];
 }
-

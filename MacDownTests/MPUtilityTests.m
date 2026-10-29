@@ -8,6 +8,12 @@
 
 #import <XCTest/XCTest.h>
 #import "MPUtilities.h"
+#import "MPHomebrewSubprocessController.h"
+
+
+@interface MPHomebrewSubprocessController (MPUtilityTestAccess)
+@property (readonly) NSTask *task;
+@end
 
 @interface MPUtilityTests : XCTestCase
 @end
@@ -28,6 +34,44 @@
     id arr = MPGetObjectFromJavaScript(code, @"arr");
     id arrx = @[@0, [NSNull null], @{}];
     XCTAssertEqualObjects(arr, arrx, @"JavaScript object to NSDictionary");
+}
+
+- (void)testHomebrewProbeUsesAnAbsoluteExecutableURL
+{
+    NSArray *paths = @[@"/opt/homebrew/bin/brew", @"/usr/local/bin/brew"];
+    NSFileManager *manager = [NSFileManager defaultManager];
+    NSString *expectedPath = nil;
+    for (NSString *path in paths)
+    {
+        if ([manager isExecutableFileAtPath:path])
+        {
+            expectedPath = path;
+            break;
+        }
+    }
+
+    MPHomebrewSubprocessController *controller =
+        [[MPHomebrewSubprocessController alloc] initWithArguments:@[@"--prefix"]];
+    XCTAssertEqualObjects(controller.task.executableURL.path, expectedPath);
+
+    XCTestExpectation *completed =
+        [self expectationWithDescription:@"Homebrew prefix lookup"];
+    [controller runWithCompletionHandler:^(NSString *output) {
+        if (expectedPath)
+        {
+            NSString *prefix = [[expectedPath stringByDeletingLastPathComponent]
+                stringByDeletingLastPathComponent];
+            XCTAssertTrue([[output stringByTrimmingCharactersInSet:
+                [NSCharacterSet whitespaceAndNewlineCharacterSet]]
+                hasPrefix:prefix]);
+        }
+        else
+        {
+            XCTAssertNil(output);
+        }
+        [completed fulfill];
+    }];
+    [self waitForExpectationsWithTimeout:10 handler:nil];
 }
 
 @end
